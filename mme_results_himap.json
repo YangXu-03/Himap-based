@@ -1,0 +1,32 @@
+{
+  "scores": {
+    "code_reasoning": 65.0,
+    "artwork": 121.0,
+    "celebrity": 133.8235294117647,
+    "numerical_calculation": 42.5,
+    "text_translation": 85.0,
+    "count": 150.0,
+    "color": 160.0,
+    "commonsense_reasoning": 120.71428571428571,
+    "position": 121.66666666666667,
+    "OCR": 140.0,
+    "landmark": 153.75,
+    "scene": 154.25,
+    "existence": 185.0,
+    "posters": 129.59183673469386
+  },
+  "perception_score": 1449.0820328131254,
+  "cognition_score": 313.2142857142857,
+  "total_score": 1762.2963185274111,
+  "total_samples": 2374,
+  "model_config": {
+    "use_himap": true,
+    "sys_length": 35,
+    "img_length": 576,
+    "txt_layer": 2,
+    "img_layer": 8,
+    "txt_rank": 288,
+    "img_rank": 72,
+    "cut_off_layer": 0
+  }
+}

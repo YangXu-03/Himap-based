@@ -1,0 +1,17 @@
+{
+  "accuracy": 0.6792265741199802,
+  "avg_latency": 0.4283965357353502,
+  "total_samples": 2017,
+  "correct_samples": 1370,
+  "model_config": {
+    "use_adaptinfer": true,
+    "sys_length": 35,
+    "img_length": 576,
+    "pruning_layers": [
+      1,
+      10,
+      20
+    ],
+    "keep_tokens": 64
+  }
+}

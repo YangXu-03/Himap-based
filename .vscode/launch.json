@@ -1,0 +1,57 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "Python: eval_scivqa.py (With HiMAP-V)",
+            "type": "python",
+            "request": "launch",
+            // 确保程序路径正确
+            "program": "${workspaceFolder}/src/HiMAP/inference/eval_scivqa.py", 
+            // **关键修改：将工作目录设定为 src**
+            "cwd": "${workspaceFolder}/src", 
+            "console": "integratedTerminal",
+            "justMyCode": false, // 如果需要调试库代码，请设置为 false
+            "env": {
+                "CUDA_VISIBLE_DEVICES": "0"
+            },
+            "args": [
+                "--model-path", "liuhaotian/llava-v1.5-7b",
+                "--question-file", "/root/nfs/code/HiMAP/data/scienceqa/himap-inference-MCQ.json",
+                "--image-folder", "/root/nfs/code/HiMAP/data/scienceqa/images/test",
+                "--single-pred-prompt",
+                "--use-hmap-v",
+                "--sys-length", "35",
+                "--img-length", "576",
+                "--hmap-v-attn-txt-layer", "2",
+                "--hmap-v-attn-img-layer", "8",
+                "--hmap-v-attn-txt-rank", "288",
+                "--hmap-v-attn-img-rank", "72",
+                "--cut-off-layer", "17"
+            ]
+        },
+        {
+            "name": "Python: eval_scivqa.py (Without HiMAP-V)",
+            "type": "python",
+            "request": "launch",
+            // 确保程序路径正确
+            "program": "${workspaceFolder}/src/HiMAP/inference/eval_scivqa.py", 
+            // **关键修改：将工作目录设定为 src**
+            "cwd": "${workspaceFolder}/src", 
+            "console": "integratedTerminal",
+            "justMyCode": false, // 如果需要调试库代码，请设置为 false
+            "env": {
+                "CUDA_VISIBLE_DEVICES": "0"
+            },
+            "args": [
+                "--model-path", "liuhaotian/llava-v1.5-7b",
+                "--question-file", "/root/nfs/code/HiMAP/data/scienceqa/himap-inference-MCQ.json",
+                "--image-folder", "/root/nfs/code/HiMAP/data/scienceqa/images/test",
+                "--single-pred-prompt"
+            ]
+        }
+    ]
+}

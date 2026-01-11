@@ -1,0 +1,16 @@
+{
+  "accuracy": 0.6792265741199802,
+  "avg_latency": 0.17587835409290198,
+  "total_samples": 2017,
+  "correct_samples": 1370,
+  "flops_info": 1.0,
+  "model_config": {
+    "use_himap": false,
+    "sys_length": null,
+    "img_length": null,
+    "txt_layer": null,
+    "img_layer": null,
+    "txt_rank": null,
+    "img_rank": null
+  }
+}
