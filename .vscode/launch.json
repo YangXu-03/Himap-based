@@ -5,6 +5,7 @@
     "version": "0.2.0",
     "configurations": [
 
+
         {
             "name": "Python: eval_scivqa.py (With HiMAP-V)",
             "type": "python",
@@ -50,7 +51,8 @@
                 "--model-path", "liuhaotian/llava-v1.5-7b",
                 "--question-file", "/root/nfs/code/HiMAP/data/scienceqa/himap-inference-MCQ.json",
                 "--image-folder", "/root/nfs/code/HiMAP/data/scienceqa/images/test",
-                "--single-pred-prompt"
+                "--single-pred-prompt",
+                "--num-samples", "100"
             ]
         }
     ]

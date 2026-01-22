@@ -28,7 +28,7 @@ from accelerate import init_empty_weights # 用于超大模型
 
 from .himap import Himap_LlamaModel
 # from .fastv import Fastv_LlamaModel
-from .custom_token_selection import CustomTokenSelection_LlamaModel
+# from .custom_token_selection import CustomTokenSelection_LlamaModel
 from .himap_configuration_llama import LlamaConfig 
 
 from transformers.modeling_outputs import CausalLMOutputWithPast
@@ -43,20 +43,30 @@ class LlavaConfig(LlamaConfig):
 class LlavaLlamaModel(LlavaMetaModel, Himap_LlamaModel):
     config_class = LlavaConfig
 
-
-# class LlavaLlamaModel(LlavaMetaModel, Fastv_LlamaModel):
-#     config_class = LlavaConfig
-
     def __init__(self, config: LlamaConfig):
         super(LlavaLlamaModel, self).__init__(config)
 
 
-class LlavaLlamaModel_CustomSelection(LlavaMetaModel, CustomTokenSelection_LlamaModel):
-    """使用自定义Token选择的LLaVA模型"""
-    config_class = LlavaConfig
+# class LlavaLlamaModel(LlavaMetaModel, Fastv_LlamaModel):
+#     config_class = LlavaConfig
 
-    def __init__(self, config: LlamaConfig):
-        super(LlavaLlamaModel_CustomSelection, self).__init__(config)
+    # def __init__(self, config: LlamaConfig):
+    #     super(LlavaLlamaModel, self).__init__(config)
+
+# class LlavaLlamaModel(LlavaMetaModel, CustomTokenSelection_LlamaModel):
+#     """使用自定义Token选择的LLaVA模型"""
+#     config_class = LlavaConfig
+
+#     def __init__(self, config: LlamaConfig):
+#         super(LlavaLlamaModel, self).__init__(config)
+
+
+# class LlavaLlamaModel_CustomSelection(LlavaMetaModel, CustomTokenSelection_LlamaModel):
+#     """使用自定义Token选择的LLaVA模型"""
+#     config_class = LlavaConfig
+
+#     def __init__(self, config: LlamaConfig):
+#         super(LlavaLlamaModel_CustomSelection, self).__init__(config)
 
 
 class LlavaLlamaForCausalLM(LlamaForCausalLM, LlavaMetaForCausalLM):
@@ -167,7 +177,8 @@ class LlavaLlamaForCausalLM_CustomSelection(LlamaForCausalLM, LlavaMetaForCausal
 
     def __init__(self, config):
         super(LlamaForCausalLM, self).__init__(config)
-        self.model = LlavaLlamaModel_CustomSelection(config)
+        # self.model = LlavaLlamaModel_CustomSelection(config)
+        self.model = LlavaLlamaModel(config)
 
         self.lm_head = nn.Linear(config.hidden_size, config.vocab_size, bias=False)
 

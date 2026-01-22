@@ -181,7 +181,7 @@ def collect_all_head_values(records: List[Dict]):
     返回: {layer: {type: {head_idx: [所有样本在该头的值]}}}
     """
     if not records:
-        return {}, {}
+        return {}, {}, 0.0
     
     n_layers = len(records[0]["per_layer"])
     n_heads = len(records[0]["per_layer"][0]["text_to_visual"])  # 通常是32
@@ -189,6 +189,9 @@ def collect_all_head_values(records: List[Dict]):
     # 初始化: all_layers[layer][type][head_idx] = []
     all_layers = {l: {t: {h: [] for h in range(n_heads)} for t in INTERACTION_TYPES} for l in range(n_layers)}
     cat_layers = {}
+    
+    # 用于计算全局最大平均值
+    global_max = 0.0
     
     for rec in records:
         cat = rec["category"]
@@ -198,39 +201,30 @@ def collect_all_head_values(records: List[Dict]):
         for l, layer_stat in enumerate(rec["per_layer"]):
             for t in INTERACTION_TYPES:
                 for h in range(n_heads):
-                    all_layers[l][t][h].append(layer_stat[t][h])
-                    cat_layers[cat][l][t][h].append(layer_stat[t][h])
+                    val = layer_stat[t][h]
+                    all_layers[l][t][h].append(val)
+                    cat_layers[cat][l][t][h].append(val)
+                    # 更新全局最大值
+                    global_max = max(global_max, val)
     
-    return all_layers, cat_layers
+    return all_layers, cat_layers, global_max
 
-def plot_stacked_hist_per_layer(all_layers, output_dir, prefix):
+def plot_stacked_hist_per_layer(all_layers, output_dir, prefix, global_y_max):
     """
     绘制每一层的柱状图，X轴为32个注意力头，Y轴为该头在所有样本上的平均注意力值
     为每种交互类型（T2V, V2T, Total）绘制一张包含所有层的大图
+    
+    Args:
+        global_y_max: 全局最大y轴值，用于统一所有图的y轴范围
     """
     os.makedirs(output_dir, exist_ok=True)
     n_layers = len(all_layers)
     n_heads = len(all_layers[0]["text_to_visual"])
     
+    y_max = global_y_max * 1.1 if global_y_max > 0 else 0.1
+    
     # 为每种交互类型绘制一张大图
     for interaction_type in ["text_to_visual", "visual_to_text", "total"]:
-        # 先计算所有层的最大值，用于统一y轴范围
-        global_max = 0.0
-        all_head_means = []
-        for l in range(n_layers):
-            head_means = []
-            for h in range(n_heads):
-                values = all_layers[l][interaction_type][h]
-                if len(values) > 0:
-                    head_means.append(np.mean(values))
-                else:
-                    head_means.append(0.0)
-            all_head_means.append(head_means)
-            global_max = max(global_max, max(head_means))
-        
-        # 设置统一的y轴上限，留10%的余量
-        y_max = global_max * 1.1
-        
         n_cols = 4
         n_rows = (n_layers + n_cols - 1) // n_cols
         
@@ -240,7 +234,14 @@ def plot_stacked_hist_per_layer(all_layers, output_dir, prefix):
         axes = axes.flatten()
         
         for l in range(n_layers):
-            head_means = all_head_means[l]
+            # 计算每个头的平均值
+            head_means = []
+            for h in range(n_heads):
+                values = all_layers[l][interaction_type][h]
+                if len(values) > 0:
+                    head_means.append(np.mean(values))
+                else:
+                    head_means.append(0.0)
             
             # 绘制柱状图
             head_indices = np.arange(n_heads)
@@ -250,7 +251,7 @@ def plot_stacked_hist_per_layer(all_layers, output_dir, prefix):
             axes[l].set_xlabel("Attention Head Index", fontsize=10)
             axes[l].set_ylabel("Average Attention Value", fontsize=10)
             axes[l].set_title(f"Layer {l}", fontsize=11)
-            axes[l].set_ylim(0, y_max)  # 统一y轴范围
+            axes[l].set_ylim(0, y_max)
             axes[l].grid(axis='y', alpha=0.3)
             axes[l].set_xticks(np.arange(0, n_heads, 4))
         
@@ -266,19 +267,20 @@ def plot_stacked_hist_per_layer(all_layers, output_dir, prefix):
         plt.close()
         print(f"Saved {interaction_type} all-layers plot: {output_path}")
 
-def plot_stacked_hist_overall(all_layers, output_dir, prefix, num_samples):
+def plot_stacked_hist_overall(all_layers, output_dir, prefix, num_samples, global_y_max):
     """
     绘制总体柱状图，X轴为32个注意力头，Y轴为该头在所有样本所有层上的平均注意力值
+    
+    Args:
+        global_y_max: 全局最大y轴值，用于统一所有图的y轴范围
     """
     n_heads = len(all_layers[0]["text_to_visual"])
     
     fig, axes = plt.subplots(1, 3, figsize=(18, 5))
     
-    # 先计算所有交互类型的最大值，用于统一y轴范围
-    global_max = 0.0
-    all_head_means_list = []
+    y_max = global_y_max * 1.1 if global_y_max > 0 else 0.1
     
-    for interaction_type in ["text_to_visual", "visual_to_text", "total"]:
+    for idx, interaction_type in enumerate(["text_to_visual", "visual_to_text", "total"]):
         # 对每个头，收集所有层所有样本的值
         head_all_values = {h: [] for h in range(n_heads)}
         for l in all_layers:
@@ -288,14 +290,6 @@ def plot_stacked_hist_overall(all_layers, output_dir, prefix, num_samples):
         # 计算每个头的平均值
         head_means = [np.mean(head_all_values[h]) if len(head_all_values[h]) > 0 else 0.0 
                       for h in range(n_heads)]
-        all_head_means_list.append(head_means)
-        global_max = max(global_max, max(head_means))
-    
-    # 设置统一的y轴上限，留10%的余量
-    y_max = global_max * 1.1
-    
-    for idx, interaction_type in enumerate(["text_to_visual", "visual_to_text", "total"]):
-        head_means = all_head_means_list[idx]
         
         # 绘制柱状图
         head_indices = np.arange(n_heads)
@@ -305,7 +299,7 @@ def plot_stacked_hist_overall(all_layers, output_dir, prefix, num_samples):
         axes[idx].set_xlabel("Attention Head Index", fontsize=12)
         axes[idx].set_ylabel("Average Attention Value", fontsize=12)
         axes[idx].set_title(f"{TYPE_LABELS[interaction_type]}\n({num_samples} samples)", fontsize=13)
-        axes[idx].set_ylim(0, y_max)  # 统一y轴范围
+        axes[idx].set_ylim(0, y_max)
         axes[idx].grid(axis='y', alpha=0.3)
         axes[idx].set_xticks(np.arange(0, n_heads, 4))
     
@@ -315,10 +309,15 @@ def plot_stacked_hist_overall(all_layers, output_dir, prefix, num_samples):
     plt.close()
     print(f"Saved overall histogram: {prefix}_overall_three_types.png")
 
-def plot_stacked_hist_by_category(cat_layers, output_dir, prefix):
+def plot_stacked_hist_by_category(cat_layers, output_dir, prefix, global_y_max):
     """
     为每个类别绘制柱状图，X轴为32个注意力头
+    
+    Args:
+        global_y_max: 全局最大y轴值，用于统一所有图的y轴范围
     """
+    y_max = global_y_max * 1.1 if global_y_max > 0 else 0.1
+    
     for cat, layers in cat_layers.items():
         if len(layers) > 0:
             n_heads = len(layers[0]["text_to_visual"])
@@ -327,11 +326,7 @@ def plot_stacked_hist_by_category(cat_layers, output_dir, prefix):
             
             fig, axes = plt.subplots(1, 3, figsize=(18, 5))
             
-            # 先计算该类别所有交互类型的最大值，用于统一y轴范围
-            global_max = 0.0
-            all_head_means_list = []
-            
-            for interaction_type in ["text_to_visual", "visual_to_text", "total"]:
+            for idx, interaction_type in enumerate(["text_to_visual", "visual_to_text", "total"]):
                 # 对每个头，收集该类别所有层所有样本的值
                 head_all_values = {h: [] for h in range(n_heads)}
                 for l in layers:
@@ -341,14 +336,6 @@ def plot_stacked_hist_by_category(cat_layers, output_dir, prefix):
                 # 计算每个头的平均值
                 head_means = [np.mean(head_all_values[h]) if len(head_all_values[h]) > 0 else 0.0 
                               for h in range(n_heads)]
-                all_head_means_list.append(head_means)
-                global_max = max(global_max, max(head_means))
-            
-            # 设置统一的y轴上限，留10%的余量
-            y_max = global_max * 1.1
-            
-            for idx, interaction_type in enumerate(["text_to_visual", "visual_to_text", "total"]):
-                head_means = all_head_means_list[idx]
                 
                 # 绘制柱状图
                 head_indices = np.arange(n_heads)
@@ -358,7 +345,7 @@ def plot_stacked_hist_by_category(cat_layers, output_dir, prefix):
                 axes[idx].set_xlabel("Attention Head Index", fontsize=12)
                 axes[idx].set_ylabel("Average Attention Value", fontsize=12)
                 axes[idx].set_title(f"{TYPE_LABELS[interaction_type]}", fontsize=13)
-                axes[idx].set_ylim(0, y_max)  # 统一y轴范围
+                axes[idx].set_ylim(0, y_max)
                 axes[idx].grid(axis='y', alpha=0.3)
                 axes[idx].set_xticks(np.arange(0, n_heads, 4))
             
@@ -426,13 +413,16 @@ def main():
     print(f"Saved raw attention records to {records_path}")
     
     # 收集所有头的值
-    all_layers, cat_layers = collect_all_head_values(records)
+    all_layers, cat_layers, global_y_max = collect_all_head_values(records)
+    
+    print(f"\nGlobal max attention value: {global_y_max:.4f}")
+    print(f"Y-axis range for all plots: [0, {global_y_max * 1.1:.4f}]")
     
     # 绘制图表
     print("\nGenerating plots...")
-    plot_stacked_hist_overall(all_layers, args.output_dir, "mme", len(records))
-    plot_stacked_hist_per_layer(all_layers, args.output_dir, "mme")
-    plot_stacked_hist_by_category(cat_layers, args.output_dir, "mme")
+    plot_stacked_hist_overall(all_layers, args.output_dir, "mme", len(records), global_y_max)
+    plot_stacked_hist_per_layer(all_layers, args.output_dir, "mme", global_y_max)
+    plot_stacked_hist_by_category(cat_layers, args.output_dir, "mme", global_y_max)
     
     print(f"\n{'='*50}")
     print(f"All results saved to: {args.output_dir}")

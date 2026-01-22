@@ -117,6 +117,9 @@ class LlamaConfig(PretrainedConfig):
         fast_v_attention_rank = None,
         fast_v_agg_layer = None,
         use_fast_v = False,
+        # Advanced fastv config
+        fast_v_token_selection_method = 'avg_all_heads',  # 'max_head', 'avg_all_heads', 'weighted_combination'
+        fast_v_weighted_alpha = 0.7,  # alpha for weighted_combination method
         # Token Condensation config
         use_token_condensation = False,
         condensation_strategy = 'connectivity',
@@ -159,6 +162,10 @@ class LlamaConfig(PretrainedConfig):
         self.fast_v_attention_rank = fast_v_attention_rank
         self.fast_v_agg_layer = fast_v_agg_layer
         self.use_fast_v = use_fast_v
+        
+        # Advanced fastv config
+        self.fast_v_token_selection_method = fast_v_token_selection_method
+        self.fast_v_weighted_alpha = fast_v_weighted_alpha
 
         # Token Condensation config
         self.use_token_condensation = use_token_condensation

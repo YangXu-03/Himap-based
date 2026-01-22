@@ -1,0 +1,172 @@
+================================================================================
+ScienceQA Attention Head Analysis Report
+================================================================================
+
+Total samples analyzed: 100
+Number of layers: 32
+Number of attention heads per layer: 32
+
+--------------------------------------------------------------------------------
+Per-Layer Statistics
+--------------------------------------------------------------------------------
+
+Layer 0:
+  Most frequent max head: Head 8 (60 times, 60.0%)
+  Number of unique max heads: 5/32 (15.6%)
+  Top 3 heads: H8(60), H18(27), H19(9)
+
+Layer 1:
+  Most frequent max head: Head 17 (54 times, 54.0%)
+  Number of unique max heads: 7/32 (21.9%)
+  Top 3 heads: H17(54), H21(25), H19(16)
+
+Layer 2:
+  Most frequent max head: Head 26 (28 times, 28.0%)
+  Number of unique max heads: 6/32 (18.8%)
+  Top 3 heads: H26(28), H30(27), H18(17)
+
+Layer 3:
+  Most frequent max head: Head 13 (66 times, 66.0%)
+  Number of unique max heads: 5/32 (15.6%)
+  Top 3 heads: H13(66), H31(26), H26(4)
+
+Layer 4:
+  Most frequent max head: Head 0 (63 times, 63.0%)
+  Number of unique max heads: 5/32 (15.6%)
+  Top 3 heads: H0(63), H1(13), H9(12)
+
+Layer 5:
+  Most frequent max head: Head 15 (100 times, 100.0%)
+  Number of unique max heads: 1/32 (3.1%)
+  Top 3 heads: H15(100)
+
+Layer 6:
+  Most frequent max head: Head 17 (19 times, 19.0%)
+  Number of unique max heads: 18/32 (56.2%)
+  Top 3 heads: H17(19), H1(13), H15(10)
+
+Layer 7:
+  Most frequent max head: Head 9 (76 times, 76.0%)
+  Number of unique max heads: 9/32 (28.1%)
+  Top 3 heads: H9(76), H12(4), H18(4)
+
+Layer 8:
+  Most frequent max head: Head 29 (71 times, 71.0%)
+  Number of unique max heads: 8/32 (25.0%)
+  Top 3 heads: H29(71), H25(21), H26(3)
+
+Layer 9:
+  Most frequent max head: Head 27 (88 times, 88.0%)
+  Number of unique max heads: 2/32 (6.2%)
+  Top 3 heads: H27(88), H8(12)
+
+Layer 10:
+  Most frequent max head: Head 17 (80 times, 80.0%)
+  Number of unique max heads: 8/32 (25.0%)
+  Top 3 heads: H17(80), H7(5), H5(5)
+
+Layer 11:
+  Most frequent max head: Head 17 (48 times, 48.0%)
+  Number of unique max heads: 13/32 (40.6%)
+  Top 3 heads: H17(48), H14(19), H15(10)
+
+Layer 12:
+  Most frequent max head: Head 16 (24 times, 24.0%)
+  Number of unique max heads: 17/32 (53.1%)
+  Top 3 heads: H16(24), H25(22), H9(11)
+
+Layer 13:
+  Most frequent max head: Head 0 (50 times, 50.0%)
+  Number of unique max heads: 13/32 (40.6%)
+  Top 3 heads: H0(50), H29(16), H11(7)
+
+Layer 14:
+  Most frequent max head: Head 22 (64 times, 64.0%)
+  Number of unique max heads: 9/32 (28.1%)
+  Top 3 heads: H22(64), H24(6), H18(6)
+
+Layer 15:
+  Most frequent max head: Head 11 (90 times, 90.0%)
+  Number of unique max heads: 4/32 (12.5%)
+  Top 3 heads: H11(90), H12(6), H24(2)
+
+Layer 16:
+  Most frequent max head: Head 4 (38 times, 38.0%)
+  Number of unique max heads: 13/32 (40.6%)
+  Top 3 heads: H4(38), H7(34), H19(8)
+
+Layer 17:
+  Most frequent max head: Head 17 (36 times, 36.0%)
+  Number of unique max heads: 13/32 (40.6%)
+  Top 3 heads: H17(36), H27(26), H30(11)
+
+Layer 18:
+  Most frequent max head: Head 10 (34 times, 34.0%)
+  Number of unique max heads: 12/32 (37.5%)
+  Top 3 heads: H10(34), H31(16), H28(11)
+
+Layer 19:
+  Most frequent max head: Head 2 (53 times, 53.0%)
+  Number of unique max heads: 14/32 (43.8%)
+  Top 3 heads: H2(53), H16(17), H0(9)
+
+Layer 20:
+  Most frequent max head: Head 15 (77 times, 77.0%)
+  Number of unique max heads: 8/32 (25.0%)
+  Top 3 heads: H15(77), H20(11), H25(4)
+
+Layer 21:
+  Most frequent max head: Head 23 (27 times, 27.0%)
+  Number of unique max heads: 15/32 (46.9%)
+  Top 3 heads: H23(27), H31(12), H28(11)
+
+Layer 22:
+  Most frequent max head: Head 10 (99 times, 99.0%)
+  Number of unique max heads: 2/32 (6.2%)
+  Top 3 heads: H10(99), H22(1)
+
+Layer 23:
+  Most frequent max head: Head 1 (93 times, 93.0%)
+  Number of unique max heads: 6/32 (18.8%)
+  Top 3 heads: H1(93), H7(2), H8(2)
+
+Layer 24:
+  Most frequent max head: Head 18 (25 times, 25.0%)
+  Number of unique max heads: 15/32 (46.9%)
+  Top 3 heads: H18(25), H1(15), H20(8)
+
+Layer 25:
+  Most frequent max head: Head 11 (35 times, 35.0%)
+  Number of unique max heads: 13/32 (40.6%)
+  Top 3 heads: H11(35), H31(19), H0(13)
+
+Layer 26:
+  Most frequent max head: Head 30 (97 times, 97.0%)
+  Number of unique max heads: 2/32 (6.2%)
+  Top 3 heads: H30(97), H4(3)
+
+Layer 27:
+  Most frequent max head: Head 2 (70 times, 70.0%)
+  Number of unique max heads: 3/32 (9.4%)
+  Top 3 heads: H2(70), H7(16), H12(14)
+
+Layer 28:
+  Most frequent max head: Head 13 (45 times, 45.0%)
+  Number of unique max heads: 8/32 (25.0%)
+  Top 3 heads: H13(45), H7(31), H25(17)
+
+Layer 29:
+  Most frequent max head: Head 29 (71 times, 71.0%)
+  Number of unique max heads: 5/32 (15.6%)
+  Top 3 heads: H29(71), H10(24), H9(3)
+
+Layer 30:
+  Most frequent max head: Head 31 (96 times, 96.0%)
+  Number of unique max heads: 2/32 (6.2%)
+  Top 3 heads: H31(96), H26(4)
+
+Layer 31:
+  Most frequent max head: Head 27 (99 times, 99.0%)
+  Number of unique max heads: 2/32 (6.2%)
+  Top 3 heads: H27(99), H4(1)
+

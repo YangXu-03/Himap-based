@@ -1,3 +1,4 @@
+import random
 import torch
 from typing import Tuple
 from transformers.utils import logging
@@ -23,6 +24,23 @@ class Himap_LlamaModel(LlamaModel):
         self.hmap_v_attn_img_rank = config.hmap_v_attn_img_rank
         self.use_hmap_v = config.use_hmap_v 
         self.cut_off_layer = config.cut_off_layer
+        
+        # FastV hyperparameters
+        self.fast_v_sys_length = config.fast_v_sys_length
+        self.fast_v_image_token_length = config.fast_v_image_token_length
+        self.fast_v_attention_rank = config.fast_v_attention_rank
+        self.fast_v_agg_layer = config.fast_v_agg_layer
+        self.use_fast_v = config.use_fast_v
+        
+        # FastV Advanced parameters
+        self.token_selection_method = getattr(config, 'fast_v_token_selection_method', 'avg_all_heads')
+        self.weighted_alpha = getattr(config, 'fast_v_weighted_alpha', 0.5)
+        
+        # Storage for last generated mask and indices
+        self.last_gen_attention_mask = None
+        self.last_gen_kept_indices = None
+        self.last_selection_metadata = {}
+        
     def reset_hmapv(self):
         self.hmap_v_sys_length = self.config.hmap_v_sys_length
         self.hmap_v_img_length = self.config.hmap_v_img_length
@@ -32,6 +50,97 @@ class Himap_LlamaModel(LlamaModel):
         self.hmap_v_attn_img_rank = self.config.hmap_v_attn_img_rank
         self.use_hmap_v = self.config.use_hmap_v  
         self.cut_off_layer = self.config.cut_off_layer
+        
+    def reset_fastv(self):
+        """Reset FastV parameters to config defaults"""
+        self.fast_v_sys_length = self.config.fast_v_sys_length
+        self.fast_v_image_token_length = self.config.fast_v_image_token_length
+        self.fast_v_attention_rank = self.config.fast_v_attention_rank
+        self.fast_v_agg_layer = self.config.fast_v_agg_layer
+        self.use_fast_v = self.config.use_fast_v
+        self.token_selection_method = getattr(self.config, 'fast_v_token_selection_method', 'avg_all_heads')
+        self.weighted_alpha = getattr(self.config, 'fast_v_weighted_alpha', 0.5)
+        # Reset dynamic outputs
+        self.last_gen_attention_mask = None
+        self.last_gen_kept_indices = None
+        self.last_selection_metadata = {}
+        
+    def _select_tokens_fastv(self, attention_weights, sys_length, image_token_length, attention_rank):
+        """Select tokens based on the configured strategy"""
+        if self.token_selection_method == 'max_head':
+            return self._select_tokens_max_head(attention_weights, sys_length, image_token_length, attention_rank)
+        elif self.token_selection_method == 'weighted_combination':
+            return self._select_tokens_weighted_combination(attention_weights, sys_length, image_token_length, attention_rank)
+        else:  # 'avg_all_heads' or default
+            return self._select_tokens_avg_all_heads(attention_weights, sys_length, image_token_length, attention_rank)
+    
+    def _select_tokens_max_head(self, attention_weights, sys_length, image_token_length, attention_rank):
+        """Strategy 1: Select tokens based on the attention head with maximum text-to-vision attention"""
+        last_token_attention = attention_weights[:, :, -1, :]
+        image_attention = last_token_attention[:, :, sys_length:sys_length+image_token_length]
+        head_importance = image_attention.sum(dim=-1)
+        max_head_idx = head_importance.argmax(dim=1)
+        batch_size = attention_weights.shape[0]
+        max_head_attention = torch.stack([image_attention[b, max_head_idx[b], :] for b in range(batch_size)])
+        
+        if attention_rank > 0:
+            top_indices = max_head_attention[0].topk(attention_rank).indices
+        else:
+            top_indices = torch.tensor([], dtype=torch.long, device=attention_weights.device)
+        
+        self.last_selection_metadata = {
+            'method': 'max_head',
+            'max_head_idx': max_head_idx[0].item(),
+            'head_importance': head_importance[0].cpu().numpy(),
+        }
+        return top_indices
+
+    def _select_tokens_avg_all_heads(self, attention_weights, sys_length, image_token_length, attention_rank):
+        """Strategy 2: Select tokens based on average attention across all heads (original FastV)"""
+        avg_attention = torch.mean(attention_weights, dim=1)
+        last_token_image_attention = avg_attention[0, -1, sys_length:sys_length+image_token_length]
+        
+        if attention_rank > 0:
+            top_indices = last_token_image_attention.topk(attention_rank).indices
+        else:
+            top_indices = torch.tensor([], dtype=torch.long, device=attention_weights.device)
+        
+        self.last_selection_metadata = {'method': 'avg_all_heads'}
+        return top_indices
+
+    def _select_tokens_weighted_combination(self, attention_weights, sys_length, image_token_length, attention_rank):
+        """Strategy 3: Weighted combination of max head and average of other heads"""
+        last_token_attention = attention_weights[:, :, -1, :]
+        image_attention = last_token_attention[:, :, sys_length:sys_length+image_token_length]
+        head_importance = image_attention.sum(dim=-1)
+        max_head_idx = head_importance.argmax(dim=1)
+        batch_size = attention_weights.shape[0]
+        max_head_image_attention = torch.stack([image_attention[b, max_head_idx[b], :] for b in range(batch_size)])
+        
+        num_heads = attention_weights.shape[1]
+        other_heads_mask = torch.ones(num_heads, dtype=torch.bool, device=attention_weights.device)
+        other_heads_mask[max_head_idx[0]] = False
+        
+        if other_heads_mask.sum() > 0:
+            other_heads_attention = image_attention[:, other_heads_mask, :].mean(dim=1)
+        else:
+            other_heads_attention = torch.zeros_like(max_head_image_attention)
+        
+        alpha = self.weighted_alpha
+        combined_attention = alpha * max_head_image_attention + (1 - alpha) * other_heads_attention
+        
+        if attention_rank > 0:
+            top_indices = combined_attention[0].topk(attention_rank).indices
+        else:
+            top_indices = torch.tensor([], dtype=torch.long, device=attention_weights.device)
+        
+        self.last_selection_metadata = {
+            'method': 'weighted_combination',
+            'alpha': alpha,
+            'max_head_idx': max_head_idx[0].item(),
+            'head_importance': head_importance[0].cpu().numpy(),
+        }
+        return top_indices
     def forward(
         self,
         input_ids: torch.LongTensor = None,
@@ -312,6 +421,103 @@ class Himap_LlamaModel(LlamaModel):
                                 None, (batch_size, current_pruned_seq_length), inputs_embeds, 0
                             )
 
+                # FastV Advanced logic
+                elif self.use_fast_v:
+                    USE_FAST_V = True
+                    SYS_LENGTH_FV = _nz(self.fast_v_sys_length)
+                    IMAGE_TOKEN_LENGTH = _nz(self.fast_v_image_token_length)
+                    ATTENTION_RANK = _nz(self.fast_v_attention_rank)
+                    AGG_LAYER = _nz(self.fast_v_agg_layer)
+                    
+                    # Track generated attention mask
+                    if not hasattr(self, '_fastv_gen_attention_mask'):
+                        self._fastv_gen_attention_mask = None
+                    
+                    if idx < AGG_LAYER:
+                        # Before aggregation layer: use full attention
+                        new_attention_mask = torch.ones(
+                            (batch_size, seq_length_with_past), dtype=torch.bool, device=inputs_embeds.device
+                        )
+                        new_attention_mask = self._prepare_decoder_attention_mask(
+                            new_attention_mask, (batch_size, seq_length), inputs_embeds, past_key_values_length
+                        )
+                        
+                    elif idx == AGG_LAYER:
+                        # At aggregation layer: generate pruned attention mask
+                        if idx != 0:
+                            # Use attention from previous layer
+                            att_out = layer_outputs[1]
+                            if isinstance(att_out, (tuple, list)):
+                                last_layer_attention = att_out[0] if len(att_out) > 0 else None
+                            else:
+                                last_layer_attention = att_out
+                            
+                            if last_layer_attention is None:
+                                # Fallback: no pruning
+                                gen_attention_mask = torch.ones((batch_size, seq_length_with_past), dtype=torch.bool, device=inputs_embeds.device)
+                                gen_attention_mask = self._prepare_decoder_attention_mask(
+                                    gen_attention_mask, (batch_size, seq_length), inputs_embeds, past_key_values_length
+                                )
+                                new_attention_mask = gen_attention_mask
+                            else:
+                                # Select tokens based on strategy
+                                top_indices = self._select_tokens_fastv(
+                                    last_layer_attention, SYS_LENGTH_FV, IMAGE_TOKEN_LENGTH, ATTENTION_RANK
+                                )
+                                
+                                # Generate attention mask
+                                gen_attention_mask = torch.ones((batch_size, seq_length_with_past), dtype=torch.bool, device=inputs_embeds.device)
+                                gen_attention_mask[:, SYS_LENGTH_FV:SYS_LENGTH_FV+IMAGE_TOKEN_LENGTH] = False
+                                
+                                if ATTENTION_RANK > 0:
+                                    global_indices = top_indices + SYS_LENGTH_FV
+                                    gen_attention_mask[:, global_indices] = True
+                                
+                                # Save mask and indices
+                                try:
+                                    self.last_gen_attention_mask = gen_attention_mask.clone().detach().cpu()
+                                    kept = gen_attention_mask[0].nonzero(as_tuple=False).squeeze(-1).cpu().numpy()
+                                    self.last_gen_kept_indices = kept
+                                except Exception:
+                                    self.last_gen_attention_mask = None
+                                    self.last_gen_kept_indices = None
+                                
+                                gen_attention_mask = self._prepare_decoder_attention_mask(
+                                    gen_attention_mask, (batch_size, seq_length), inputs_embeds, past_key_values_length
+                                )
+                                new_attention_mask = gen_attention_mask
+                                self._fastv_gen_attention_mask = gen_attention_mask
+                        else:
+                            # idx == 0: random selection
+                            gen_attention_mask = torch.ones((batch_size, seq_length_with_past), dtype=torch.bool, device=inputs_embeds.device)
+                            
+                            if ATTENTION_RANK > 0:
+                                rand_image_attention_mask = [1]*ATTENTION_RANK + [0]*(IMAGE_TOKEN_LENGTH-ATTENTION_RANK)
+                                random.shuffle(rand_image_attention_mask)
+                                gen_attention_mask[:, SYS_LENGTH_FV:SYS_LENGTH_FV+IMAGE_TOKEN_LENGTH] = torch.tensor(
+                                    rand_image_attention_mask, dtype=attention_mask.dtype, device=inputs_embeds.device
+                                )
+                            else:
+                                gen_attention_mask[:, SYS_LENGTH_FV:SYS_LENGTH_FV+IMAGE_TOKEN_LENGTH] = False
+
+                            try:
+                                self.last_gen_attention_mask = gen_attention_mask.clone().detach().cpu()
+                                kept = gen_attention_mask[0].nonzero(as_tuple=False).squeeze(-1).cpu().numpy()
+                                self.last_gen_kept_indices = kept
+                            except Exception:
+                                self.last_gen_attention_mask = None
+                                self.last_gen_kept_indices = None
+
+                            gen_attention_mask = self._prepare_decoder_attention_mask(
+                                gen_attention_mask, (batch_size, seq_length), inputs_embeds, past_key_values_length
+                            )
+                            new_attention_mask = gen_attention_mask
+                            self._fastv_gen_attention_mask = gen_attention_mask
+
+                    else:
+                        # After aggregation layer: reuse generated mask
+                        new_attention_mask = self._fastv_gen_attention_mask
+                
                 else: 
                     new_attention_mask = attention_mask
                     

@@ -1,0 +1,142 @@
+[
+  {
+    "category": "OCR",
+    "question_id": "OCR/0020.jpg",
+    "image_file": "1180.png",
+    "question": "<image>\nIs the word in the logo \"cold drinks\"? Please answer yes or no.\nAnswer the question using a single word or phrase.",
+    "gt_answer": "Yes",
+    "pred_answer": "No",
+    "num_layers": 32,
+    "output_dir": "mme_attention_heatmap_visualization/OCR_1180"
+  },
+  {
+    "category": "artwork",
+    "question_id": "artwork/14777.jpg",
+    "image_file": "40.png",
+    "question": "<image>\nDoes this artwork belong to the type of religious? Please answer yes or no.\nAnswer the question using a single word or phrase.",
+    "gt_answer": "Yes",
+    "pred_answer": "Yes",
+    "num_layers": 32,
+    "output_dir": "mme_attention_heatmap_visualization/artwork_40"
+  },
+  {
+    "category": "celebrity",
+    "question_id": "celebrity/tt0096320_shot_0085_img_0.jpg",
+    "image_file": "440.png",
+    "question": "<image>\nIs the actor inside the red bounding box called Arnold Schwarzenegger? Please answer yes or no.\nAnswer the question using a single word or phrase.",
+    "gt_answer": "Yes",
+    "pred_answer": "Yes",
+    "num_layers": 32,
+    "output_dir": "mme_attention_heatmap_visualization/celebrity_440"
+  },
+  {
+    "category": "code_reasoning",
+    "question_id": "code_reasoning/0020.png",
+    "image_file": "0.png",
+    "question": "<image>\nIs a python code shown in the picture? Please answer yes or no.\nAnswer the question using a single word or phrase.",
+    "gt_answer": "Yes",
+    "pred_answer": "Yes",
+    "num_layers": 32,
+    "output_dir": "mme_attention_heatmap_visualization/code_reasoning_0"
+  },
+  {
+    "category": "color",
+    "question_id": "color/000000338560.jpg",
+    "image_file": "920.png",
+    "question": "<image>\nIs there a blue and yellow fire hydrant in the image? Please answer yes or no.\nAnswer the question using a single word or phrase.",
+    "gt_answer": "Yes",
+    "pred_answer": "Yes",
+    "num_layers": 32,
+    "output_dir": "mme_attention_heatmap_visualization/color_920"
+  },
+  {
+    "category": "commonsense_reasoning",
+    "question_id": "commonsense_reasoning/0065.png",
+    "image_file": "980.png",
+    "question": "<image>\nIs it appropriate to wear a down jacket during the season in the picture? Please answer yes or no.\nAnswer the question using a single word or phrase.",
+    "gt_answer": "Yes",
+    "pred_answer": "Yes",
+    "num_layers": 32,
+    "output_dir": "mme_attention_heatmap_visualization/commonsense_reasoning_980"
+  },
+  {
+    "category": "count",
+    "question_id": "count/000000470121.jpg",
+    "image_file": "860.png",
+    "question": "<image>\nIs there only one bottle in the image? Please answer yes or no.\nAnswer the question using a single word or phrase.",
+    "gt_answer": "Yes",
+    "pred_answer": "No",
+    "num_layers": 32,
+    "output_dir": "mme_attention_heatmap_visualization/count_860"
+  },
+  {
+    "category": "existence",
+    "question_id": "existence/000000494427.jpg",
+    "image_file": "2020.png",
+    "question": "<image>\nIs there a laptop in this image? Please answer yes or no.\nAnswer the question using a single word or phrase.",
+    "gt_answer": "Yes",
+    "pred_answer": "Yes",
+    "num_layers": 32,
+    "output_dir": "mme_attention_heatmap_visualization/existence_2020"
+  },
+  {
+    "category": "landmark",
+    "question_id": "landmark/02e3e418198427e7.jpg",
+    "image_file": "1220.png",
+    "question": "<image>\nIs this an image of Goldener Reiter? Please answer yes or no.\nAnswer the question using a single word or phrase.",
+    "gt_answer": "Yes",
+    "pred_answer": "Yes",
+    "num_layers": 32,
+    "output_dir": "mme_attention_heatmap_visualization/landmark_1220"
+  },
+  {
+    "category": "numerical_calculation",
+    "question_id": "numerical_calculation/0020.png",
+    "image_file": "780.png",
+    "question": "<image>\nIs the answer to the arithmetic question in the image 9? Please answer yes or no.\nAnswer the question using a single word or phrase.",
+    "gt_answer": "Yes",
+    "pred_answer": "No",
+    "num_layers": 32,
+    "output_dir": "mme_attention_heatmap_visualization/numerical_calculation_780"
+  },
+  {
+    "category": "position",
+    "question_id": "position/000000472046.jpg",
+    "image_file": "1120.png",
+    "question": "<image>\nIs the pineapple on the left of the pot in the image? Please answer yes or no.\nAnswer the question using a single word or phrase.",
+    "gt_answer": "Yes",
+    "pred_answer": "Yes",
+    "num_layers": 32,
+    "output_dir": "mme_attention_heatmap_visualization/position_1120"
+  },
+  {
+    "category": "posters",
+    "question_id": "posters/tt0065724.jpg",
+    "image_file": "2080.png",
+    "question": "<image>\nIs this movie directed by bob rafelson? Please answer yes or no.\nAnswer the question using a single word or phrase.",
+    "gt_answer": "Yes",
+    "pred_answer": "Yes",
+    "num_layers": 32,
+    "output_dir": "mme_attention_heatmap_visualization/posters_2080"
+  },
+  {
+    "category": "scene",
+    "question_id": "scene/Places365_val_00000022.jpg",
+    "image_file": "1620.png",
+    "question": "<image>\nIs this photo taken in a place of recreation room? Please answer yes or no.\nAnswer the question using a single word or phrase.",
+    "gt_answer": "Yes",
+    "pred_answer": "Yes",
+    "num_layers": 32,
+    "output_dir": "mme_attention_heatmap_visualization/scene_1620"
+  },
+  {
+    "category": "text_translation",
+    "question_id": "text_translation/0020.png",
+    "image_file": "820.png",
+    "question": "<image>\nIs it appropriate to translate the Chinese in the image into English 'rank first' in the picture? Please answer yes or no.\nAnswer the question using a single word or phrase.",
+    "gt_answer": "Yes",
+    "pred_answer": "No",
+    "num_layers": 32,
+    "output_dir": "mme_attention_heatmap_visualization/text_translation_820"
+  }
+]

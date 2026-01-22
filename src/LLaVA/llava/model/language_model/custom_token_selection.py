@@ -1,4 +1,3 @@
-import random
 import torch
 import torch.nn.functional as F
 from typing import Tuple, List, Optional, Union
@@ -154,12 +153,13 @@ class CustomTokenSelection_LlamaModel(LlamaModel):
         self.config = config
         
         # Custom token selection hyperparameters
+        # Use getattr with defaults for robustness when config doesn't have these attributes
         self.use_custom_selection = getattr(config, 'use_custom_selection', False)
         self.custom_sys_length = getattr(config, 'custom_sys_length', 35)
         self.custom_image_token_length = getattr(config, 'custom_image_token_length', 576)
         self.custom_kept_tokens = getattr(config, 'custom_kept_tokens', 8)
-        self.custom_agg_layer = getattr(config, 'custom_agg_layer', 2)
-        self.custom_selection_method = getattr(config, 'custom_selection_method', 'fps')  # 'fps' or 'tome'
+        self.custom_agg_layer = getattr(config, 'custom_agg_layer', 12)
+        self.custom_selection_method = getattr(config, 'custom_selection_method', 'fps')
         self.custom_temperature = getattr(config, 'custom_temperature', 0.1)
         
         # 保存最近一次生成的kept indices（供外部读取）
@@ -172,7 +172,7 @@ class CustomTokenSelection_LlamaModel(LlamaModel):
         self.custom_sys_length = getattr(self.config, 'custom_sys_length', 35)
         self.custom_image_token_length = getattr(self.config, 'custom_image_token_length', 576)
         self.custom_kept_tokens = getattr(self.config, 'custom_kept_tokens', 8)
-        self.custom_agg_layer = getattr(self.config, 'custom_agg_layer', 2)
+        self.custom_agg_layer = getattr(self.config, 'custom_agg_layer', 12)
         self.custom_selection_method = getattr(self.config, 'custom_selection_method', 'fps')
         self.custom_temperature = getattr(self.config, 'custom_temperature', 0.1)
         
@@ -187,13 +187,17 @@ class CustomTokenSelection_LlamaModel(LlamaModel):
             hidden_states: (batch, seq_len, hidden_dim)
             batch_idx: 处理哪个batch
         Returns:
-            modified hidden_states
+            modified hidden_states, attention_mask (updated)
         """
-        SYS_LENGTH = self.custom_sys_length
-        IMAGE_TOKEN_LENGTH = self.custom_image_token_length
-        KEPT_TOKENS = self.custom_kept_tokens
-        METHOD = self.custom_selection_method
-        TEMPERATURE = self.custom_temperature
+        def _nz(val, default=0):
+            """Gracefully handle None hyperparameters"""
+            return val if val is not None else default
+        
+        SYS_LENGTH = _nz(self.custom_sys_length)
+        IMAGE_TOKEN_LENGTH = _nz(self.custom_image_token_length)
+        KEPT_TOKENS = _nz(self.custom_kept_tokens)
+        METHOD = _nz(self.custom_selection_method, 'fps')
+        TEMPERATURE = _nz(self.custom_temperature, 0.1)
         
         batch_size, seq_len, hidden_dim = hidden_states.shape
         
@@ -322,7 +326,12 @@ class CustomTokenSelection_LlamaModel(LlamaModel):
         all_self_attns = () if output_attentions else None
         next_decoder_cache = () if use_cache else None
 
-        # 标记是否已经应用过自定义选择（只在指定层应用一次）
+        # Gracefully handle None hyperparameters (treat as 0 / disabled)
+        def _nz(val, default=0):
+            return val if val is not None else default
+
+        USE_CUSTOM = bool(self.use_custom_selection)
+        AGG_LAYER = _nz(self.custom_agg_layer)
         custom_selection_applied = False
 
         for idx, decoder_layer in enumerate(self.layers):
@@ -347,16 +356,11 @@ class CustomTokenSelection_LlamaModel(LlamaModel):
                 )
             else:
                 # CUSTOM TOKEN SELECTION START --------------------------------------------------
-                
-                USE_CUSTOM = self.use_custom_selection
-                AGG_LAYER = self.custom_agg_layer
-                
-                # 在指定层应用自定义token选择和聚合
+                # 只有在非baseline模式（USE_CUSTOM=True）时才执行token选择和聚合
                 if USE_CUSTOM and idx == AGG_LAYER and not custom_selection_applied:
                     # 在进入该层之前，对hidden_states进行处理
                     hidden_states = self._apply_custom_token_selection(hidden_states)
                     custom_selection_applied = True
-                
                 # CUSTOM TOKEN SELECTION END --------------------------------------------------
 
                 layer_outputs = decoder_layer(

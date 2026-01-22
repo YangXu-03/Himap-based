@@ -34,6 +34,7 @@ if __name__ == "__main__":
     parser.add_argument("--num-chunks", type=int, default=1)
     parser.add_argument("--chunk-idx", type=int, default=0)
     parser.add_argument("--single-pred-prompt", action="store_true")
+    parser.add_argument("--num-samples", type=int, default=-1, help="Number of samples to use for testing (-1 for all)")
     # HiMAP hyperparameter
     parser.add_argument('--use-hmap-v', default=False, action='store_true', help='whether to use hmap-v')
     parser.add_argument('--sys-length', type=int, required=False, help='the length of system prompt')
@@ -49,6 +50,12 @@ if __name__ == "__main__":
     parser.add_argument('--fast-v-image-token-length', type=int, required=False, help='the length of image token for fast-v')
     parser.add_argument('--fast-v-attention-rank', type=int, required=False, help='the rank of attention for fast-v')
     parser.add_argument('--fast-v-agg-layer', type=int, required=False, help='the aggregation layer for fast-v')
+    # FastV Advanced config
+    parser.add_argument('--fast-v-token-selection-method', type=str, default='avg_all_heads', 
+                       choices=['max_head', 'avg_all_heads', 'weighted_combination'],
+                       help='token selection strategy: max_head, avg_all_heads, or weighted_combination')
+    parser.add_argument('--fast-v-weighted-alpha', type=float, default=0.5,
+                       help='alpha weight for weighted_combination method (0.0 to 1.0)')
     args = parser.parse_args()
     
 
@@ -86,7 +93,13 @@ if __name__ == "__main__":
         model.config.fast_v_image_token_length = args.fast_v_image_token_length
         model.config.fast_v_attention_rank = args.fast_v_attention_rank
         model.config.fast_v_agg_layer = args.fast_v_agg_layer
-        print('FASTV TECHNIQUE WILL BE USED ------')
+        # FastV Advanced parameters
+        model.config.fast_v_token_selection_method = args.fast_v_token_selection_method
+        model.config.fast_v_weighted_alpha = args.fast_v_weighted_alpha
+        print(f'FASTV TECHNIQUE WILL BE USED ------')
+        print(f'  Token Selection Method: {args.fast_v_token_selection_method}')
+        if args.fast_v_token_selection_method == 'weighted_combination':
+            print(f'  Weighted Alpha: {args.fast_v_weighted_alpha}')
         model.model.reset_fastv()
     else:
         model.config.use_hmap_v = False
@@ -96,6 +109,8 @@ if __name__ == "__main__":
 
     questions = json.load(open(os.path.expanduser(args.question_file), "r"))
     questions = get_chunk(questions, args.num_chunks, args.chunk_idx)
+    if args.num_samples > 0:
+        questions = questions[:args.num_samples]
 
     num_sample = len(questions)
     corr_sample = 0
@@ -226,17 +241,35 @@ if __name__ == "__main__":
         'flops_info': avg_flops_ratio,
         'model_config': {
             'use_himap': args.use_hmap_v,
+            'use_fastv': args.use_fast_v,
             'sys_length': args.sys_length,
             'img_length': args.img_length,
             'txt_layer': args.hmap_v_attn_txt_layer,
             'img_layer': args.hmap_v_attn_img_layer,
             'txt_rank': args.hmap_v_attn_txt_rank,
-            'img_rank': args.hmap_v_attn_img_rank
+            'img_rank': args.hmap_v_attn_img_rank,
+            # FastV Advanced config
+            'fast_v_sys_length': args.fast_v_sys_length if args.use_fast_v else None,
+            'fast_v_image_token_length': args.fast_v_image_token_length if args.use_fast_v else None,
+            'fast_v_attention_rank': args.fast_v_attention_rank if args.use_fast_v else None,
+            'fast_v_agg_layer': args.fast_v_agg_layer if args.use_fast_v else None,
+            'fast_v_token_selection_method': args.fast_v_token_selection_method if args.use_fast_v else None,
+            'fast_v_weighted_alpha': args.fast_v_weighted_alpha if args.use_fast_v else None,
         }
     }
     
     # 保存结果
-    output_file = f"scienceqa_results_{'himap' if args.use_hmap_v else 'baseline'}.json"
+    if args.use_hmap_v:
+        output_file = "scienceqa_results_himap.json"
+    elif args.use_fast_v:
+        method_name = args.fast_v_token_selection_method
+        if method_name == 'weighted_combination':
+            output_file = f"scienceqa_results_fastv_{method_name}_alpha{args.fast_v_weighted_alpha}.json"
+        else:
+            output_file = f"scienceqa_results_fastv_{method_name}.json"
+    else:
+        output_file = "scienceqa_results_baseline.json"
+    
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
     print(f"\n结果已保存到: {output_file}")
