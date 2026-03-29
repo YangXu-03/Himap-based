@@ -31,10 +31,11 @@ export CUDA_VISIBLE_DEVICES=2
 # # # 基线模型
 export CUDA_VISIBLE_DEVICES=2
 python ./src/HiMAP/inference/eval_scivqa.py \
-    --model-path liuhaotian/llava-v1.5-7b \
+    --model-path /root/nfs/model/llava-v1.5-7b \
     --question-file /root/nfs/code/HiMAP/data/scienceqa/himap-inference-MCQ.json \
     --image-folder ./data/scienceqa/images/test \
     --single-pred-prompt \
+    --save-attn-diagnostics \
     --num-samples 100
 
 

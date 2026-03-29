@@ -163,6 +163,11 @@ if __name__ == "__main__":
     
     results = []
 
+    # Force garbage collection before loop
+    import gc
+    gc.collect()
+    torch.cuda.empty_cache()
+
     for i, line in enumerate(tqdm(questions)):
         
         # MME specific fields

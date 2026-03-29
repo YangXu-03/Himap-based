@@ -1,5 +1,6 @@
 """ PyTorch LLaMA model."""
 import math
+import random
 from typing import List, Optional, Tuple, Union
 
 import torch
@@ -294,7 +295,16 @@ class LlamaAttention(nn.Module):
         kv_seq_len = key_states.shape[-2]
         if past_key_value is not None:
             kv_seq_len += past_key_value[0].shape[-2]
-        cos, sin = self.rotary_emb(value_states, seq_len=position_ids.max().item() + 1)
+
+        # Rebuild sequential position ids from the effective KV length.
+        # In this codebase, malformed upstream `position_ids` can occasionally
+        # trigger invalid CUDA indexing inside RoPE application. For the current
+        # causal decoding path, sequential ids are the intended behavior.
+        position_ids = torch.arange(
+            kv_seq_len - q_len, kv_seq_len, device=hidden_states.device, dtype=torch.long
+        ).unsqueeze(0).expand(bsz, -1)
+
+        cos, sin = self.rotary_emb(value_states, seq_len=kv_seq_len)
         query_states, key_states = apply_rotary_pos_emb(query_states, key_states, cos, sin, position_ids)
 
         if past_key_value is not None:
@@ -546,6 +556,245 @@ class LlamaModel(LlamaPreTrainedModel):
         # Initialize weights and apply final processing
         self.post_init()
 
+        # FastV hyperparameters
+        self.fast_v_sys_length = getattr(config, 'fast_v_sys_length', None)
+        self.fast_v_image_token_length = getattr(config, 'fast_v_image_token_length', None)
+        self.fast_v_attention_rank = getattr(config, 'fast_v_attention_rank', None)
+        self.fast_v_agg_layer = getattr(config, 'fast_v_agg_layer', None)
+        self.use_fast_v = getattr(config, 'use_fast_v', False)
+        
+        # Advanced FastV parameters
+        self.token_selection_method = getattr(config, 'fast_v_token_selection_method', 'avg_all_heads')
+        self.weighted_alpha = getattr(config, 'fast_v_weighted_alpha', 0.5)
+        
+        self.last_gen_attention_mask = None
+        self.last_gen_kept_indices = None
+        self.last_selection_metadata = {}
+
+    def reset_fastv(self):
+        """Reset FastV parameters to config defaults"""
+        self.fast_v_sys_length = getattr(self.config, 'fast_v_sys_length', None)
+        self.fast_v_image_token_length = getattr(self.config, 'fast_v_image_token_length', None)
+        self.fast_v_attention_rank = getattr(self.config, 'fast_v_attention_rank', None)
+        self.fast_v_agg_layer = getattr(self.config, 'fast_v_agg_layer', None)
+        self.use_fast_v = getattr(self.config, 'use_fast_v', False)
+        self.token_selection_method = getattr(self.config, 'fast_v_token_selection_method', 'avg_all_heads')
+        self.weighted_alpha = getattr(self.config, 'fast_v_weighted_alpha', 0.5)
+        self.last_gen_attention_mask = None
+        self.last_gen_kept_indices = None
+        self.last_selection_metadata = {}
+
+    def _get_prompt_span(self, seq_len, sys_length, image_token_length):
+        prompt_start = sys_length + image_token_length
+        prompt_end = seq_len
+        prompt_last_index = max(prompt_end - 1, 0)
+        return prompt_start, prompt_end, prompt_last_index
+
+    def _select_tokens_max_head(self, attention_weights, sys_length, image_token_length, attention_rank):
+        seq_len = attention_weights.shape[2]
+        prompt_start, prompt_end, _ = self._get_prompt_span(seq_len, sys_length, image_token_length)
+
+        # Get mean attention from ALL prompt tokens to all positions 
+        if prompt_start < prompt_end:
+             mean_prompt_attention = attention_weights[:, :, prompt_start:prompt_end, :].mean(dim=2)
+        else:
+             mean_prompt_attention = attention_weights.mean(dim=2) # Fallback
+
+        image_attention = mean_prompt_attention[:, :, sys_length:sys_length+image_token_length]
+        head_importance = image_attention.sum(dim=-1)
+        max_head_idx = head_importance.argmax(dim=1)
+        
+        batch_size = attention_weights.shape[0]
+        max_head_attention = torch.stack([
+            image_attention[b, max_head_idx[b], :] for b in range(batch_size)
+        ])
+        
+        if attention_rank > 0:
+            top_indices = max_head_attention[0].topk(attention_rank).indices
+        else:
+            top_indices = torch.tensor([], dtype=torch.long, device=attention_weights.device)
+            
+        self.last_selection_metadata = {
+            'method': 'max_head',
+            'max_head_idx': max_head_idx[0].item(),
+        }
+        return top_indices
+
+    def _select_tokens_avg_all_heads(self, attention_weights, sys_length, image_token_length, attention_rank):
+        avg_attention = torch.mean(attention_weights, dim=1)
+        seq_len = attention_weights.shape[2]
+        prompt_start, prompt_end, _ = self._get_prompt_span(seq_len, sys_length, image_token_length)
+        
+        if prompt_start < prompt_end:
+            last_token_image_attention = avg_attention[0, prompt_start:prompt_end, sys_length:sys_length+image_token_length].mean(dim=0)
+        else:
+            last_token_image_attention = avg_attention[0, :, sys_length:sys_length+image_token_length].mean(dim=0)
+
+        if attention_rank > 0:
+            top_indices = last_token_image_attention.topk(attention_rank).indices
+        else:
+            top_indices = torch.tensor([], dtype=torch.long, device=attention_weights.device)
+        self.last_selection_metadata = {'method': 'avg_all_heads'}
+        return top_indices
+
+    def _select_tokens_weighted_combination(self, attention_weights, sys_length, image_token_length, attention_rank):
+        seq_len = attention_weights.shape[2]
+        prompt_start, prompt_end, _ = self._get_prompt_span(seq_len, sys_length, image_token_length)
+        
+        if prompt_start < prompt_end:
+             mean_prompt_attention = attention_weights[:, :, prompt_start:prompt_end, :].mean(dim=2)
+        else:
+             mean_prompt_attention = attention_weights.mean(dim=2)
+
+        image_attention = mean_prompt_attention[:, :, sys_length:sys_length+image_token_length]
+        head_importance = image_attention.sum(dim=-1)
+        max_head_idx = head_importance.argmax(dim=1)
+        
+        batch_size = attention_weights.shape[0]
+        max_head_image_attention = torch.stack([
+            image_attention[b, max_head_idx[b], :] for b in range(batch_size)
+        ])
+        
+        num_heads = attention_weights.shape[1]
+        other_heads_mask = torch.ones(num_heads, dtype=torch.bool, device=attention_weights.device)
+        other_heads_mask[max_head_idx[0]] = False 
+        
+        if other_heads_mask.sum() > 0:
+            other_heads_attention = image_attention[:, other_heads_mask, :].mean(dim=1)
+        else:
+            other_heads_attention = torch.zeros_like(max_head_image_attention)
+        
+        alpha = self.weighted_alpha
+        combined_attention = alpha * max_head_image_attention + (1 - alpha) * other_heads_attention
+        
+        if attention_rank > 0:
+            top_indices = combined_attention[0].topk(attention_rank).indices
+        else:
+            top_indices = torch.tensor([], dtype=torch.long, device=attention_weights.device)
+        
+        self.last_selection_metadata = {
+            'method': 'weighted_combination',
+            'alpha': alpha,
+            'max_head_idx': max_head_idx[0].item(),
+        }
+        return top_indices
+
+    def _select_tokens_text_weighted(self, attention_weights, sys_length, image_token_length, attention_rank):
+        seq_len = attention_weights.shape[2]
+        prompt_start, prompt_end, _ = self._get_prompt_span(seq_len, sys_length, image_token_length)
+        
+        if prompt_start < prompt_end:
+             prompt_attention_matrix = attention_weights[:, :, prompt_start:prompt_end, prompt_start:prompt_end]
+             text_importance = prompt_attention_matrix.sum(dim=2).mean(dim=1)
+             text_importance = torch.softmax(text_importance, dim=-1)
+             
+             text_to_vision_attention = attention_weights[:, :, prompt_start:prompt_end, sys_length:sys_length+image_token_length]
+             text_importance_expanded = text_importance.unsqueeze(1).unsqueeze(-1)
+             weighted_text_to_vision = text_to_vision_attention * text_importance_expanded
+             weighted_vision_attention = weighted_text_to_vision.sum(dim=2)
+             final_vision_attention = weighted_vision_attention.mean(dim=1)
+        else:
+             # Fallback
+             final_vision_attention = attention_weights[:, :, :, sys_length:sys_length+image_token_length].mean(dim=1).mean(dim=1)
+
+        if attention_rank > 0:
+            top_indices = final_vision_attention[0].topk(attention_rank).indices
+        else:
+            top_indices = torch.tensor([], dtype=torch.long, device=attention_weights.device)
+            
+        self.last_selection_metadata = {'method': 'text_weighted'}
+        return top_indices
+
+    def _select_tokens_text_weighted_max_head(self, attention_weights, sys_length, image_token_length, attention_rank):
+        batch_size = attention_weights.shape[0]
+        seq_len = attention_weights.shape[2]
+        prompt_start, prompt_end, _ = self._get_prompt_span(seq_len, sys_length, image_token_length)
+        
+        if prompt_start < prompt_end:
+             prompt_attention_matrix = attention_weights[:, :, prompt_start:prompt_end, prompt_start:prompt_end]
+             text_importance = prompt_attention_matrix.sum(dim=2).mean(dim=1)
+             text_importance = torch.softmax(text_importance, dim=-1)
+             
+             text_to_vision_attention = attention_weights[:, :, prompt_start:prompt_end, sys_length:sys_length+image_token_length]
+             text_importance_expanded = text_importance.unsqueeze(1).unsqueeze(-1)
+             weighted_text_to_vision = text_to_vision_attention * text_importance_expanded
+             weighted_vision_attention_per_head = weighted_text_to_vision.sum(dim=2)
+             head_total_weighted_attention = weighted_vision_attention_per_head.sum(dim=-1)
+             max_head_idx = head_total_weighted_attention.argmax(dim=1)
+             
+             max_head_weighted_attention = torch.stack([
+                weighted_vision_attention_per_head[b, max_head_idx[b], :] for b in range(batch_size)
+             ])
+        else:
+            # Fallback
+            return self._select_tokens_max_head(attention_weights, sys_length, image_token_length, attention_rank)    
+        
+        if attention_rank > 0:
+            top_indices = max_head_weighted_attention[0].topk(attention_rank).indices
+        else:
+            top_indices = torch.tensor([], dtype=torch.long, device=attention_weights.device)
+            
+        self.last_selection_metadata = {
+            'method': 'text_weighted_max_head',
+            'max_head_idx': max_head_idx[0].item(),
+        }
+        return top_indices
+
+    def _generate_attention_mask_with_selection(
+        self, 
+        layer_outputs, 
+        batch_size, 
+        seq_length_with_past, 
+        seq_length,
+        inputs_embeds,
+        past_key_values_length,
+        sys_length,
+        image_token_length,
+        attention_rank
+    ):
+        if len(layer_outputs) < 2:
+            gen_attention_mask = torch.ones((batch_size, seq_length_with_past), dtype=torch.bool, device=inputs_embeds.device)
+            gen_attention_mask = self._prepare_decoder_attention_mask(gen_attention_mask, (batch_size, seq_length), inputs_embeds, past_key_values_length)
+            return gen_attention_mask
+        
+        att_out = layer_outputs[1]
+        if isinstance(att_out, (tuple, list)):
+            last_layer_attention = att_out[0] if len(att_out) > 0 else None
+        else:
+            last_layer_attention = att_out
+        
+        if last_layer_attention is None:
+            gen_attention_mask = torch.ones((batch_size, seq_length_with_past), dtype=torch.bool, device=inputs_embeds.device)
+            gen_attention_mask = self._prepare_decoder_attention_mask(gen_attention_mask, (batch_size, seq_length), inputs_embeds, past_key_values_length)
+            return gen_attention_mask
+        
+        if self.token_selection_method == 'max_head':
+            top_indices = self._select_tokens_max_head(last_layer_attention, sys_length, image_token_length, attention_rank)
+        elif self.token_selection_method == 'weighted_combination':
+            top_indices = self._select_tokens_weighted_combination(last_layer_attention, sys_length, image_token_length, attention_rank)
+        elif self.token_selection_method == 'text_weighted':
+            top_indices = self._select_tokens_text_weighted(last_layer_attention, sys_length, image_token_length, attention_rank)
+        elif self.token_selection_method == 'text_weighted_max_head':
+            top_indices = self._select_tokens_text_weighted_max_head(last_layer_attention, sys_length, image_token_length, attention_rank)
+        else:
+            top_indices = self._select_tokens_avg_all_heads(last_layer_attention, sys_length, image_token_length, attention_rank)
+        
+        gen_attention_mask = torch.ones((batch_size, seq_length_with_past), dtype=torch.bool, device=inputs_embeds.device)
+        gen_attention_mask[:, sys_length:sys_length+image_token_length] = False
+        if attention_rank > 0:
+            global_indices = top_indices + sys_length
+            gen_attention_mask[:, global_indices] = True
+        
+        try:
+            self.last_gen_attention_mask = gen_attention_mask.clone().detach().cpu()
+            kept = gen_attention_mask[0].nonzero(as_tuple=False).squeeze(-1).cpu().numpy()
+            self.last_gen_kept_indices = kept
+        except Exception:
+            pass
+        
+        gen_attention_mask = self._prepare_decoder_attention_mask(gen_attention_mask, (batch_size, seq_length), inputs_embeds, past_key_values_length)
+        return gen_attention_mask
+
     def get_input_embeddings(self):
         return self.embed_tokens
 
@@ -647,6 +896,10 @@ class LlamaModel(LlamaPreTrainedModel):
         all_hidden_states = () if output_hidden_states else None
         all_self_attns = () if output_attentions else None
         next_decoder_cache = () if use_cache else None
+        
+        # FastV state
+        gen_attention_mask = None
+        layer_outputs = None
 
         for idx, decoder_layer in enumerate(self.layers):
             if output_hidden_states:
@@ -671,12 +924,64 @@ class LlamaModel(LlamaPreTrainedModel):
                     None,
                 )
             else:
+                # ==================== ADVANCED FASTV LOGIC ====================
+                USE_FAST_V = getattr(self, 'use_fast_v', False)
+                # Check config fallback
+                if not USE_FAST_V and getattr(self.config, 'use_fast_v', False):
+                     USE_FAST_V = True
+                     self.reset_fastv()
+
+                new_attention_mask = attention_mask
+                
+                if USE_FAST_V:
+                    SYS_LENGTH = self.fast_v_sys_length
+                    IMAGE_TOKEN_LENGTH = self.fast_v_image_token_length
+                    ATTENTION_RANK = self.fast_v_attention_rank
+                    AGG_LAYER = self.fast_v_agg_layer
+
+                    if idx < AGG_LAYER:
+                         new_attention_mask = attention_mask
+                    elif idx == AGG_LAYER:
+                        if idx != 0 and layer_outputs is not None:
+                            gen_attention_mask = self._generate_attention_mask_with_selection(
+                                layer_outputs,
+                                batch_size,
+                                seq_length_with_past,
+                                seq_length,
+                                inputs_embeds,
+                                past_key_values_length,
+                                SYS_LENGTH,
+                                IMAGE_TOKEN_LENGTH,
+                                ATTENTION_RANK
+                            )
+                            new_attention_mask = gen_attention_mask
+                        else:
+                            # Fallback or idx=0
+                            gen_attention_mask = torch.ones((batch_size, seq_length_with_past), dtype=torch.bool, device=inputs_embeds.device)
+                            if ATTENTION_RANK > 0 and idx == 0:
+                                rand_image_attention_mask = [1]*ATTENTION_RANK + [0]*(IMAGE_TOKEN_LENGTH-ATTENTION_RANK)
+                                random.shuffle(rand_image_attention_mask)
+                                gen_attention_mask[:, SYS_LENGTH:SYS_LENGTH+IMAGE_TOKEN_LENGTH] = torch.tensor(
+                                    rand_image_attention_mask, dtype=attention_mask.dtype, device=inputs_embeds.device
+                                )
+                            
+                            gen_attention_mask = self._prepare_decoder_attention_mask(
+                                gen_attention_mask, (batch_size, seq_length), inputs_embeds, past_key_values_length
+                            )
+                            new_attention_mask = gen_attention_mask
+                    else:
+                        new_attention_mask = gen_attention_mask
+                
+                current_layer_output_attentions = output_attentions
+                if USE_FAST_V and (idx == AGG_LAYER - 1):
+                    current_layer_output_attentions = True
+
                 layer_outputs = decoder_layer(
                     hidden_states,
-                    attention_mask=attention_mask,
+                    attention_mask=new_attention_mask,
                     position_ids=position_ids,
                     past_key_value=past_key_value,
-                    output_attentions=output_attentions,
+                    output_attentions=current_layer_output_attentions,
                     use_cache=use_cache,
                 )
 

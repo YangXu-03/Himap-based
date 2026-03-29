@@ -65,8 +65,9 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
             model = LlavaLlamaForCausalLM.from_pretrained(model_base, low_cpu_mem_usage=True, config=lora_cfg_pretrained, **kwargs)
             token_num, tokem_dim = model.lm_head.out_features, model.lm_head.in_features
             if model.lm_head.weight.shape[0] != token_num:
-                model.lm_head.weight = torch.nn.Parameter(torch.empty(token_num, tokem_dim, device=model.device, dtype=model.dtype))
-                model.model.embed_tokens.weight = torch.nn.Parameter(torch.empty(token_num, tokem_dim, device=model.device, dtype=model.dtype))
+                # 需要把empty改为zeros吗？
+                model.lm_head.weight = torch.nn.Parameter(torch.zeros(token_num, tokem_dim, device=model.device, dtype=model.dtype))
+                model.model.embed_tokens.weight = torch.nn.Parameter(torch.zeros(token_num, tokem_dim, device=model.device, dtype=model.dtype))
 
             print('Loading additional LLaVA weights...')
             if os.path.exists(os.path.join(model_path, 'non_lora_trainables.bin')):
@@ -209,7 +210,7 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
         if device == "cuda":
             vision_tower.to(device=device, dtype=torch.float16)
         else:
-            vision_tower.to(device=device, dtype=torch.float32)
+            vision_tower.to(device=device, dtype=torch.float32) #float32
         image_processor = vision_tower.image_processor
 
     if hasattr(model.config, "max_sequence_length"):

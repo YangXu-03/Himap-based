@@ -153,7 +153,73 @@ def compute_text_importance_weighted_attention(attn: torch.Tensor, text_idx: Lis
     return weighted_attention
 
 
-def create_attention_heatmap_overlay(image: Image.Image, attention: np.ndarray, alpha: float = 0.5) -> Image.Image:
+def compute_visual_to_text_attention(attn: torch.Tensor, text_idx: List[int], vis_idx: List[int]) -> Tuple[torch.Tensor, torch.Tensor, List[int]]:
+    """
+    计算视觉到文本的注意力，并找到前三个注意力最大的头
+    
+    Args:
+        attn: (num_heads, seq_len, seq_len) 注意力矩阵
+        text_idx: 文本 token 的索引列表
+        vis_idx: 视觉 token 的索引列表
+        
+    Returns:
+        avg_attention: (num_vis_tokens,) 每个视觉token对文本的平均注意力强度
+        head_attentions: (num_heads, num_vis_tokens) 每个头中每个视觉token对文本的注意力强度
+        top_3_head_indices: List[int] 前三个注意力最大的头的索引
+    """
+    if len(text_idx) == 0 or len(vis_idx) == 0:
+        return torch.zeros(len(vis_idx)), torch.zeros(attn.size(0), len(vis_idx)), []
+    
+    # 提取视觉到文本的子矩阵
+    # sub: (num_heads, len(vis_idx), len(text_idx))
+    sub = attn[:, vis_idx, :][:, :, text_idx]
+    
+    # 对文本token维度求和，得到每个头中每个视觉token对文本的总注意力
+    # head_attentions: (num_heads, num_vis_tokens)
+    head_attentions = sub.sum(dim=2)
+    
+    # 对所有头求平均，得到每个视觉token的平均注意力强度
+    avg_attention = head_attentions.mean(dim=0)
+    
+    # 计算每个头的注意力强度（对所有视觉token求和）
+    head_scores = head_attentions.sum(dim=1)  # (num_heads,)
+    
+    # 获取前三个注意力最大的头
+    top_3_head_indices = torch.topk(head_scores, min(3, len(head_scores))).indices.tolist()
+    
+    return avg_attention, head_attentions, top_3_head_indices
+
+
+def get_top_3_heads_visual_to_text_attention(attn: torch.Tensor, text_idx: List[int], vis_idx: List[int], head_indices: List[int]) -> List[torch.Tensor]:
+    """
+    获取指定头的视觉到文本注意力
+    
+    Args:
+        attn: (num_heads, seq_len, seq_len) 注意力矩阵
+        text_idx: 文本 token 的索引列表
+        vis_idx: 视觉 token 的索引列表
+        head_indices: 头的索引列表
+        
+    Returns:
+        List of attention arrays for each head, each array has shape (num_vis_tokens,)
+    """
+    if len(text_idx) == 0 or len(vis_idx) == 0:
+        return [torch.zeros(len(vis_idx)) for _ in head_indices]
+    
+    result = []
+    for head_idx in head_indices:
+        # 提取该头的视觉到文本注意力
+        # (len(vis_idx), len(text_idx))
+        vis_text_attn = attn[head_idx, vis_idx, :][:, text_idx]
+        # 对文本token维度求和，得到每个视觉token对文本的总注意力
+        sum_attn = vis_text_attn.sum(dim=1)  # (len(vis_idx),)
+        result.append(sum_attn)
+    
+    return result
+
+
+def create_attention_heatmap_overlay(image: Image.Image, attention: np.ndarray, alpha: float = 0.5, 
+                                     global_min: float = None, global_max: float = None) -> Image.Image:
     """
     创建注意力热力图并叠加到原始图像上
     
@@ -161,6 +227,8 @@ def create_attention_heatmap_overlay(image: Image.Image, attention: np.ndarray, 
         image: 原始PIL图像
         attention: 注意力值数组，需要重塑为2D形状
         alpha: 热力图透明度
+        global_min: 全局最小值（用于标准化），None表示使用相对最小值
+        global_max: 全局最大值（用于标准化），None表示使用相对最大值
         
     Returns:
         叠加后的PIL图像
@@ -186,9 +254,15 @@ def create_attention_heatmap_overlay(image: Image.Image, attention: np.ndarray, 
         attention_2d = np.zeros((grid_h, grid_w))
         attention_2d.flat[:num_patches] = attention
     
-    # 归一化到0-1
-    if attention_2d.max() > attention_2d.min():
-        attention_2d = (attention_2d - attention_2d.min()) / (attention_2d.max() - attention_2d.min())
+    # 归一化到0-1 - 支持全局或相对归一化
+    if global_min is not None and global_max is not None:
+        # 使用全局标准进行绝对归一化
+        attention_2d = (attention_2d - global_min) / (global_max - global_min + 1e-10)
+        attention_2d = np.clip(attention_2d, 0, 1)
+    else:
+        # 使用相对归一化（基于该热力图自身的min/max）
+        if attention_2d.max() > attention_2d.min():
+            attention_2d = (attention_2d - attention_2d.min()) / (attention_2d.max() - attention_2d.min())
     
     # 将attention转换为PIL图像并resize（避免ndimage的类型问题）
     attention_img = Image.fromarray((attention_2d * 255).astype(np.uint8))
@@ -287,7 +361,30 @@ def process_sample(model, tokenizer, image_processor, line: Dict, args, device: 
     layer_max_head_attentions = []  # 存储每层最高注意力头的注意力
     layer_last_text_attentions = []  # 存储每层最后一个文本token的注意力
     layer_text_importance_weighted_attentions = []  # 存储每层文本重要性加权的注意力
+    layer_visual_to_text_attentions = []  # 存储每层视觉到文本的注意力
+    layer_top3_head_attentions = []  # 存储每层前三个头的视觉到文本注意力
     
+    # 第一轮遍历：收集所有的视觉到文本注意力数据（用于计算全局min/max）
+    all_visual_to_text_values = []
+    for layer_idx, attn in enumerate(attentions):
+        avg_vis_to_text, head_attentions_vis_to_text, top_3_indices = compute_visual_to_text_attention(attn, text_idx, vis_idx)
+        layer_visual_to_text_attentions.append(avg_vis_to_text.cpu().numpy())
+        
+        # 收集前三个头的注意力值
+        top_3_attentions = get_top_3_heads_visual_to_text_attention(attn, text_idx, vis_idx, top_3_indices)
+        layer_top3_head_attentions.append([t.cpu().numpy() for t in top_3_attentions])
+        
+        # 收集所有值用于全局归一化
+        all_visual_to_text_values.append(avg_vis_to_text.cpu().numpy())
+        for att in top_3_attentions:
+            all_visual_to_text_values.append(att.cpu().numpy())
+    
+    # 计算全局最小值和最大值
+    global_vis_to_text_values = np.concatenate(all_visual_to_text_values) if all_visual_to_text_values else np.array([])
+    global_vis_to_text_min = float(global_vis_to_text_values.min()) if len(global_vis_to_text_values) > 0 else 0.0
+    global_vis_to_text_max = float(global_vis_to_text_values.max()) if len(global_vis_to_text_values) > 0 else 1.0
+    
+    # 第二轮遍历：计算文本到视觉的注意力
     for layer_idx, attn in enumerate(attentions):
         avg_attn, head_attns = compute_text_to_visual_attention(attn, text_idx, vis_idx)
         layer_attentions.append(avg_attn.cpu().numpy())
@@ -406,6 +503,60 @@ def process_sample(model, tokenizer, image_processor, line: Dict, args, device: 
     weighted_grid_path = os.path.join(sample_dir, "text_importance_weighted_attention_grid.png")
     plt.savefig(weighted_grid_path, dpi=150, bbox_inches='tight')
     plt.close(fig_weighted)
+    
+    # ==================== 新增：视觉到文本注意力热力图 ====================
+    
+    # 绘制视觉到文本的平均注意力热力图网格（使用全局归一化）
+    fig_vis_text, axes_vis_text = plt.subplots(num_rows_avg, num_cols, figsize=(num_cols * 3, num_rows_avg * 3))
+    axes_vis_text = axes_vis_text.flatten() if num_layers > 1 else [axes_vis_text]
+    
+    for layer_idx in range(num_layers):
+        ax = axes_vis_text[layer_idx]
+        overlay = create_attention_heatmap_overlay(
+            image, layer_visual_to_text_attentions[layer_idx], alpha=0.6,
+            global_min=global_vis_to_text_min, global_max=global_vis_to_text_max
+        )
+        ax.imshow(overlay)
+        ax.set_title(f"Layer {layer_idx}", fontsize=10)
+        ax.axis('off')
+    
+    # 隐藏多余的子图
+    for idx in range(num_layers, len(axes_vis_text)):
+        axes_vis_text[idx].axis('off')
+    
+    fig_vis_text.suptitle(f"Visual→Text Attention (Average, Global Normalized)\n{category} - Q: {qs[:80]}...\nGT: {gt_answer} | Pred: {pred_answer}", 
+                          fontsize=12, fontweight='bold')
+    plt.tight_layout()
+    vis_text_grid_path = os.path.join(sample_dir, "visual_to_text_attention_grid.png")
+    plt.savefig(vis_text_grid_path, dpi=150, bbox_inches='tight')
+    plt.close(fig_vis_text)
+    
+    # 绘制前三个头的视觉到文本注意力热力图（每个头单独一个图）
+    for head_pos, head_num in enumerate(range(1, 4)):
+        fig_top_head, axes_top_head = plt.subplots(num_rows_avg, num_cols, figsize=(num_cols * 3, num_rows_avg * 3))
+        axes_top_head = axes_top_head.flatten() if num_layers > 1 else [axes_top_head]
+        
+        for layer_idx in range(num_layers):
+            ax = axes_top_head[layer_idx]
+            if head_pos < len(layer_top3_head_attentions[layer_idx]):
+                overlay = create_attention_heatmap_overlay(
+                    image, layer_top3_head_attentions[layer_idx][head_pos], alpha=0.6,
+                    global_min=global_vis_to_text_min, global_max=global_vis_to_text_max
+                )
+                ax.imshow(overlay)
+            ax.set_title(f"Layer {layer_idx}", fontsize=10)
+            ax.axis('off')
+        
+        # 隐藏多余的子图
+        for idx in range(num_layers, len(axes_top_head)):
+            axes_top_head[idx].axis('off')
+        
+        fig_top_head.suptitle(f"Visual→Text Attention (Top-{head_num} Head, Global Normalized)\n{category} - Q: {qs[:80]}...\nGT: {gt_answer} | Pred: {pred_answer}", 
+                              fontsize=12, fontweight='bold')
+        plt.tight_layout()
+        top_head_grid_path = os.path.join(sample_dir, f"visual_to_text_top{head_num}_head_attention_grid.png")
+        plt.savefig(top_head_grid_path, dpi=150, bbox_inches='tight')
+        plt.close(fig_top_head)
     
     print(f"Saved visualizations for {category}/{image_file} to {sample_dir}")
     

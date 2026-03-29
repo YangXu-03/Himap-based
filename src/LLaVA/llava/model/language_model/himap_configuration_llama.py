@@ -124,6 +124,18 @@ class LlamaConfig(PretrainedConfig):
         use_token_condensation = False,
         condensation_strategy = 'connectivity',
         condensation_num_heads = 8,
+        # Three-stage pruning config
+        use_three_stage_pruning = False,
+        three_stage_sys_length = None,
+        three_stage_image_token_length = None,
+        stage1_layer = 3,
+        stage2_layer = 12,
+        stage3_layer = 20,
+        stage1_similarity_threshold = 0.92,
+        stage1_rope_penalty_alpha = 0.08,
+        stage1_window_size = 3,
+        stage1_min_keep_tokens = 64,
+        stage2_keep_tokens = 128,
         **kwargs,
     ):
         self.vocab_size = vocab_size
@@ -171,6 +183,19 @@ class LlamaConfig(PretrainedConfig):
         self.use_token_condensation = use_token_condensation
         self.condensation_strategy = condensation_strategy
         self.condensation_num_heads = condensation_num_heads
+
+        # Three-stage pruning config
+        self.use_three_stage_pruning = use_three_stage_pruning
+        self.three_stage_sys_length = three_stage_sys_length
+        self.three_stage_image_token_length = three_stage_image_token_length
+        self.stage1_layer = stage1_layer
+        self.stage2_layer = stage2_layer
+        self.stage3_layer = stage3_layer
+        self.stage1_similarity_threshold = stage1_similarity_threshold
+        self.stage1_rope_penalty_alpha = stage1_rope_penalty_alpha
+        self.stage1_window_size = stage1_window_size
+        self.stage1_min_keep_tokens = stage1_min_keep_tokens
+        self.stage2_keep_tokens = stage2_keep_tokens
 
         super().__init__(
             pad_token_id=pad_token_id,

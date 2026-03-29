@@ -1,0 +1,39 @@
+{
+  "total_score": 50.0,
+  "perception_score": 0,
+  "cognition_score": 50.0,
+  "category_scores": {
+    "code_reasoning": {
+      "accuracy": 50.0,
+      "accuracy_plus": 0.0,
+      "score": 50.0,
+      "num_samples": 2,
+      "num_pairs": 1
+    }
+  },
+  "total_samples": 2,
+  "avg_latency": 0.4516540765762329,
+  "model_config": {
+    "use_fast_v": true,
+    "fast_v_sys_length": 35,
+    "fast_v_image_token_length": 576,
+    "fast_v_attention_rank": 128,
+    "fast_v_agg_layer": 12,
+    "fast_v_token_selection_method": "max_head",
+    "fast_v_weighted_alpha": 0.5
+  },
+  "predictions": [
+    {
+      "question_id": "code_reasoning/0020.png",
+      "category": "code_reasoning",
+      "pred": "No",
+      "gt": "Yes"
+    },
+    {
+      "question_id": "code_reasoning/0020.png",
+      "category": "code_reasoning",
+      "pred": "No",
+      "gt": "No"
+    }
+  ]
+}

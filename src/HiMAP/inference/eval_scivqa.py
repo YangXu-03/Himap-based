@@ -2,6 +2,7 @@ import argparse
 import torch
 import os
 import json
+import math
 from tqdm import tqdm
 import time
 
@@ -12,7 +13,98 @@ from llava.utils import disable_torch_init
 from llava.mm_utils import tokenizer_image_token, get_model_name_from_path, KeywordsStoppingCriteria
 
 from PIL import Image
-import math
+os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
+
+
+def summarize_attention_tensor(attn_tensor, topk=20):
+    """Summarize one attention tensor with NaN info and top-k values."""
+    flat = attn_tensor.detach().float().reshape(-1)
+    nan_mask = torch.isnan(flat)
+    inf_mask = torch.isinf(flat)
+    finite_mask = torch.isfinite(flat)
+    finite_vals = flat[finite_mask]
+
+    has_nan = bool(nan_mask.any().item())
+    has_inf = bool(inf_mask.any().item())
+
+    if finite_vals.numel() > 0:
+        k = min(int(topk), int(finite_vals.numel()))
+        top_vals = torch.topk(finite_vals, k=k).values.cpu().tolist()
+        mean_val = float(finite_vals.mean().item())
+        max_val = float(finite_vals.max().item())
+        min_val = float(finite_vals.min().item())
+    else:
+        top_vals = []
+        mean_val = None
+        max_val = None
+        min_val = None
+
+    return {
+        "numel": int(flat.numel()),
+        "finite_numel": int(finite_vals.numel()),
+        "has_nan": has_nan,
+        "has_inf": has_inf,
+        "mean": mean_val,
+        "max": max_val,
+        "min": min_val,
+        "top_values": top_vals,
+    }
+
+
+def get_layer_attention_diagnostics(attentions, topk=20):
+    """
+    Extract per-layer attention diagnostics from model outputs.
+
+    Supports both shapes:
+    1) Tuple[num_layers] of tensors (single forward)
+    2) Tuple[num_decode_steps] where each item is Tuple[num_layers] (generate output)
+    """
+    if attentions is None:
+        return {}
+    if not isinstance(attentions, (list, tuple)) or len(attentions) == 0:
+        return {}
+
+    first_item = attentions[0]
+
+    # generate() path: attentions[step][layer] -> tensor
+    if isinstance(first_item, (list, tuple)):
+        num_layers = len(first_item)
+        per_layer_tensors = [[] for _ in range(num_layers)]
+
+        for step_attn in attentions:
+            if not isinstance(step_attn, (list, tuple)):
+                continue
+            for layer_idx, layer_attn in enumerate(step_attn):
+                per_layer_tensors[layer_idx].append(layer_attn)
+
+        diagnostics = {}
+        for layer_idx, tensor_list in enumerate(per_layer_tensors):
+            if len(tensor_list) == 0:
+                diagnostics[str(layer_idx)] = {
+                    "num_steps": 0,
+                    "num_tensors": 0,
+                    "has_nan": False,
+                    "has_inf": False,
+                    "mean": None,
+                    "max": None,
+                    "min": None,
+                    "top_values": [],
+                }
+                continue
+
+            merged = torch.cat([t.detach().float().reshape(-1) for t in tensor_list], dim=0)
+            layer_summary = summarize_attention_tensor(merged, topk=topk)
+            layer_summary["num_steps"] = len(attentions)
+            layer_summary["num_tensors"] = len(tensor_list)
+            diagnostics[str(layer_idx)] = layer_summary
+
+        return diagnostics
+
+    # forward() path: attentions[layer] -> tensor
+    diagnostics = {}
+    for layer_idx, layer_attn in enumerate(attentions):
+        diagnostics[str(layer_idx)] = summarize_attention_tensor(layer_attn, topk=topk)
+    return diagnostics
 
 def split_list(lst, n):
     """Split a list into n (roughly) equal-sized chunks"""
@@ -34,7 +126,11 @@ if __name__ == "__main__":
     parser.add_argument("--num-chunks", type=int, default=1)
     parser.add_argument("--chunk-idx", type=int, default=0)
     parser.add_argument("--single-pred-prompt", action="store_true")
-    parser.add_argument("--num-samples", type=int, default=-1, help="Number of samples to use for testing (-1 for all)")
+    parser.add_argument("--num-samples", type=int, default=10, help="Number of samples to use for testing (-1 for all)")
+    parser.add_argument("--save-attn-diagnostics", action="store_true",
+                        help="Save per-layer attention diagnostics (top-k, nan, mean/max/min) to JSON")
+    parser.add_argument("--attn-topk", type=int, default=20,
+                        help="Top-k attention values to keep for each layer")
     # HiMAP hyperparameter
     parser.add_argument('--use-hmap-v', default=False, action='store_true', help='whether to use hmap-v')
     parser.add_argument('--sys-length', type=int, required=False, help='the length of system prompt')
@@ -52,11 +148,13 @@ if __name__ == "__main__":
     parser.add_argument('--fast-v-agg-layer', type=int, required=False, help='the aggregation layer for fast-v')
     # FastV Advanced config
     parser.add_argument('--fast-v-token-selection-method', type=str, default='avg_all_heads', 
-                       choices=['max_head', 'avg_all_heads', 'weighted_combination'],
-                       help='token selection strategy: max_head, avg_all_heads, or weighted_combination')
+                       choices=['max_head', 'avg_all_heads', 'weighted_combination', 'text_weighted', 'text_weighted_max_head'],
+                       help='token selection strategy: max_head, avg_all_heads, weighted_combination, text_weighted, or text_weighted_max_head')
     parser.add_argument('--fast-v-weighted-alpha', type=float, default=0.5,
                        help='alpha weight for weighted_combination method (0.0 to 1.0)')
     args = parser.parse_args()
+
+    os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
     
 
     # Model
@@ -101,8 +199,10 @@ if __name__ == "__main__":
         if args.fast_v_token_selection_method == 'weighted_combination':
             print(f'  Weighted Alpha: {args.fast_v_weighted_alpha}')
         model.model.reset_fastv()
+        print(f"DEBUG: Active Token Selection Method in Model: {model.model.token_selection_method}")
     else:
         model.config.use_hmap_v = False
+
         print('NO TOKEN PRUNING TCHNIQUE WILL BE USED ------')
 
     
@@ -116,6 +216,7 @@ if __name__ == "__main__":
     corr_sample = 0
     total_latency = 0.0
     total_flops_ratio_attn_ffn = 0.0
+    attention_diagnostics_by_sample = {}
 
     for i, line in enumerate(tqdm(questions)):
         
@@ -179,6 +280,13 @@ if __name__ == "__main__":
             print(f'[Warning] {n_diff_input_output} output_ids are not the same as the input_ids')
         outputs = tokenizer.batch_decode(output_ids['sequences'][:, input_token_len:], skip_special_tokens=True)[0]
         outputs = outputs.strip()
+
+        if args.save_attn_diagnostics:
+            sample_attentions = output_ids.get('attentions', None)
+            attention_diagnostics_by_sample[str(idx)] = {
+                "image": image_file,
+                "layer_stats": get_layer_attention_diagnostics(sample_attentions, topk=args.attn_topk)
+            }
         if outputs.endswith(stop_str):
             outputs = outputs[:-len(stop_str)]
         outputs = outputs.strip()
@@ -273,3 +381,19 @@ if __name__ == "__main__":
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
     print(f"\n结果已保存到: {output_file}")
+
+    if args.save_attn_diagnostics:
+        if args.use_hmap_v:
+            attn_diag_file = "scienceqa_attention_diagnostics_himap.json"
+        elif args.use_fast_v:
+            method_name = args.fast_v_token_selection_method
+            if method_name == 'weighted_combination':
+                attn_diag_file = f"scienceqa_attention_diagnostics_fastv_{method_name}_alpha{args.fast_v_weighted_alpha}.json"
+            else:
+                attn_diag_file = f"scienceqa_attention_diagnostics_fastv_{method_name}.json"
+        else:
+            attn_diag_file = "scienceqa_attention_diagnostics_baseline.json"
+
+        with open(attn_diag_file, 'w', encoding='utf-8') as f:
+            json.dump(attention_diagnostics_by_sample, f, indent=2, ensure_ascii=False)
+        print(f"注意力诊断结果已保存到: {attn_diag_file}")

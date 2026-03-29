@@ -236,22 +236,29 @@ class Fastv_LlamaModel(LlamaModel):
                     new_attention_mask = attention_mask
 
                 # FASTV END --------------------------------------------------
+                
+                # For FastV: force output_attentions=True at AGG_LAYER-1 to get attention for next layer
+                need_attention = USE_FAST_V and (idx == AGG_LAYER - 1)
+                layer_output_attentions = output_attentions or need_attention
 
                 layer_outputs = decoder_layer(
                     hidden_states,
                     attention_mask=new_attention_mask,
                     position_ids=position_ids,
                     past_key_value=past_key_value,
-                    output_attentions=output_attentions,
+                    output_attentions=layer_output_attentions,
                     use_cache=use_cache,
                 )
 
             hidden_states = layer_outputs[0]
 
             if use_cache:
-                next_decoder_cache += (layer_outputs[2 if output_attentions else 1],)
+                # Check if we have cache in the output
+                cache_idx = 2 if layer_output_attentions else 1
+                if len(layer_outputs) > cache_idx:
+                    next_decoder_cache += (layer_outputs[cache_idx],)
 
-            if output_attentions:
+            if output_attentions and len(layer_outputs) > 1:
                 all_self_attns += (layer_outputs[1],)
 
         hidden_states = self.norm(hidden_states)

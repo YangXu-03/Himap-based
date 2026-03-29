@@ -1,0 +1,467 @@
+{
+  "model_path": "/root/nfs/model/llava-v1.5-7b",
+  "question_file": "/root/nfs/code/HiMAP/data/MME/MME_test.json",
+  "image_folder": "/root/nfs/code/HiMAP/data/MME/images/test",
+  "layers": [
+    6,
+    13,
+    22
+  ],
+  "score_type": "rank",
+  "attention_type": "text_to_image",
+  "aggregate": "mean",
+  "sample_strategy": "first",
+  "seed": 42,
+  "task_metadata": {
+    "OCR": {
+      "available_samples": 40,
+      "selected_samples": 40,
+      "requested_samples": 40
+    },
+    "artwork": {
+      "available_samples": 400,
+      "selected_samples": 40,
+      "requested_samples": 40
+    },
+    "celebrity": {
+      "available_samples": 340,
+      "selected_samples": 40,
+      "requested_samples": 40
+    },
+    "code_reasoning": {
+      "available_samples": 40,
+      "selected_samples": 40,
+      "requested_samples": 40
+    },
+    "color": {
+      "available_samples": 60,
+      "selected_samples": 40,
+      "requested_samples": 40
+    },
+    "commonsense_reasoning": {
+      "available_samples": 140,
+      "selected_samples": 40,
+      "requested_samples": 40
+    },
+    "count": {
+      "available_samples": 60,
+      "selected_samples": 40,
+      "requested_samples": 40
+    },
+    "existence": {
+      "available_samples": 60,
+      "selected_samples": 40,
+      "requested_samples": 40
+    },
+    "landmark": {
+      "available_samples": 400,
+      "selected_samples": 40,
+      "requested_samples": 40
+    },
+    "numerical_calculation": {
+      "available_samples": 40,
+      "selected_samples": 40,
+      "requested_samples": 40
+    },
+    "position": {
+      "available_samples": 60,
+      "selected_samples": 40,
+      "requested_samples": 40
+    },
+    "posters": {
+      "available_samples": 294,
+      "selected_samples": 40,
+      "requested_samples": 40
+    },
+    "scene": {
+      "available_samples": 400,
+      "selected_samples": 40,
+      "requested_samples": 40
+    },
+    "text_translation": {
+      "available_samples": 40,
+      "selected_samples": 40,
+      "requested_samples": 40
+    }
+  },
+  "tasks_with_results": {
+    "OCR": {
+      "6": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/OCR/layer_6_text_to_image_rank_matrix.npy"
+      },
+      "13": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/OCR/layer_13_text_to_image_rank_matrix.npy"
+      },
+      "22": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/OCR/layer_22_text_to_image_rank_matrix.npy"
+      },
+      "combined_heatmap": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/OCR/combined_layers_text_to_image_rank_heatmap.png"
+    },
+    "artwork": {
+      "6": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/artwork/layer_6_text_to_image_rank_matrix.npy"
+      },
+      "13": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/artwork/layer_13_text_to_image_rank_matrix.npy"
+      },
+      "22": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/artwork/layer_22_text_to_image_rank_matrix.npy"
+      },
+      "combined_heatmap": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/artwork/combined_layers_text_to_image_rank_heatmap.png"
+    },
+    "celebrity": {
+      "6": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/celebrity/layer_6_text_to_image_rank_matrix.npy"
+      },
+      "13": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/celebrity/layer_13_text_to_image_rank_matrix.npy"
+      },
+      "22": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/celebrity/layer_22_text_to_image_rank_matrix.npy"
+      },
+      "combined_heatmap": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/celebrity/combined_layers_text_to_image_rank_heatmap.png"
+    },
+    "code_reasoning": {
+      "6": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/code_reasoning/layer_6_text_to_image_rank_matrix.npy"
+      },
+      "13": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/code_reasoning/layer_13_text_to_image_rank_matrix.npy"
+      },
+      "22": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/code_reasoning/layer_22_text_to_image_rank_matrix.npy"
+      },
+      "combined_heatmap": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/code_reasoning/combined_layers_text_to_image_rank_heatmap.png"
+    },
+    "color": {
+      "6": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/color/layer_6_text_to_image_rank_matrix.npy"
+      },
+      "13": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/color/layer_13_text_to_image_rank_matrix.npy"
+      },
+      "22": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/color/layer_22_text_to_image_rank_matrix.npy"
+      },
+      "combined_heatmap": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/color/combined_layers_text_to_image_rank_heatmap.png"
+    },
+    "commonsense_reasoning": {
+      "6": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/commonsense_reasoning/layer_6_text_to_image_rank_matrix.npy"
+      },
+      "13": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/commonsense_reasoning/layer_13_text_to_image_rank_matrix.npy"
+      },
+      "22": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/commonsense_reasoning/layer_22_text_to_image_rank_matrix.npy"
+      },
+      "combined_heatmap": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/commonsense_reasoning/combined_layers_text_to_image_rank_heatmap.png"
+    },
+    "count": {
+      "6": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/count/layer_6_text_to_image_rank_matrix.npy"
+      },
+      "13": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/count/layer_13_text_to_image_rank_matrix.npy"
+      },
+      "22": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/count/layer_22_text_to_image_rank_matrix.npy"
+      },
+      "combined_heatmap": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/count/combined_layers_text_to_image_rank_heatmap.png"
+    },
+    "existence": {
+      "6": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/existence/layer_6_text_to_image_rank_matrix.npy"
+      },
+      "13": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/existence/layer_13_text_to_image_rank_matrix.npy"
+      },
+      "22": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/existence/layer_22_text_to_image_rank_matrix.npy"
+      },
+      "combined_heatmap": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/existence/combined_layers_text_to_image_rank_heatmap.png"
+    },
+    "landmark": {
+      "6": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/landmark/layer_6_text_to_image_rank_matrix.npy"
+      },
+      "13": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/landmark/layer_13_text_to_image_rank_matrix.npy"
+      },
+      "22": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/landmark/layer_22_text_to_image_rank_matrix.npy"
+      },
+      "combined_heatmap": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/landmark/combined_layers_text_to_image_rank_heatmap.png"
+    },
+    "numerical_calculation": {
+      "6": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/numerical_calculation/layer_6_text_to_image_rank_matrix.npy"
+      },
+      "13": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/numerical_calculation/layer_13_text_to_image_rank_matrix.npy"
+      },
+      "22": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/numerical_calculation/layer_22_text_to_image_rank_matrix.npy"
+      },
+      "combined_heatmap": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/numerical_calculation/combined_layers_text_to_image_rank_heatmap.png"
+    },
+    "position": {
+      "6": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/position/layer_6_text_to_image_rank_matrix.npy"
+      },
+      "13": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/position/layer_13_text_to_image_rank_matrix.npy"
+      },
+      "22": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/position/layer_22_text_to_image_rank_matrix.npy"
+      },
+      "combined_heatmap": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/position/combined_layers_text_to_image_rank_heatmap.png"
+    },
+    "posters": {
+      "6": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/posters/layer_6_text_to_image_rank_matrix.npy"
+      },
+      "13": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/posters/layer_13_text_to_image_rank_matrix.npy"
+      },
+      "22": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/posters/layer_22_text_to_image_rank_matrix.npy"
+      },
+      "combined_heatmap": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/posters/combined_layers_text_to_image_rank_heatmap.png"
+    },
+    "scene": {
+      "6": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/scene/layer_6_text_to_image_rank_matrix.npy"
+      },
+      "13": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/scene/layer_13_text_to_image_rank_matrix.npy"
+      },
+      "22": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/scene/layer_22_text_to_image_rank_matrix.npy"
+      },
+      "combined_heatmap": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/scene/combined_layers_text_to_image_rank_heatmap.png"
+    },
+    "text_translation": {
+      "6": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/text_translation/layer_6_text_to_image_rank_matrix.npy"
+      },
+      "13": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/text_translation/layer_13_text_to_image_rank_matrix.npy"
+      },
+      "22": {
+        "num_samples": 40,
+        "matrix_shape": [
+          32,
+          576
+        ],
+        "matrix": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/text_translation/layer_22_text_to_image_rank_matrix.npy"
+      },
+      "combined_heatmap": "/root/nfs/code/HiMAP/mme_head_token_rank_specificity/text_translation/combined_layers_text_to_image_rank_heatmap.png"
+    }
+  }
+}

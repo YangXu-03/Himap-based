@@ -1,0 +1,128 @@
+{
+    "code_reasoning": [
+        {
+            "image": "0.png",
+            "question": "Is a python code shown in the picture? Please answer yes or no.",
+            "entropy": 10.3671875,
+            "layer_entropies": [],
+            "layer_attention_ranks": []
+        }
+    ],
+    "artwork": [
+        {
+            "image": "40.png",
+            "question": "Does this artwork belong to the type of religious? Please answer yes or no.",
+            "entropy": 10.3671875,
+            "layer_entropies": [],
+            "layer_attention_ranks": []
+        }
+    ],
+    "celebrity": [
+        {
+            "image": "440.png",
+            "question": "Is the actor inside the red bounding box called Arnold Schwarzenegger? Please answer yes or no.",
+            "entropy": 10.3671875,
+            "layer_entropies": [],
+            "layer_attention_ranks": []
+        }
+    ],
+    "numerical_calculation": [
+        {
+            "image": "780.png",
+            "question": "Is the answer to the arithmetic question in the image 9? Please answer yes or no.",
+            "entropy": 7.6875,
+            "layer_entropies": [],
+            "layer_attention_ranks": []
+        }
+    ],
+    "text_translation": [
+        {
+            "image": "820.png",
+            "question": "Is it appropriate to translate the Chinese in the image into English 'rank first' in the picture? Please answer yes or no.",
+            "entropy": 0.0,
+            "layer_entropies": [],
+            "layer_attention_ranks": []
+        }
+    ],
+    "count": [
+        {
+            "image": "860.png",
+            "question": "Is there only one bottle in the image? Please answer yes or no.",
+            "entropy": 0.0,
+            "layer_entropies": [],
+            "layer_attention_ranks": []
+        }
+    ],
+    "color": [
+        {
+            "image": "920.png",
+            "question": "Is there a blue and yellow fire hydrant in the image? Please answer yes or no.",
+            "entropy": 0.0,
+            "layer_entropies": [],
+            "layer_attention_ranks": []
+        }
+    ],
+    "commonsense_reasoning": [
+        {
+            "image": "980.png",
+            "question": "Is it appropriate to wear a down jacket during the season in the picture? Please answer yes or no.",
+            "entropy": 0.0,
+            "layer_entropies": [],
+            "layer_attention_ranks": []
+        }
+    ],
+    "position": [
+        {
+            "image": "1120.png",
+            "question": "Is the pineapple on the left of the pot in the image? Please answer yes or no.",
+            "entropy": 0.0,
+            "layer_entropies": [],
+            "layer_attention_ranks": []
+        }
+    ],
+    "OCR": [
+        {
+            "image": "1180.png",
+            "question": "Is the word in the logo \"cold drinks\"? Please answer yes or no.",
+            "entropy": 0.0,
+            "layer_entropies": [],
+            "layer_attention_ranks": []
+        }
+    ],
+    "landmark": [
+        {
+            "image": "1220.png",
+            "question": "Is this an image of Goldener Reiter? Please answer yes or no.",
+            "entropy": 0.0,
+            "layer_entropies": [],
+            "layer_attention_ranks": []
+        }
+    ],
+    "scene": [
+        {
+            "image": "1620.png",
+            "question": "Is this photo taken in a place of recreation room? Please answer yes or no.",
+            "entropy": 0.0,
+            "layer_entropies": [],
+            "layer_attention_ranks": []
+        }
+    ],
+    "existence": [
+        {
+            "image": "2020.png",
+            "question": "Is there a laptop in this image? Please answer yes or no.",
+            "entropy": 0.0,
+            "layer_entropies": [],
+            "layer_attention_ranks": []
+        }
+    ],
+    "posters": [
+        {
+            "image": "2080.png",
+            "question": "Is this movie directed by bob rafelson? Please answer yes or no.",
+            "entropy": 0.0,
+            "layer_entropies": [],
+            "layer_attention_ranks": []
+        }
+    ]
+}

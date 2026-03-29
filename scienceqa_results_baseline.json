@@ -1,16 +1,23 @@
 {
   "accuracy": 0.7,
-  "avg_latency": 0.1803896975517273,
+  "avg_latency": 0.1722677755355835,
   "total_samples": 100,
   "correct_samples": 70,
   "flops_info": 1.0,
   "model_config": {
     "use_himap": false,
+    "use_fastv": false,
     "sys_length": null,
     "img_length": null,
     "txt_layer": null,
     "img_layer": null,
     "txt_rank": null,
-    "img_rank": null
+    "img_rank": null,
+    "fast_v_sys_length": null,
+    "fast_v_image_token_length": null,
+    "fast_v_attention_rank": null,
+    "fast_v_agg_layer": null,
+    "fast_v_token_selection_method": null,
+    "fast_v_weighted_alpha": null
   }
 }

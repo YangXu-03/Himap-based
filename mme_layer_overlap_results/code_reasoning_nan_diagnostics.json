@@ -1,0 +1,3354 @@
+{
+    "category": "code_reasoning",
+    "image_file": "0.png",
+    "num_layers": 32,
+    "layers": {
+        "0": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 1.0,
+                "finite_mean": 0.0015797773376107216
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 32.0,
+                "finite_mean": 0.05055278167128563
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.5390625,
+                "finite_max": 224.0,
+                "finite_mean": 32.00570297241211
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.5390625,
+                "finite_max": 224.0,
+                "finite_mean": 32.00570297241211
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 1.6796875,
+                "finite_max": 93.5,
+                "finite_mean": 27.51565170288086
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 35.75,
+                "finite_max": 93.5,
+                "finite_mean": 56.22819900512695
+            }
+        },
+        "1": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 1.0,
+                "finite_mean": 0.0015797727974131703
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 32.0,
+                "finite_mean": 0.050552673637866974
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.34375,
+                "finite_max": 260.0,
+                "finite_mean": 32.00394821166992
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.34375,
+                "finite_max": 260.0,
+                "finite_mean": 32.00394821166992
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 1.34375,
+                "finite_max": 125.0,
+                "finite_mean": 27.02296257019043
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.75,
+                "finite_max": 125.0,
+                "finite_mean": 56.104652404785156
+            }
+        },
+        "2": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 1.0,
+                "finite_mean": 0.0015798048116266727
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 32.0,
+                "finite_mean": 0.05055289342999458
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.322265625,
+                "finite_max": 10048.0,
+                "finite_mean": 31.93999671936035
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.322265625,
+                "finite_max": 10048.0,
+                "finite_mean": 31.93999671936035
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 1.5625,
+                "finite_max": 11.5625,
+                "finite_mean": 4.109646320343018
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 4.28125,
+                "finite_max": 11.5625,
+                "finite_mean": 5.225835800170898
+            }
+        },
+        "3": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 1.0,
+                "finite_mean": 0.0015797734959051013
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 32.0,
+                "finite_mean": 0.05055423453450203
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.032470703125,
+                "finite_max": 10304.0,
+                "finite_mean": 32.038936614990234
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.032470703125,
+                "finite_max": 10304.0,
+                "finite_mean": 32.038936614990234
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.314453125,
+                "finite_max": 3.578125,
+                "finite_mean": 1.6175469160079956
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 1.9609375,
+                "finite_max": 3.578125,
+                "finite_mean": 2.228015899658203
+            }
+        },
+        "4": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 1.0,
+                "finite_mean": 0.001579810748808086
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 32.0,
+                "finite_mean": 0.05055321753025055
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.09423828125,
+                "finite_max": 9024.0,
+                "finite_mean": 31.985973358154297
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.09423828125,
+                "finite_max": 9024.0,
+                "finite_mean": 31.985973358154297
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.9609375,
+                "finite_max": 7.9375,
+                "finite_mean": 4.132568359375
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 5.84375,
+                "finite_max": 7.9375,
+                "finite_mean": 6.855377674102783
+            }
+        },
+        "5": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 1.0,
+                "finite_mean": 0.0015798175008967519
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 32.0,
+                "finite_mean": 0.050554972141981125
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.2392578125,
+                "finite_max": 8832.0,
+                "finite_mean": 32.056697845458984
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.2392578125,
+                "finite_max": 8832.0,
+                "finite_mean": 32.056697845458984
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 1.5703125,
+                "finite_max": 6.96875,
+                "finite_mean": 4.29248046875
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 5.53125,
+                "finite_max": 6.96875,
+                "finite_mean": 6.275254249572754
+            }
+        },
+        "6": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 1.0,
+                "finite_mean": 0.0015797510277479887
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 32.0,
+                "finite_mean": 0.0505526065826416
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.62109375,
+                "finite_max": 7904.0,
+                "finite_mean": 31.993040084838867
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.62109375,
+                "finite_max": 7904.0,
+                "finite_mean": 31.993040084838867
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.62109375,
+                "finite_max": 11.875,
+                "finite_mean": 7.286844730377197
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 9.3125,
+                "finite_max": 11.875,
+                "finite_mean": 10.559229850769043
+            }
+        },
+        "7": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 1.0,
+                "finite_mean": 0.0015797630185261369
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 32.0,
+                "finite_mean": 0.050553224980831146
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.8203125,
+                "finite_max": 7392.0,
+                "finite_mean": 31.982215881347656
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.8203125,
+                "finite_max": 7392.0,
+                "finite_mean": 31.982215881347656
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 1.3046875,
+                "finite_max": 18.5,
+                "finite_mean": 9.53685188293457
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 11.75,
+                "finite_max": 18.5,
+                "finite_mean": 13.951308250427246
+            }
+        },
+        "8": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 1.0,
+                "finite_mean": 0.0015797673258930445
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 32.0,
+                "finite_mean": 0.05055128410458565
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 1.2578125,
+                "finite_max": 7104.0,
+                "finite_mean": 32.006195068359375
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 1.2578125,
+                "finite_max": 7104.0,
+                "finite_mean": 32.006195068359375
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 1.5859375,
+                "finite_max": 21.0,
+                "finite_mean": 10.76999282836914
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 14.1875,
+                "finite_max": 21.0,
+                "finite_mean": 15.637354850769043
+            }
+        },
+        "9": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 1.0,
+                "finite_mean": 0.0015797748928889632
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 32.0,
+                "finite_mean": 0.050551608204841614
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 1.0078125,
+                "finite_max": 7200.0,
+                "finite_mean": 32.02228927612305
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 1.0078125,
+                "finite_max": 7200.0,
+                "finite_mean": 32.02228927612305
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 1.8515625,
+                "finite_max": 17.5,
+                "finite_mean": 10.919339179992676
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 13.0625,
+                "finite_max": 17.5,
+                "finite_mean": 14.56722354888916
+            }
+        },
+        "10": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": -3.3895313892515355e+38,
+                "finite_max": 7.15625,
+                "finite_mean": -Infinity
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 200028,
+                "finite_count": 200661,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": true,
+                "finite_min": -172.0,
+                "finite_max": 40.5,
+                "finite_mean": -91.78234100341797
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 632,
+                "finite_count": 1,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": true,
+                "finite_min": 20736.0,
+                "finite_max": 20736.0,
+                "finite_mean": 20736.0
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 632,
+                "finite_count": 1,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": true,
+                "finite_min": 20736.0,
+                "finite_max": 20736.0,
+                "finite_mean": 20736.0
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 576,
+                "finite_count": 0,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": true,
+                "finite_min": null,
+                "finite_max": null,
+                "finite_mean": null
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 172,
+                "finite_count": 0,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": true,
+                "finite_min": null,
+                "finite_max": null,
+                "finite_mean": null
+            }
+        },
+        "11": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": -3.3895313892515355e+38,
+                "finite_max": 7.15625,
+                "finite_mean": -Infinity
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 200028,
+                "finite_count": 200661,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": true,
+                "finite_min": -91.5,
+                "finite_max": 22.125,
+                "finite_mean": -47.51565170288086
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 632,
+                "finite_count": 1,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": true,
+                "finite_min": 10688.0,
+                "finite_max": 10688.0,
+                "finite_mean": 10688.0
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 632,
+                "finite_count": 1,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": true,
+                "finite_min": 10688.0,
+                "finite_max": 10688.0,
+                "finite_mean": 10688.0
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 575,
+                "finite_count": 1,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": true,
+                "finite_min": 10688.0,
+                "finite_max": 10688.0,
+                "finite_mean": 10688.0
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 171,
+                "finite_count": 1,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": true,
+                "finite_min": 10688.0,
+                "finite_max": 10688.0,
+                "finite_mean": 10688.0
+            }
+        },
+        "12": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            }
+        },
+        "13": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            }
+        },
+        "14": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            }
+        },
+        "15": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            }
+        },
+        "16": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            }
+        },
+        "17": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            }
+        },
+        "18": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            }
+        },
+        "19": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            }
+        },
+        "20": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            }
+        },
+        "21": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.0,
+                "finite_max": 0.0,
+                "finite_mean": 0.0
+            }
+        },
+        "22": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.00157928466796875,
+                "finite_max": 0.00157928466796875,
+                "finite_mean": 0.00157928466796875
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.050537109375,
+                "finite_max": 0.050537109375,
+                "finite_mean": 0.050537109375
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            }
+        },
+        "23": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.00157928466796875,
+                "finite_max": 0.00157928466796875,
+                "finite_mean": 0.00157928466796875
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.050537109375,
+                "finite_max": 0.050537109375,
+                "finite_mean": 0.050537109375
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            }
+        },
+        "24": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.00157928466796875,
+                "finite_max": 0.00157928466796875,
+                "finite_mean": 0.00157928466796875
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.050537109375,
+                "finite_max": 0.050537109375,
+                "finite_mean": 0.050537109375
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            }
+        },
+        "25": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.00157928466796875,
+                "finite_max": 0.00157928466796875,
+                "finite_mean": 0.00157928466796875
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.050537109375,
+                "finite_max": 0.050537109375,
+                "finite_mean": 0.050537109375
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            }
+        },
+        "26": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.00157928466796875,
+                "finite_max": 0.00157928466796875,
+                "finite_mean": 0.00157928466796875
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.050537109375,
+                "finite_max": 0.050537109375,
+                "finite_mean": 0.050537109375
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            }
+        },
+        "27": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.00157928466796875,
+                "finite_max": 0.00157928466796875,
+                "finite_mean": 0.00157928466796875
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.050537109375,
+                "finite_max": 0.050537109375,
+                "finite_mean": 0.050537109375
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            }
+        },
+        "28": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.00157928466796875,
+                "finite_max": 0.00157928466796875,
+                "finite_mean": 0.00157928466796875
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.050537109375,
+                "finite_max": 0.050537109375,
+                "finite_mean": 0.050537109375
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            }
+        },
+        "29": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.00157928466796875,
+                "finite_max": 0.00157928466796875,
+                "finite_mean": 0.00157928466796875
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.050537109375,
+                "finite_max": 0.050537109375,
+                "finite_mean": 0.050537109375
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            }
+        },
+        "30": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.00157928466796875,
+                "finite_max": 0.00157928466796875,
+                "finite_mean": 0.00157928466796875
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.050537109375,
+                "finite_max": 0.050537109375,
+                "finite_mean": 0.050537109375
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            }
+        },
+        "31": {
+            "layer_attn": {
+                "shape": [
+                    1,
+                    32,
+                    633,
+                    633
+                ],
+                "total": 12822048,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 12822048,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.00157928466796875,
+                "finite_max": 0.00157928466796875,
+                "finite_mean": 0.00157928466796875
+            },
+            "after_sum_heads": {
+                "shape": [
+                    1,
+                    633,
+                    633
+                ],
+                "total": 400689,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 400689,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 0.050537109375,
+                "finite_max": 0.050537109375,
+                "finite_mean": 0.050537109375
+            },
+            "after_sum_queries": {
+                "shape": [
+                    1,
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "token_importance": {
+                "shape": [
+                    633
+                ],
+                "total": 633,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 633,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "image_attn_scores": {
+                "shape": [
+                    576
+                ],
+                "total": 576,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 576,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            },
+            "top30_values": {
+                "shape": [
+                    172
+                ],
+                "total": 172,
+                "nan_count": 0,
+                "inf_count": 0,
+                "finite_count": 172,
+                "nan_ratio": 0.0,
+                "is_all_nan": false,
+                "has_any_nan": false,
+                "has_any_inf": false,
+                "finite_min": 32.0,
+                "finite_max": 32.0,
+                "finite_mean": 32.0
+            }
+        }
+    },
+    "image_tensor": {
+        "shape": [
+            1,
+            3,
+            336,
+            336
+        ],
+        "total": 338688,
+        "nan_count": 0,
+        "inf_count": 0,
+        "finite_count": 338688,
+        "nan_ratio": 0.0,
+        "is_all_nan": false,
+        "has_any_nan": false,
+        "has_any_inf": false,
+        "finite_min": -1.4853515625,
+        "finite_max": 1.505859375,
+        "finite_mean": -0.32570600509643555
+    }
+}

@@ -1,0 +1,19 @@
+{
+  "scores": {
+    "count": 153.33333333333334,
+    "color": 158.33333333333331,
+    "OCR": 132.5,
+    "existence": 190.0
+  },
+  "perception_score": 634.1666666666666,
+  "cognition_score": 0,
+  "total_score": 634.1666666666666,
+  "total_samples": 220,
+  "model_config": {
+    "use_fast_v": true,
+    "sys_length": 35,
+    "img_length": 576,
+    "attn_rank": 518,
+    "agg_layer": 14
+  }
+}

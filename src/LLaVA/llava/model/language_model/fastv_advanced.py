@@ -17,6 +17,8 @@ class FastvAdvanced_LlamaModel(LlamaModel):
     1. 'max_head': Select tokens based on attention from the head with maximum text-to-vision attention
     2. 'avg_all_heads': Select tokens based on average attention across all heads (original FastV)
     3. 'weighted_combination': Weighted combination of max head and average of other heads
+    4. 'text_weighted': Text-importance weighted token selection (uses text-to-text attention to weight text-to-vision attention)
+    5. 'text_weighted_max_head': Text-importance weighted with max head selection (finds the head with maximum weighted attention)
     """
 
     def __init__(self, config: LlamaConfig):
@@ -55,6 +57,20 @@ class FastvAdvanced_LlamaModel(LlamaModel):
         self.last_gen_kept_indices = None
         self.last_selection_metadata = {}
 
+    def _get_prompt_span(self, seq_len, sys_length, image_token_length):
+        """Return prompt span and last prompt token index."""
+        prompt_start = sys_length + image_token_length
+        prompt_end = seq_len
+
+        if prompt_start >= prompt_end:
+            raise ValueError(
+                "No prompt tokens found after system and vision tokens. "
+                "Check fast_v_sys_length and fast_v_image_token_length."
+            )
+
+        prompt_last_index = max(prompt_end - 1, 0)
+        return prompt_start, prompt_end, prompt_last_index
+
     def _select_tokens_max_head(self, attention_weights, sys_length, image_token_length, attention_rank):
         """
         Strategy 1: Select tokens based on the attention head with maximum text-to-vision attention
@@ -68,11 +84,13 @@ class FastvAdvanced_LlamaModel(LlamaModel):
         Returns:
             Indices of selected tokens (relative to image token region)
         """
-        # Get attention from last token to all positions: [batch, num_heads, seq_len]
-        last_token_attention = attention_weights[:, :, -1, :]
-        
-        # Get attention to image tokens: [batch, num_heads, image_token_length]
-        image_attention = last_token_attention[:, :, sys_length:sys_length+image_token_length]
+        # Get mean attention from ALL prompt tokens to all positions: [batch, num_heads, seq_len]
+        seq_len = attention_weights.shape[2]
+        prompt_start, prompt_end, _ = self._get_prompt_span(seq_len, sys_length, image_token_length)
+        mean_prompt_attention = attention_weights[:, :, prompt_start:prompt_end, :].mean(dim=2)
+         
+         # Get attention to image tokens: [batch, num_heads, image_token_length]
+        image_attention = mean_prompt_attention[:, :, sys_length:sys_length+image_token_length]
         
         # Sum attention across image tokens for each head: [batch, num_heads]
         head_importance = image_attention.sum(dim=-1)
@@ -116,9 +134,11 @@ class FastvAdvanced_LlamaModel(LlamaModel):
         """
         # Average attention across all heads: [batch, seq_len, seq_len]
         avg_attention = torch.mean(attention_weights, dim=1)
-        
-        # Get attention from last token to image tokens: [batch, image_token_length]
-        last_token_image_attention = avg_attention[0, -1, sys_length:sys_length+image_token_length]
+         
+        # Get mean attention from ALL prompt tokens to image tokens: [batch, image_token_length]
+        seq_len = attention_weights.shape[2]
+        prompt_start, prompt_end, _ = self._get_prompt_span(seq_len, sys_length, image_token_length)
+        last_token_image_attention = avg_attention[0, prompt_start:prompt_end, sys_length:sys_length+image_token_length].mean(dim=0)
         
         # Select top-k tokens
         if attention_rank > 0:
@@ -147,11 +167,13 @@ class FastvAdvanced_LlamaModel(LlamaModel):
         Returns:
             Indices of selected tokens (relative to image token region)
         """
-        # Get attention from last token to all positions: [batch, num_heads, seq_len]
-        last_token_attention = attention_weights[:, :, -1, :]
-        
+        # Get mean attention from ALL prompt tokens to all positions: [batch, num_heads, seq_len]
+        seq_len = attention_weights.shape[2]
+        prompt_start, prompt_end, _ = self._get_prompt_span(seq_len, sys_length, image_token_length)
+        mean_prompt_attention = attention_weights[:, :, prompt_start:prompt_end, :].mean(dim=2)
+         
         # Get attention to image tokens: [batch, num_heads, image_token_length]
-        image_attention = last_token_attention[:, :, sys_length:sys_length+image_token_length]
+        image_attention = mean_prompt_attention[:, :, sys_length:sys_length+image_token_length]
         
         # Sum attention across image tokens for each head: [batch, num_heads]
         head_importance = image_attention.sum(dim=-1)
@@ -197,6 +219,145 @@ class FastvAdvanced_LlamaModel(LlamaModel):
         
         return top_indices
 
+    def _select_tokens_text_weighted(self, attention_weights, sys_length, image_token_length, attention_rank):
+        """
+        Strategy 4: Text-importance weighted token selection
+        
+        Use text-to-text attention to compute text token importance, then weight the
+        text-to-vision attention by text importance before selecting tokens.
+        
+        Args:
+            attention_weights: [batch, num_heads, seq_len, seq_len]
+            sys_length: Starting position of image tokens
+            image_token_length: Number of image tokens
+            attention_rank: Number of tokens to keep
+            
+        Returns:
+            Indices of selected tokens (relative to image token region)
+        """
+        batch_size = attention_weights.shape[0]
+        num_heads = attention_weights.shape[1]
+        seq_len = attention_weights.shape[2]
+        
+        # Get attention matrix for prompt tokens only: [batch, num_heads, num_prompt_tokens, num_prompt_tokens]
+        prompt_start, prompt_end, _ = self._get_prompt_span(seq_len, sys_length, image_token_length)
+        prompt_attention_matrix = attention_weights[:, :, prompt_start:prompt_end, prompt_start:prompt_end]
+        
+        # Calculate importance of each token by summing its incoming attention from other prompt tokens
+        # Sum over the query dimension to see how much other tokens attend to each token
+        # text_importance: [batch, num_prompt_tokens]
+        text_importance = prompt_attention_matrix.sum(dim=2).mean(dim=1)
+        
+        # Normalize text importance (softmax to get importance distribution)
+        text_importance = torch.softmax(text_importance, dim=-1)
+        
+        # Now compute text-to-vision attention for each head
+        # Get attention from all text tokens to vision tokens: [batch, num_heads, num_text_tokens, image_token_length]
+        text_to_vision_attention = attention_weights[:, :, prompt_start:prompt_end, sys_length:sys_length+image_token_length]
+        
+        # Weight by text importance: [batch, num_heads, num_text_tokens, image_token_length]
+        # Expand text_importance: [batch, 1, num_text_tokens, 1]
+        text_importance_expanded = text_importance.unsqueeze(1).unsqueeze(-1)
+        
+        # Weighted attention: [batch, num_heads, num_text_tokens, image_token_length]
+        weighted_text_to_vision = text_to_vision_attention * text_importance_expanded
+        
+        # Sum over text tokens: [batch, num_heads, image_token_length]
+        weighted_vision_attention = weighted_text_to_vision.sum(dim=2)
+        
+        # Average across all heads: [batch, image_token_length]
+        final_vision_attention = weighted_vision_attention.mean(dim=1)
+        
+        # Select top-k tokens
+        if attention_rank > 0:
+            top_indices = final_vision_attention[0].topk(attention_rank).indices
+        else:
+            top_indices = torch.tensor([], dtype=torch.long, device=attention_weights.device)
+        
+        # Store metadata
+        self.last_selection_metadata = {
+            'method': 'text_weighted',
+            'text_importance_mean': text_importance[0].mean().item(),
+            'text_importance_std': text_importance[0].std().item(),
+        }
+        
+        return top_indices
+
+    def _select_tokens_text_weighted_max_head(self, attention_weights, sys_length, image_token_length, attention_rank):
+        """
+        Strategy 5: Text-importance weighted token selection with max head selection
+        
+        Use text-to-text attention to compute text token importance, weight the
+        text-to-vision attention for each head, find the head with maximum weighted
+        attention sum, and use that head's weighted attention for token selection.
+        
+        Args:
+            attention_weights: [batch, num_heads, seq_len, seq_len]
+            sys_length: Starting position of image tokens
+            image_token_length: Number of image tokens
+            attention_rank: Number of tokens to keep
+            
+        Returns:
+            Indices of selected tokens (relative to image token region)
+        """
+        batch_size = attention_weights.shape[0]
+        num_heads = attention_weights.shape[1]
+        seq_len = attention_weights.shape[2]
+        
+        # Get attention matrix for prompt tokens only: [batch, num_heads, num_prompt_tokens, num_prompt_tokens]
+        prompt_start, prompt_end, _ = self._get_prompt_span(seq_len, sys_length, image_token_length)
+        prompt_attention_matrix = attention_weights[:, :, prompt_start:prompt_end, prompt_start:prompt_end]
+        
+        # Calculate importance of each token by summing its incoming attention from other prompt tokens
+        # Sum over the query dimension to see how much other tokens attend to each token
+        # text_importance: [batch, num_prompt_tokens]
+        text_importance = prompt_attention_matrix.sum(dim=2).mean(dim=1)
+        
+        # Normalize text importance (softmax to get importance distribution)
+        text_importance = torch.softmax(text_importance, dim=-1)
+        
+        # Now compute text-to-vision attention for each head
+        # Get attention from all prompt tokens to vision tokens
+        text_to_vision_attention = attention_weights[:, :, prompt_start:prompt_end, sys_length:sys_length+image_token_length]
+        
+        # Weight by text importance for each head
+        # Expand text_importance: [batch, 1, num_text_tokens, 1]
+        text_importance_expanded = text_importance.unsqueeze(1).unsqueeze(-1)
+        
+        # Weighted attention: [batch, num_heads, num_text_tokens, image_token_length]
+        weighted_text_to_vision = text_to_vision_attention * text_importance_expanded
+        
+        # Sum over text tokens to get per-head weighted vision attention: [batch, num_heads, image_token_length]
+        weighted_vision_attention_per_head = weighted_text_to_vision.sum(dim=2)
+        
+        # Compute total weighted attention for each head: [batch, num_heads]
+        head_total_weighted_attention = weighted_vision_attention_per_head.sum(dim=-1)
+        
+        # Find the head with maximum total weighted attention
+        max_head_idx = head_total_weighted_attention.argmax(dim=1)
+        
+        # Get weighted vision attention from the max head: [batch, image_token_length]
+        max_head_weighted_attention = torch.stack([
+            weighted_vision_attention_per_head[b, max_head_idx[b], :] for b in range(batch_size)
+        ])
+        
+        # Select top-k tokens based on the max head's weighted attention
+        if attention_rank > 0:
+            top_indices = max_head_weighted_attention[0].topk(attention_rank).indices
+        else:
+            top_indices = torch.tensor([], dtype=torch.long, device=attention_weights.device)
+        
+        # Store metadata
+        self.last_selection_metadata = {
+            'method': 'text_weighted_max_head',
+            'max_head_idx': max_head_idx[0].item(),
+            'head_total_weighted_attention': head_total_weighted_attention[0].cpu().numpy(),
+            'text_importance_mean': text_importance[0].mean().item(),
+            'text_importance_std': text_importance[0].std().item(),
+        }
+        
+        return top_indices
+
     def _generate_attention_mask_with_selection(
         self, 
         layer_outputs, 
@@ -210,6 +371,19 @@ class FastvAdvanced_LlamaModel(LlamaModel):
         attention_rank
     ):
         """Generate attention mask based on selected token pruning strategy"""
+        
+        # Check if layer_outputs has attention output
+        if len(layer_outputs) < 2:
+            # No attention output available, fall back to no pruning
+            gen_attention_mask = torch.ones(
+                (batch_size, seq_length_with_past), 
+                dtype=torch.bool, 
+                device=inputs_embeds.device
+            )
+            gen_attention_mask = self._prepare_decoder_attention_mask(
+                gen_attention_mask, (batch_size, seq_length), inputs_embeds, past_key_values_length
+            )
+            return gen_attention_mask
         
         # Fetch attention output
         att_out = layer_outputs[1]
@@ -242,6 +416,14 @@ class FastvAdvanced_LlamaModel(LlamaModel):
             )
         elif self.token_selection_method == 'weighted_combination':
             top_indices = self._select_tokens_weighted_combination(
+                last_layer_attention, sys_length, image_token_length, attention_rank
+            )
+        elif self.token_selection_method == 'text_weighted':
+            top_indices = self._select_tokens_text_weighted(
+                last_layer_attention, sys_length, image_token_length, attention_rank
+            )
+        elif self.token_selection_method == 'text_weighted_max_head':
+            top_indices = self._select_tokens_text_weighted_max_head(
                 last_layer_attention, sys_length, image_token_length, attention_rank
             )
         else:  # 'avg_all_heads' or default
@@ -448,22 +630,31 @@ class FastvAdvanced_LlamaModel(LlamaModel):
                     new_attention_mask = attention_mask
 
                 # ==================== ADVANCED FASTV END ====================
+                
+                # For FastV: force output_attentions=True at AGG_LAYER-1 to get attention for next layer
+                USE_FAST_V = self.use_fast_v
+                AGG_LAYER = self.fast_v_agg_layer
+                need_attention = USE_FAST_V and (idx == AGG_LAYER - 1)
+                layer_output_attentions = output_attentions or need_attention
 
                 layer_outputs = decoder_layer(
                     hidden_states,
                     attention_mask=new_attention_mask,
                     position_ids=position_ids,
                     past_key_value=past_key_value,
-                    output_attentions=output_attentions,
+                    output_attentions=layer_output_attentions,
                     use_cache=use_cache,
                 )
 
             hidden_states = layer_outputs[0]
 
             if use_cache:
-                next_decoder_cache += (layer_outputs[2 if output_attentions else 1],)
+                # Check if we have cache in the output
+                cache_idx = 2 if layer_output_attentions else 1
+                if len(layer_outputs) > cache_idx:
+                    next_decoder_cache += (layer_outputs[cache_idx],)
 
-            if output_attentions:
+            if output_attentions and len(layer_outputs) > 1:
                 all_self_attns += (layer_outputs[1],)
 
         hidden_states = self.norm(hidden_states)
