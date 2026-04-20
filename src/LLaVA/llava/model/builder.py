@@ -107,7 +107,7 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
                 cfg_pretrained = AutoConfig.from_pretrained(model_path)
                 # 根据use_custom_selection选择模型类
                 if use_custom_selection:
-                    from llava.model.language_model.llava_llama import LlavaLlamaForCausalLM_CustomSelection
+                    from LLaVA.llava.model.language_model.llava_llama import LlavaLlamaForCausalLM_CustomSelection
                     model = LlavaLlamaForCausalLM_CustomSelection.from_pretrained(model_base, low_cpu_mem_usage=True, config=cfg_pretrained, **kwargs)
                 else:
                     model = LlavaLlamaForCausalLM.from_pretrained(model_base, low_cpu_mem_usage=True, config=cfg_pretrained, **kwargs)
@@ -123,7 +123,7 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
                 tokenizer = AutoTokenizer.from_pretrained(model_path, use_fast=False)
                 # 根据use_custom_selection选择模型类
                 if use_custom_selection:
-                    from llava.model.language_model.llava_llama import LlavaLlamaForCausalLM_CustomSelection
+                    from LLaVA.llava.model.language_model.llava_llama import LlavaLlamaForCausalLM_CustomSelection
                     model = LlavaLlamaForCausalLM_CustomSelection.from_pretrained(model_path, low_cpu_mem_usage=True, **kwargs)
                 else:
                     model = LlavaLlamaForCausalLM.from_pretrained(model_path, low_cpu_mem_usage=True, **kwargs)

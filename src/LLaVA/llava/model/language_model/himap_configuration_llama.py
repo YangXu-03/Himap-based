@@ -136,6 +136,13 @@ class LlamaConfig(PretrainedConfig):
         stage1_window_size = 3,
         stage1_min_keep_tokens = 64,
         stage2_keep_tokens = 128,
+        # JSD+Entropy adaptive pruning config
+        use_jsd_entropy_pruning = False,
+        jsd_entropy_sys_length = None,
+        jsd_entropy_image_token_length = None,
+        jsd_entropy_topk_percent = 10.0,
+        jsd_entropy_stage_ranges = ((2, 8), (9, 20), (21, 31)),
+        jsd_entropy_stage_prune_ratios = (0.2, 0.3, 0.5),
         **kwargs,
     ):
         self.vocab_size = vocab_size
@@ -196,6 +203,14 @@ class LlamaConfig(PretrainedConfig):
         self.stage1_window_size = stage1_window_size
         self.stage1_min_keep_tokens = stage1_min_keep_tokens
         self.stage2_keep_tokens = stage2_keep_tokens
+
+        # JSD+Entropy adaptive pruning config
+        self.use_jsd_entropy_pruning = use_jsd_entropy_pruning
+        self.jsd_entropy_sys_length = jsd_entropy_sys_length
+        self.jsd_entropy_image_token_length = jsd_entropy_image_token_length
+        self.jsd_entropy_topk_percent = jsd_entropy_topk_percent
+        self.jsd_entropy_stage_ranges = list(jsd_entropy_stage_ranges)
+        self.jsd_entropy_stage_prune_ratios = list(jsd_entropy_stage_prune_ratios)
 
         super().__init__(
             pad_token_id=pad_token_id,

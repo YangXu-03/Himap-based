@@ -1,0 +1,60 @@
+1136.png	Is the cricket bat above the batter's body? Please answer yes or no.	yes	no
+1137.png	Is the cricket bat under the batter's body Please answer yes or no.	no	no
+1168.png	Is the sea behind people in the image? Please answer yes or no.	yes	yes
+1169.png	Is the sea in front of people in the image? Please answer yes or no.	no	no
+1132.png	Is the refrigerator on the left side of the picture? Please answer yes or no.	yes	no
+1133.png	Is the refrigerator on the right side of the picture Please answer yes or no.	no	no
+1148.png	Is there a sofa in the middle of potted plants in the image? Please answer yes or no.	yes	no
+1149.png	Is there a sofa in the right side of potted plants in the image? Please answer yes or no.	no	no
+1154.png	Is the gray elephant in front of the brown elephant? Please answer yes or no.	yes	no
+1155.png	Is the brown elephant in front of the gray elephant? Please answer yes or no.	no	no
+1128.png	Are the pedestrians on the right of the bus? Please answer yes or no.	yes	yes
+1129.png	Are the pedestrians on the left of the bus? Please answer yes or no.	no	no
+1176.png	Is the light above the fire hydrant in the image? Please answer yes or no.	yes	yes
+1177.png	Is the light under the fire hydrant in the image?  Please answer yes or no.	no	yes
+1162.png	Is the trash can under the cup in the image？ Please answer yes or no.	yes	yes
+1163.png	Is the trash can above the cup in the image？ Please answer yes or no.	no	yes
+1156.png	Is the phone above the pizza in the image? Please answer yes or no.	yes	yes
+1157.png	Is the phone under the pizza in the image? Please answer yes or no.	no	no
+1122.png	Is the dog above the pool in the image? Please answer yes or no.	yes	yes
+1123.png	Is the dog under the pool in the image? Please answer yes or no.	no	yes
+1134.png	Is the light above the computer in the image? Please answer yes or no.	yes	yes
+1135.png	Is the light under the computer in the image? Please answer yes or no.	no	yes
+1174.png	Is the car on the right side of the fire hydrant in the picture? Please answer yes or no.	yes	yes
+1175.png	Is the car on the left side of the fire hydrant in the picture? Please answer yes or no.	no	no
+1166.png	Is the motorcycle on the right side of the bus? Please answer yes or no.	yes	yes
+1167.png	Is the motorcycle on the left side of the bus Please answer yes or no.	no	no
+1150.png	Is the cake on the left side of the camera? Please answer yes or no.	yes	yes
+1151.png	Is the cake on the right side of the camera? Please answer yes or no.	no	yes
+1142.png	Is the blue umbrella under the black umbrella? Please answer yes or no.	yes	yes
+1143.png	Is the blue umbrella above the black umbrella? Please answer yes or no.	no	yes
+1140.png	Is the TV on the left of the bookshelf? Please answer yes or no.	yes	yes
+1141.png	Is the TV on the right of the bookshelf? Please answer yes or no.	no	no
+1152.png	Is the clock above people? Please answer yes or no.	yes	yes
+1153.png	Is the clock under people? Please answer yes or no.	no	no
+1170.png	Is the grey sofa on the right of the TV? Please answer yes or no.	yes	yes
+1171.png	Is the grey sofa on the left of the TV? Please answer yes or no.	no	yes
+1130.png	Is the white mouse on the right of the black keyboard? Please answer yes or no.	yes	yes
+1131.png	Is the white mouse on the left of the black keyboard? Please answer yes or no.	no	no
+1164.png	Is the monitor on top of a person? Please answer yes or no.	yes	no
+1165.png	Is the monitor under the person? Please answer yes or no.	no	yes
+1158.png	Is the TV on the left of the lamp? Please answer yes or no.	yes	yes
+1159.png	Is the TV on the right of the lamp? Please answer yes or no.	no	yes
+1120.png	Is the pineapple on the left of the pot in the image? Please answer yes or no.	yes	yes
+1121.png	Is the pineapple on the right of the pot in the image? Please answer yes or no.	no	yes
+1144.png	Is the person under the kite? Please answer yes or no.	yes	yes
+1145.png	Is the person above the kite? Please answer yes or no.	no	yes
+1126.png	Is the person on the right of the train? Please answer yes or no.	yes	no
+1127.png	Is the person on the left of the train? Please answer yes or no.	no	no
+1138.png	Is the baby on the right of the dog in the image? Please answer yes or no.	yes	yes
+1139.png	Is the baby on the left of the dog in the image? Please answer yes or no.	no	no
+1172.png	Is the mirror above the TV? Please answer yes or no.	yes	no
+1173.png	Is the mirror under the TV? Please answer yes or no.	no	no
+1146.png	Is the vase on the left of the bottle? Please answer yes or no.	yes	yes
+1147.png	Is the vase on the right of the bottle? Please answer yes or no.	no	yes
+1124.png	Is the big red and black umbrella on the top of people? Please answer yes or no.	yes	yes
+1125.png	Is the big red and black umbrella under people? Please answer yes or no.	no	no
+1160.png	Is the spoon in the bowl? Please answer yes or no.	yes	yes
+1161.png	Is the spoon out of the bowl? Please answer yes or no.	no	no
+1178.png	Is the vase on the left of the toothbrush? Please answer yes or no.	yes	yes
+1179.png	Is the vase on the right of the toothbrush? Please answer yes or no.	no	yes

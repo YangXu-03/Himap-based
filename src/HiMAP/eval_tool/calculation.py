@@ -86,6 +86,7 @@ class calculate_metrics:
     def process_result(self, results_dir):
 
         model_score_dict = dict()
+        total_eval_score = 0
         for eval_type, task_name_list in eval_type_dict.items():
             print("===========", eval_type, "===========")
            
@@ -150,6 +151,9 @@ class calculate_metrics:
             for task_name, score in task_score_dict.items():
                 print("\t", task_name, " score:", score)
             print("\n")
+            total_eval_score += scores
+
+        print("Perception + Cognition total score:", total_eval_score)
         
         return 
 

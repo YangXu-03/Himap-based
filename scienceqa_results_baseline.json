@@ -1,8 +1,8 @@
 {
-  "accuracy": 0.7,
-  "avg_latency": 0.1722677755355835,
-  "total_samples": 100,
-  "correct_samples": 70,
+  "accuracy": 0.6792265741199802,
+  "avg_latency": 0.11006571328102153,
+  "total_samples": 2017,
+  "correct_samples": 1370,
   "flops_info": 1.0,
   "model_config": {
     "use_himap": false,

@@ -1,0 +1,40 @@
+1206.png	Is the word in the logo "angie's"? Please answer yes or no.	yes	no
+1207.png	Is the word in the logo "angle's"? Please answer yes or no.	no	no
+1200.png	Is the word in the logo "c'est cheese"? Please answer yes or no.	yes	yes
+1201.png	Is the word in the logo "crest cheese"? Please answer yes or no.	no	no
+1188.png	Is the word in the logo "beavertails pastry"? Please answer yes or no.	yes	yes
+1189.png	Is the word in the logo "beavertalls pastry"? Please answer yes or no.	no	yes
+1212.png	Is the word in the logo "old market sundries"? Please answer yes or no.	yes	yes
+1213.png	Is the word in the logo "old market hundreds"? Please answer yes or no.	no	no
+1202.png	Is the word in the logo "kress"? Please answer yes or no.	yes	yes
+1203.png	Is the word in the logo "dress"? Please answer yes or no.	no	no
+1204.png	Is the word in the logo "the beatles story liver pool"? Please answer yes or no.	yes	yes
+1205.png	Is the word in the logo "the beats story liver pool"? Please answer yes or no.	no	yes
+1190.png	Is the phone number in the picture "0131 555 6363"? Please answer yes or no.	yes	yes
+1191.png	Is the phone number in the picture "0137 556 6363"? Please answer yes or no.	no	no
+1214.png	Is the word in the logo "phil's market"? Please answer yes or no.	yes	no
+1215.png	Is the word in the logo "phll's market"? Please answer yes or no.	no	no
+1186.png	Is the word in the logo "fenders diner"? Please answer yes or no.	yes	yes
+1187.png	Is the word in the logo "finders diner"? Please answer yes or no.	no	no
+1218.png	Is the word in the logo "high time coffee shop"? Please answer yes or no.	yes	yes
+1219.png	Is the word in the logo "high tite cofeee shop"? Please answer yes or no.	no	no
+1210.png	Is the word in the logo "ihop restaurant"? Please answer yes or no.	yes	yes
+1211.png	Is the word in the logo "lhop restaurant"? Please answer yes or no.	no	no
+1198.png	Is the word in the logo "casa grecque restaurants"? Please answer yes or no.	yes	yes
+1199.png	Is the word in the logo "case grecque restaurants"? Please answer yes or no.	no	yes
+1184.png	Is the word in the picture "seabreeze motel"? Please answer yes or no.	yes	yes
+1185.png	Is the word in the picture "seebreeze model"? Please answer yes or no.	no	no
+1182.png	Is the word in the logo "penarth pier built 1894"? Please answer yes or no.	yes	yes
+1183.png	Is the word in the logo "penarth pies buid 1894"? Please answer yes or no.	no	no
+1192.png	Is the text in the picture "hollywood"? Please answer yes or no.	yes	yes
+1193.png	Is the text in the picture "holly word"? Please answer yes or no.	no	no
+1208.png	Is the word in the logo "shop rite"? Please answer yes or no.	yes	yes
+1209.png	Is the word in the logo "stop rite"? Please answer yes or no.	no	no
+1196.png	Is the word in the logo "hardco industrial construction"? Please answer yes or no.	yes	yes
+1197.png	Is the word in the logo "hardto industal construction"? Please answer yes or no.	no	no
+1216.png	Is the word in the logo "oldsmobile service"? Please answer yes or no.	yes	no
+1217.png	Is the word in the logo "old mobile service"? Please answer yes or no.	no	no
+1194.png	Is the word in the logo "exchange hotel"? Please answer yes or no.	yes	yes
+1195.png	Is the word in the logo "excharge hotel"? Please answer yes or no.	no	no
+1180.png	Is the word in the logo "cold drinks"? Please answer yes or no.	yes	yes
+1181.png	Is the word in the logo "cold rinks"? Please answer yes or no.	no	no

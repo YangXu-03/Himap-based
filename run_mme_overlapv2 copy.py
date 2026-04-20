@@ -133,7 +133,12 @@ if __name__ == "__main__":
     parser.add_argument("--temperature", type=float, default=0.0)
     
     # [ADDED FOR OBSERVATION EXPERIMENT] 观测实验额外参数
-    parser.add_argument("--topk-img-tokens", type=int, default=50, help="每一层提取Top-K个最重要Image Token的数量")
+    parser.add_argument(
+        "--topk-img-token-percent",
+        type=float,
+        default=50.0,
+        help="每一层提取Top-K%%最重要Image Token，K按image token总数百分比计算（例如10表示Top-10%%）",
+    )
     parser.add_argument("--heatmap-save-dir", type=str, default="./attn_heatmaps", help="注意力重叠率热力图保存路径")
     
     args = parser.parse_args()
@@ -289,6 +294,7 @@ if __name__ == "__main__":
                 
                 layer_topk_indices =[]
                 valid_layers = 0
+                selected_k = None
                 
                 for l in range(num_layers):
                     attn = prefill_attns[l][0]
@@ -307,10 +313,12 @@ if __name__ == "__main__":
                     if has_nan:
                         img_attn = torch.nan_to_num(img_attn, nan=0.0)
                         
-                    k = min(args.topk_img_tokens, img_attn.shape[0])
+                    k = max(1, int(math.ceil(img_attn.shape[0] * args.topk_img_token_percent / 100.0)))
                     if k > 0:
                         topk_vals, topk_inds = torch.topk(img_attn, k)
                         layer_topk_indices.append(set(topk_inds.tolist()))
+                        if selected_k is None:
+                            selected_k = k
                         valid_layers += 1
                         
                 if valid_layers > 0:
@@ -318,18 +326,26 @@ if __name__ == "__main__":
                     for l_i in range(valid_layers):
                         for l_j in range(valid_layers):
                             intersection_size = len(layer_topk_indices[l_i].intersection(layer_topk_indices[l_j]))
-                            overlap_matrix[l_i, l_j] = intersection_size / args.topk_img_tokens
+                            overlap_matrix[l_i, l_j] = intersection_size / selected_k
                     
                     os.makedirs(args.heatmap_save_dir, exist_ok=True)
                     plt.figure(figsize=(10, 8))
                     sns.heatmap(overlap_matrix, cmap="YlGnBu", vmin=0, vmax=1)
                     
                     safe_cat_name = str(category).replace("/", "_").replace(" ", "_")
-                    plt.title(f"Image Token Top-{args.topk_img_tokens} Overlap Rate\nCategory: {category}", fontsize=14)
+                    k_percent_str = f"{args.topk_img_token_percent:g}"
+                    safe_k_percent = k_percent_str.replace('.', 'p')
+                    plt.title(
+                        f"Image Token Top-{k_percent_str}% Overlap Rate (k={selected_k})\\nCategory: {category}",
+                        fontsize=14,
+                    )
                     plt.xlabel("Layer", fontsize=12)
                     plt.ylabel("Layer", fontsize=12)
                     
-                    save_path = os.path.join(args.heatmap_save_dir, f"heatmap_{safe_cat_name}.png")
+                    save_path = os.path.join(
+                        args.heatmap_save_dir,
+                        f"heatmap_{safe_cat_name}_top{safe_k_percent}pct.png",
+                    )
                     plt.savefig(save_path, bbox_inches='tight', dpi=150)
                     plt.close()
                     print(f"[Observation] Category: '{category}' 的热力图已保存至: {save_path}")

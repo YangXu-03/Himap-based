@@ -1,0 +1,400 @@
+1676.png	Is this picture captured in a place of greenhouse indoor? Please answer yes or no.	yes	no
+1677.png	Is this picture captured in a place of waiting room? Please answer yes or no.	no	no
+1900.png	Is this photo taken in a place of wet bar? Please answer yes or no.	yes	no
+1901.png	Is this photo taken in a place of stage indoor? Please answer yes or no.	no	yes
+2016.png	Is this picture captured in a place of clean room? Please answer yes or no.	yes	yes
+2017.png	Is this picture captured in a place of bookstore? Please answer yes or no.	no	no
+1686.png	Is this picture captured in a place of golf course? Please answer yes or no.	yes	yes
+1687.png	Is this picture captured in a place of computer room? Please answer yes or no.	no	no
+1776.png	Is this picture captured in a place of rock arch? Please answer yes or no.	yes	yes
+1777.png	Is this picture captured in a place of desert sand? Please answer yes or no.	no	no
+1954.png	Is this photo taken in a place of corridor? Please answer yes or no.	yes	yes
+1955.png	Is this photo taken in a place of jail cell? Please answer yes or no.	no	no
+1770.png	Does this image describe a place of canyon? Please answer yes or no.	yes	yes
+1771.png	Does this image describe a place of basement? Please answer yes or no.	no	no
+1746.png	Is this picture captured in a place of dining room? Please answer yes or no.	yes	yes
+1747.png	Is this picture captured in a place of ball pit? Please answer yes or no.	no	no
+1648.png	Is this picture captured in a place of forest broadleaf? Please answer yes or no.	yes	yes
+1649.png	Is this picture captured in a place of swamp? Please answer yes or no.	no	no
+1628.png	Does this image describe a place of shopping mall indoor? Please answer yes or no.	yes	no
+1629.png	Does this image describe a place of mosque outdoor? Please answer yes or no.	no	no
+1626.png	Is this photo taken in a place of baseball field? Please answer yes or no.	yes	yes
+1627.png	Is this photo taken in a place of bus station indoor? Please answer yes or no.	no	no
+1624.png	Does this image describe a place of campus? Please answer yes or no.	yes	yes
+1625.png	Does this image describe a place of sandbox? Please answer yes or no.	no	no
+1824.png	Is this picture captured in a place of beach house? Please answer yes or no.	yes	no
+1825.png	Is this picture captured in a place of alcove? Please answer yes or no.	no	no
+1802.png	Does this image describe a place of art gallery? Please answer yes or no.	yes	yes
+1803.png	Does this image describe a place of volleyball court outdoor? Please answer yes or no.	no	no
+1938.png	Does this image describe a place of bus interior? Please answer yes or no.	yes	yes
+1939.png	Does this image describe a place of butchers shop? Please answer yes or no.	no	no
+1716.png	Does this image describe a place of gymnasium indoor? Please answer yes or no.	yes	yes
+1717.png	Does this image describe a place of crevasse? Please answer yes or no.	no	no
+1678.png	Is this picture captured in a place of glacier? Please answer yes or no.	yes	yes
+1679.png	Is this picture captured in a place of fishpond? Please answer yes or no.	no	no
+1738.png	Is this photo taken in a place of nursing home? Please answer yes or no.	yes	yes
+1739.png	Is this photo taken in a place of server room? Please answer yes or no.	no	no
+2006.png	Does this image describe a place of storage room? Please answer yes or no.	yes	yes
+2007.png	Does this image describe a place of aquarium? Please answer yes or no.	no	no
+1748.png	Is this picture captured in a place of florist shop indoor? Please answer yes or no.	yes	yes
+1749.png	Is this picture captured in a place of office? Please answer yes or no.	no	no
+1810.png	Is this picture captured in a place of restaurant kitchen? Please answer yes or no.	yes	no
+1811.png	Is this picture captured in a place of garage outdoor? Please answer yes or no.	no	no
+1620.png	Is this photo taken in a place of recreation room? Please answer yes or no.	yes	yes
+1621.png	Is this photo taken in a place of runway? Please answer yes or no.	no	no
+1870.png	Does this image describe a place of schoolhouse? Please answer yes or no.	yes	yes
+1871.png	Does this image describe a place of raft? Please answer yes or no.	no	no
+1994.png	Does this image describe a place of amusement arcade? Please answer yes or no.	yes	yes
+1995.png	Does this image describe a place of medina? Please answer yes or no.	no	no
+1768.png	Is this photo taken in a place of ocean? Please answer yes or no.	yes	yes
+1769.png	Is this photo taken in a place of sauna? Please answer yes or no.	no	no
+1944.png	Does this image describe a place of river? Please answer yes or no.	yes	yes
+1945.png	Does this image describe a place of corral? Please answer yes or no.	no	no
+1914.png	Is this photo taken in a place of pub indoor? Please answer yes or no.	yes	no
+1915.png	Is this photo taken in a place of basement? Please answer yes or no.	no	no
+1706.png	Is this picture captured in a place of lecture room? Please answer yes or no.	yes	no
+1707.png	Is this picture captured in a place of aqueduct? Please answer yes or no.	no	no
+1722.png	Is this photo taken in a place of japanese garden? Please answer yes or no.	yes	yes
+1723.png	Is this photo taken in a place of pharmacy? Please answer yes or no.	no	no
+2014.png	Does this image describe a place of motel? Please answer yes or no.	yes	yes
+2015.png	Does this image describe a place of toyshop? Please answer yes or no.	no	no
+1766.png	Does this image describe a place of assembly line? Please answer yes or no.	yes	yes
+1767.png	Does this image describe a place of beer garden? Please answer yes or no.	no	no
+1772.png	Does this image describe a place of campsite? Please answer yes or no.	yes	yes
+1773.png	Does this image describe a place of elevator shaft? Please answer yes or no.	no	no
+1882.png	Is this photo taken in a place of florist shop indoor? Please answer yes or no.	yes	no
+1883.png	Is this photo taken in a place of sushi bar? Please answer yes or no.	no	no
+1822.png	Does this image describe a place of racecourse? Please answer yes or no.	yes	no
+1823.png	Does this image describe a place of galley? Please answer yes or no.	no	no
+1918.png	Is this photo taken in a place of kennel outdoor? Please answer yes or no.	yes	no
+1919.png	Is this photo taken in a place of bathroom? Please answer yes or no.	no	no
+1728.png	Is this picture captured in a place of bus interior? Please answer yes or no.	yes	yes
+1729.png	Is this picture captured in a place of mansion? Please answer yes or no.	no	no
+1688.png	Does this image describe a place of dressing room? Please answer yes or no.	yes	yes
+1689.png	Does this image describe a place of chemistry lab? Please answer yes or no.	no	no
+1922.png	Does this image describe a place of wind farm? Please answer yes or no.	yes	yes
+1923.png	Does this image describe a place of volleyball court outdoor? Please answer yes or no.	no	no
+1878.png	Is this picture captured in a place of auto factory? Please answer yes or no.	yes	no
+1879.png	Is this picture captured in a place of tree farm? Please answer yes or no.	no	no
+2002.png	Is this picture captured in a place of beach? Please answer yes or no.	yes	no
+2003.png	Is this picture captured in a place of library outdoor? Please answer yes or no.	no	no
+1912.png	Is this photo taken in a place of mountain? Please answer yes or no.	yes	yes
+1913.png	Is this photo taken in a place of formal garden? Please answer yes or no.	no	no
+1832.png	Does this image describe a place of pavilion? Please answer yes or no.	yes	yes
+1833.png	Does this image describe a place of stable? Please answer yes or no.	no	no
+1740.png	Does this image describe a place of tree house? Please answer yes or no.	yes	yes
+1741.png	Does this image describe a place of patio? Please answer yes or no.	no	no
+1796.png	Is this photo taken in a place of coffee shop? Please answer yes or no.	yes	yes
+1797.png	Is this photo taken in a place of elevator lobby? Please answer yes or no.	no	no
+1990.png	Is this photo taken in a place of skyscraper? Please answer yes or no.	yes	yes
+1991.png	Is this photo taken in a place of forest broadleaf? Please answer yes or no.	no	no
+1880.png	Does this image describe a place of street? Please answer yes or no.	yes	yes
+1881.png	Does this image describe a place of golf course? Please answer yes or no.	no	no
+1890.png	Is this picture captured in a place of alley? Please answer yes or no.	yes	yes
+1891.png	Is this picture captured in a place of boardwalk? Please answer yes or no.	no	no
+1782.png	Is this photo taken in a place of supermarket? Please answer yes or no.	yes	yes
+1783.png	Is this photo taken in a place of creek? Please answer yes or no.	no	no
+1816.png	Is this picture captured in a place of arena hockey? Please answer yes or no.	yes	yes
+1817.png	Is this picture captured in a place of ski slope? Please answer yes or no.	no	no
+1760.png	Is this picture captured in a place of zen garden? Please answer yes or no.	yes	no
+1761.png	Is this picture captured in a place of bazaar indoor? Please answer yes or no.	no	no
+1848.png	Is this picture captured in a place of library indoor? Please answer yes or no.	yes	yes
+1849.png	Is this picture captured in a place of orchard? Please answer yes or no.	no	no
+1674.png	Is this photo taken in a place of ice skating rink indoor? Please answer yes or no.	yes	no
+1675.png	Is this photo taken in a place of wind farm? Please answer yes or no.	no	no
+1828.png	Is this picture captured in a place of arena hockey? Please answer yes or no.	yes	yes
+1829.png	Is this picture captured in a place of loading dock? Please answer yes or no.	no	no
+2004.png	Does this image describe a place of chalet? Please answer yes or no.	yes	yes
+2005.png	Does this image describe a place of tower? Please answer yes or no.	no	no
+1718.png	Does this image describe a place of bedchamber? Please answer yes or no.	yes	yes
+1719.png	Does this image describe a place of music studio? Please answer yes or no.	no	no
+1960.png	Is this photo taken in a place of botanical garden? Please answer yes or no.	yes	yes
+1961.png	Is this photo taken in a place of legislative chamber? Please answer yes or no.	no	no
+1982.png	Is this picture captured in a place of galley? Please answer yes or no.	yes	yes
+1983.png	Is this picture captured in a place of physics laboratory? Please answer yes or no.	no	no
+1978.png	Does this image describe a place of department store? Please answer yes or no.	yes	yes
+1979.png	Does this image describe a place of rope bridge? Please answer yes or no.	no	no
+1806.png	Is this photo taken in a place of schoolhouse? Please answer yes or no.	yes	yes
+1807.png	Is this photo taken in a place of hangar outdoor? Please answer yes or no.	no	no
+1788.png	Is this photo taken in a place of atrium public? Please answer yes or no.	yes	yes
+1789.png	Is this photo taken in a place of subway station platform? Please answer yes or no.	no	no
+1644.png	Is this photo taken in a place of dam? Please answer yes or no.	yes	yes
+1645.png	Is this photo taken in a place of ice skating rink indoor? Please answer yes or no.	no	no
+1894.png	Does this image describe a place of army base? Please answer yes or no.	yes	yes
+1895.png	Does this image describe a place of train station platform? Please answer yes or no.	no	no
+1946.png	Does this image describe a place of gas station? Please answer yes or no.	yes	yes
+1947.png	Does this image describe a place of doorway outdoor? Please answer yes or no.	no	no
+1852.png	Does this image describe a place of ballroom? Please answer yes or no.	yes	yes
+1853.png	Does this image describe a place of corn field? Please answer yes or no.	no	no
+1948.png	Does this image describe a place of biology laboratory? Please answer yes or no.	yes	yes
+1949.png	Does this image describe a place of candy store? Please answer yes or no.	no	no
+1928.png	Does this image describe a place of pantry? Please answer yes or no.	yes	yes
+1929.png	Does this image describe a place of lighthouse? Please answer yes or no.	no	no
+1666.png	Is this picture captured in a place of greenhouse indoor? Please answer yes or no.	yes	yes
+1667.png	Is this picture captured in a place of pasture? Please answer yes or no.	no	no
+1838.png	Is this photo taken in a place of kasbah? Please answer yes or no.	yes	no
+1839.png	Is this photo taken in a place of swimming hole? Please answer yes or no.	no	no
+1758.png	Is this picture captured in a place of mausoleum? Please answer yes or no.	yes	no
+1759.png	Is this picture captured in a place of alcove? Please answer yes or no.	no	no
+1696.png	Is this picture captured in a place of booth indoor? Please answer yes or no.	yes	yes
+1697.png	Is this picture captured in a place of bazaar indoor? Please answer yes or no.	no	no
+1736.png	Is this picture captured in a place of youth hostel? Please answer yes or no.	yes	no
+1737.png	Is this picture captured in a place of landfill? Please answer yes or no.	no	no
+1632.png	Does this image describe a place of fire escape? Please answer yes or no.	yes	yes
+1633.png	Does this image describe a place of playroom? Please answer yes or no.	no	no
+1680.png	Is this photo taken in a place of rice paddy? Please answer yes or no.	yes	yes
+1681.png	Is this photo taken in a place of bus station indoor? Please answer yes or no.	no	no
+1726.png	Is this photo taken in a place of mausoleum? Please answer yes or no.	yes	yes
+1727.png	Is this photo taken in a place of train station platform? Please answer yes or no.	no	no
+1908.png	Is this photo taken in a place of entrance hall? Please answer yes or no.	yes	yes
+1909.png	Is this photo taken in a place of residential neighborhood? Please answer yes or no.	no	no
+1650.png	Is this photo taken in a place of bakery shop? Please answer yes or no.	yes	no
+1651.png	Is this photo taken in a place of doorway outdoor? Please answer yes or no.	no	no
+1930.png	Does this image describe a place of escalator indoor? Please answer yes or no.	yes	yes
+1931.png	Does this image describe a place of ice shelf? Please answer yes or no.	no	no
+1694.png	Is this picture captured in a place of elevator shaft? Please answer yes or no.	yes	no
+1695.png	Is this picture captured in a place of fire escape? Please answer yes or no.	no	yes
+1820.png	Is this picture captured in a place of industrial area? Please answer yes or no.	yes	yes
+1821.png	Is this picture captured in a place of botanical garden? Please answer yes or no.	no	no
+1804.png	Is this photo taken in a place of escalator indoor? Please answer yes or no.	yes	yes
+1805.png	Is this photo taken in a place of coffee shop? Please answer yes or no.	no	no
+1964.png	Does this image describe a place of operating room? Please answer yes or no.	yes	yes
+1965.png	Does this image describe a place of house? Please answer yes or no.	no	no
+1646.png	Is this photo taken in a place of mosque outdoor? Please answer yes or no.	yes	no
+1647.png	Is this photo taken in a place of recreation room? Please answer yes or no.	no	no
+1876.png	Is this photo taken in a place of cottage? Please answer yes or no.	yes	yes
+1877.png	Is this photo taken in a place of assembly line? Please answer yes or no.	no	no
+1858.png	Does this image describe a place of courtyard? Please answer yes or no.	yes	yes
+1859.png	Does this image describe a place of greenhouse outdoor? Please answer yes or no.	no	no
+1780.png	Is this photo taken in a place of flea market indoor? Please answer yes or no.	yes	no
+1781.png	Is this photo taken in a place of pavilion? Please answer yes or no.	no	no
+1682.png	Does this image describe a place of banquet hall? Please answer yes or no.	yes	yes
+1683.png	Does this image describe a place of storage room? Please answer yes or no.	no	no
+1712.png	Is this photo taken in a place of auto factory? Please answer yes or no.	yes	no
+1713.png	Is this photo taken in a place of motel? Please answer yes or no.	no	no
+1986.png	Is this photo taken in a place of cockpit? Please answer yes or no.	yes	yes
+1987.png	Is this photo taken in a place of gift shop? Please answer yes or no.	no	no
+1638.png	Is this photo taken in a place of martial arts gym? Please answer yes or no.	yes	no
+1639.png	Is this photo taken in a place of atrium public? Please answer yes or no.	no	no
+1754.png	Is this picture captured in a place of general store outdoor? Please answer yes or no.	yes	yes
+1755.png	Is this picture captured in a place of bazaar outdoor? Please answer yes or no.	no	yes
+1916.png	Is this photo taken in a place of motel? Please answer yes or no.	yes	yes
+1917.png	Is this photo taken in a place of chemistry lab? Please answer yes or no.	no	no
+2010.png	Is this photo taken in a place of playground? Please answer yes or no.	yes	yes
+2011.png	Is this photo taken in a place of snowfield? Please answer yes or no.	no	no
+1862.png	Is this picture captured in a place of basement? Please answer yes or no.	yes	yes
+1863.png	Is this picture captured in a place of jewelry shop? Please answer yes or no.	no	no
+1692.png	Is this picture captured in a place of playroom? Please answer yes or no.	yes	no
+1693.png	Is this picture captured in a place of pier? Please answer yes or no.	no	no
+1800.png	Is this photo taken in a place of fabric store? Please answer yes or no.	yes	yes
+1801.png	Is this photo taken in a place of beauty salon? Please answer yes or no.	no	no
+1934.png	Is this picture captured in a place of forest path? Please answer yes or no.	yes	yes
+1935.png	Is this picture captured in a place of balcony interior? Please answer yes or no.	no	no
+1844.png	Does this image describe a place of hangar indoor? Please answer yes or no.	yes	yes
+1845.png	Does this image describe a place of vegetable garden? Please answer yes or no.	no	no
+1874.png	Does this image describe a place of crosswalk? Please answer yes or no.	yes	yes
+1875.png	Does this image describe a place of snowfield? Please answer yes or no.	no	no
+1896.png	Does this image describe a place of physics laboratory? Please answer yes or no.	yes	no
+1897.png	Does this image describe a place of stage indoor? Please answer yes or no.	no	no
+1902.png	Is this picture captured in a place of pub indoor? Please answer yes or no.	yes	yes
+1903.png	Is this picture captured in a place of pier? Please answer yes or no.	no	no
+1926.png	Is this photo taken in a place of schoolhouse? Please answer yes or no.	yes	yes
+1927.png	Is this photo taken in a place of vineyard? Please answer yes or no.	no	no
+1814.png	Is this photo taken in a place of industrial area? Please answer yes or no.	yes	no
+1815.png	Is this photo taken in a place of street? Please answer yes or no.	no	yes
+1936.png	Is this picture captured in a place of baseball field? Please answer yes or no.	yes	yes
+1937.png	Is this picture captured in a place of airfield? Please answer yes or no.	no	no
+1992.png	Is this picture captured in a place of ice floe? Please answer yes or no.	yes	yes
+1993.png	Is this picture captured in a place of kindergarden classroom? Please answer yes or no.	no	no
+1786.png	Is this picture captured in a place of train interior? Please answer yes or no.	yes	no
+1787.png	Is this picture captured in a place of movie theater indoor? Please answer yes or no.	no	no
+1640.png	Is this picture captured in a place of desert sand? Please answer yes or no.	yes	yes
+1641.png	Is this picture captured in a place of burial chamber? Please answer yes or no.	no	no
+1962.png	Is this photo taken in a place of castle? Please answer yes or no.	yes	yes
+1963.png	Is this photo taken in a place of computer room? Please answer yes or no.	no	no
+1662.png	Does this image describe a place of burial chamber? Please answer yes or no.	yes	no
+1663.png	Does this image describe a place of oilrig? Please answer yes or no.	no	no
+1778.png	Is this photo taken in a place of nursing home? Please answer yes or no.	yes	no
+1779.png	Is this photo taken in a place of amusement park? Please answer yes or no.	no	no
+2012.png	Does this image describe a place of church indoor? Please answer yes or no.	yes	yes
+2013.png	Does this image describe a place of general store outdoor? Please answer yes or no.	no	no
+1798.png	Is this picture captured in a place of palace? Please answer yes or no.	yes	yes
+1799.png	Is this picture captured in a place of tree house? Please answer yes or no.	no	no
+1762.png	Does this image describe a place of bus station indoor? Please answer yes or no.	yes	no
+1763.png	Does this image describe a place of hardware store? Please answer yes or no.	no	no
+1966.png	Is this picture captured in a place of atrium public? Please answer yes or no.	yes	yes
+1967.png	Is this picture captured in a place of music studio? Please answer yes or no.	no	no
+1774.png	Is this photo taken in a place of butte? Please answer yes or no.	yes	yes
+1775.png	Is this photo taken in a place of valley? Please answer yes or no.	no	no
+1698.png	Is this picture captured in a place of zen garden? Please answer yes or no.	yes	no
+1699.png	Is this picture captured in a place of banquet hall? Please answer yes or no.	no	no
+1842.png	Is this picture captured in a place of racecourse? Please answer yes or no.	yes	yes
+1843.png	Is this picture captured in a place of basketball court indoor? Please answer yes or no.	no	no
+1864.png	Is this picture captured in a place of cliff? Please answer yes or no.	yes	yes
+1865.png	Is this picture captured in a place of sauna? Please answer yes or no.	no	no
+1836.png	Is this photo taken in a place of laundromat? Please answer yes or no.	yes	no
+1837.png	Is this photo taken in a place of archive? Please answer yes or no.	no	no
+1942.png	Does this image describe a place of wave? Please answer yes or no.	yes	yes
+1943.png	Does this image describe a place of shed? Please answer yes or no.	no	no
+1756.png	Is this photo taken in a place of legislative chamber? Please answer yes or no.	yes	no
+1757.png	Is this photo taken in a place of nursery? Please answer yes or no.	no	no
+1956.png	Is this photo taken in a place of elevator shaft? Please answer yes or no.	yes	yes
+1957.png	Is this photo taken in a place of berth? Please answer yes or no.	no	no
+1998.png	Is this photo taken in a place of hayfield? Please answer yes or no.	yes	yes
+1999.png	Is this photo taken in a place of skyscraper? Please answer yes or no.	no	no
+1684.png	Is this photo taken in a place of hospital room? Please answer yes or no.	yes	yes
+1685.png	Is this photo taken in a place of mosque outdoor? Please answer yes or no.	no	no
+1750.png	Does this image describe a place of swimming hole? Please answer yes or no.	yes	yes
+1751.png	Does this image describe a place of television room? Please answer yes or no.	no	no
+1784.png	Is this picture captured in a place of biology laboratory? Please answer yes or no.	yes	no
+1785.png	Is this picture captured in a place of lake natural? Please answer yes or no.	no	no
+1730.png	Is this picture captured in a place of church indoor? Please answer yes or no.	yes	yes
+1731.png	Is this picture captured in a place of server room? Please answer yes or no.	no	no
+1660.png	Is this picture captured in a place of temple asia? Please answer yes or no.	yes	yes
+1661.png	Is this picture captured in a place of ball pit? Please answer yes or no.	no	no
+1834.png	Is this photo taken in a place of landfill? Please answer yes or no.	yes	yes
+1835.png	Is this photo taken in a place of viaduct? Please answer yes or no.	no	no
+1950.png	Does this image describe a place of arena hockey? Please answer yes or no.	yes	yes
+1951.png	Does this image describe a place of clothing store? Please answer yes or no.	no	no
+1668.png	Is this photo taken in a place of baseball field? Please answer yes or no.	yes	yes
+1669.png	Is this photo taken in a place of art gallery? Please answer yes or no.	no	no
+1872.png	Is this picture captured in a place of gazebo exterior? Please answer yes or no.	yes	yes
+1873.png	Is this picture captured in a place of driveway? Please answer yes or no.	no	no
+1840.png	Does this image describe a place of greenhouse outdoor? Please answer yes or no.	yes	yes
+1841.png	Does this image describe a place of stage indoor? Please answer yes or no.	no	no
+1940.png	Is this picture captured in a place of beauty salon? Please answer yes or no.	yes	yes
+1941.png	Is this picture captured in a place of junkyard? Please answer yes or no.	no	no
+1714.png	Does this image describe a place of ice shelf? Please answer yes or no.	yes	yes
+1715.png	Does this image describe a place of vegetable garden? Please answer yes or no.	no	no
+1920.png	Is this picture captured in a place of islet? Please answer yes or no.	yes	yes
+1921.png	Is this picture captured in a place of recreation room? Please answer yes or no.	no	no
+1752.png	Is this picture captured in a place of railroad track? Please answer yes or no.	yes	yes
+1753.png	Is this picture captured in a place of department store? Please answer yes or no.	no	no
+1976.png	Is this photo taken in a place of bazaar outdoor? Please answer yes or no.	yes	yes
+1977.png	Is this photo taken in a place of office? Please answer yes or no.	no	no
+1968.png	Is this photo taken in a place of basement? Please answer yes or no.	yes	yes
+1969.png	Is this photo taken in a place of banquet hall? Please answer yes or no.	no	no
+1818.png	Is this picture captured in a place of television studio? Please answer yes or no.	yes	yes
+1819.png	Is this picture captured in a place of general store indoor? Please answer yes or no.	no	no
+1906.png	Is this picture captured in a place of mezzanine? Please answer yes or no.	yes	yes
+1907.png	Is this picture captured in a place of bedroom? Please answer yes or no.	no	no
+1702.png	Does this image describe a place of roof garden? Please answer yes or no.	yes	yes
+1703.png	Does this image describe a place of television room? Please answer yes or no.	no	no
+1690.png	Does this image describe a place of restaurant kitchen? Please answer yes or no.	yes	no
+1691.png	Does this image describe a place of fabric store? Please answer yes or no.	no	no
+1988.png	Is this photo taken in a place of house? Please answer yes or no.	yes	yes
+1989.png	Is this photo taken in a place of swimming hole? Please answer yes or no.	no	no
+1670.png	Is this picture captured in a place of vineyard? Please answer yes or no.	yes	no
+1671.png	Is this picture captured in a place of castle? Please answer yes or no.	no	no
+1634.png	Is this picture captured in a place of driveway? Please answer yes or no.	yes	yes
+1635.png	Is this picture captured in a place of badlands? Please answer yes or no.	no	no
+1812.png	Does this image describe a place of chemistry lab? Please answer yes or no.	yes	yes
+1813.png	Does this image describe a place of industrial area? Please answer yes or no.	no	yes
+1856.png	Does this image describe a place of cabin outdoor? Please answer yes or no.	yes	yes
+1857.png	Does this image describe a place of creek? Please answer yes or no.	no	no
+2008.png	Is this photo taken in a place of restaurant? Please answer yes or no.	yes	yes
+2009.png	Is this photo taken in a place of apartment building outdoor? Please answer yes or no.	no	yes
+1744.png	Is this picture captured in a place of auditorium? Please answer yes or no.	yes	yes
+1745.png	Is this picture captured in a place of rock arch? Please answer yes or no.	no	no
+1794.png	Is this photo taken in a place of street? Please answer yes or no.	yes	yes
+1795.png	Is this photo taken in a place of toyshop? Please answer yes or no.	no	yes
+1888.png	Does this image describe a place of lagoon? Please answer yes or no.	yes	no
+1889.png	Does this image describe a place of aquarium? Please answer yes or no.	no	no
+1846.png	Is this picture captured in a place of hangar indoor? Please answer yes or no.	yes	yes
+1847.png	Is this picture captured in a place of street? Please answer yes or no.	no	no
+1854.png	Does this image describe a place of bar? Please answer yes or no.	yes	yes
+1855.png	Does this image describe a place of tree house? Please answer yes or no.	no	no
+1656.png	Is this picture captured in a place of classroom? Please answer yes or no.	yes	yes
+1657.png	Is this picture captured in a place of wheat field? Please answer yes or no.	no	no
+1972.png	Does this image describe a place of creek? Please answer yes or no.	yes	yes
+1973.png	Does this image describe a place of youth hostel? Please answer yes or no.	no	no
+1910.png	Does this image describe a place of stable? Please answer yes or no.	yes	yes
+1911.png	Does this image describe a place of junkyard? Please answer yes or no.	no	no
+1790.png	Is this picture captured in a place of swamp? Please answer yes or no.	yes	yes
+1791.png	Is this picture captured in a place of village? Please answer yes or no.	no	no
+1866.png	Is this picture captured in a place of ice shelf? Please answer yes or no.	yes	yes
+1867.png	Is this picture captured in a place of motel? Please answer yes or no.	no	no
+1984.png	Is this picture captured in a place of train interior? Please answer yes or no.	yes	yes
+1985.png	Is this picture captured in a place of jewelry shop? Please answer yes or no.	no	no
+1884.png	Does this image describe a place of windmill? Please answer yes or no.	yes	yes
+1885.png	Does this image describe a place of lake natural? Please answer yes or no.	no	no
+1724.png	Is this photo taken in a place of archive? Please answer yes or no.	yes	yes
+1725.png	Is this photo taken in a place of village? Please answer yes or no.	no	no
+1664.png	Does this image describe a place of train station platform? Please answer yes or no.	yes	yes
+1665.png	Does this image describe a place of manufactured home? Please answer yes or no.	no	no
+1622.png	Is this photo taken in a place of chalet? Please answer yes or no.	yes	yes
+1623.png	Is this photo taken in a place of throne room? Please answer yes or no.	no	no
+1672.png	Does this image describe a place of lake natural? Please answer yes or no.	yes	yes
+1673.png	Does this image describe a place of athletic field outdoor? Please answer yes or no.	no	no
+1630.png	Is this picture captured in a place of playground? Please answer yes or no.	yes	yes
+1631.png	Is this picture captured in a place of viaduct? Please answer yes or no.	no	no
+1732.png	Is this photo taken in a place of dorm room? Please answer yes or no.	yes	no
+1733.png	Is this photo taken in a place of ski resort? Please answer yes or no.	no	no
+1980.png	Is this picture captured in a place of flea market indoor? Please answer yes or no.	yes	yes
+1981.png	Is this picture captured in a place of cliff? Please answer yes or no.	no	no
+2018.png	Does this image describe a place of airplane cabin? Please answer yes or no.	yes	no
+2019.png	Does this image describe a place of rock arch? Please answer yes or no.	no	no
+1792.png	Is this picture captured in a place of drugstore? Please answer yes or no.	yes	no
+1793.png	Is this picture captured in a place of canyon? Please answer yes or no.	no	no
+1958.png	Is this picture captured in a place of pharmacy? Please answer yes or no.	yes	no
+1959.png	Is this picture captured in a place of orchestra pit? Please answer yes or no.	no	no
+1808.png	Is this picture captured in a place of greenhouse outdoor? Please answer yes or no.	yes	yes
+1809.png	Is this picture captured in a place of archaelogical excavation? Please answer yes or no.	no	no
+1850.png	Is this photo taken in a place of bathroom? Please answer yes or no.	yes	yes
+1851.png	Is this photo taken in a place of auto factory? Please answer yes or no.	no	no
+1892.png	Is this photo taken in a place of shoe shop? Please answer yes or no.	yes	yes
+1893.png	Is this photo taken in a place of car interior? Please answer yes or no.	no	no
+1860.png	Does this image describe a place of moat water? Please answer yes or no.	yes	yes
+1861.png	Does this image describe a place of marsh? Please answer yes or no.	no	yes
+1700.png	Does this image describe a place of vegetable garden? Please answer yes or no.	yes	no
+1701.png	Does this image describe a place of parking garage indoor? Please answer yes or no.	no	no
+2000.png	Is this picture captured in a place of bowling alley? Please answer yes or no.	yes	yes
+2001.png	Is this picture captured in a place of hotel outdoor? Please answer yes or no.	no	no
+1742.png	Does this image describe a place of embassy? Please answer yes or no.	yes	no
+1743.png	Does this image describe a place of chemistry lab? Please answer yes or no.	no	no
+1904.png	Is this photo taken in a place of youth hostel? Please answer yes or no.	yes	no
+1905.png	Is this photo taken in a place of hangar indoor? Please answer yes or no.	no	yes
+1952.png	Does this image describe a place of hot spring? Please answer yes or no.	yes	no
+1953.png	Does this image describe a place of mausoleum? Please answer yes or no.	no	no
+1642.png	Does this image describe a place of cottage? Please answer yes or no.	yes	yes
+1643.png	Does this image describe a place of parking garage indoor? Please answer yes or no.	no	no
+1830.png	Does this image describe a place of general store outdoor? Please answer yes or no.	yes	no
+1831.png	Does this image describe a place of hotel room? Please answer yes or no.	no	no
+1826.png	Is this photo taken in a place of chalet? Please answer yes or no.	yes	yes
+1827.png	Is this photo taken in a place of dorm room? Please answer yes or no.	no	no
+1868.png	Is this photo taken in a place of flea market indoor? Please answer yes or no.	yes	yes
+1869.png	Is this photo taken in a place of tree house? Please answer yes or no.	no	no
+1974.png	Is this photo taken in a place of shower? Please answer yes or no.	yes	yes
+1975.png	Is this photo taken in a place of living room? Please answer yes or no.	no	no
+1886.png	Is this picture captured in a place of supermarket? Please answer yes or no.	yes	no
+1887.png	Is this picture captured in a place of orchard? Please answer yes or no.	no	no
+1970.png	Is this picture captured in a place of bowling alley? Please answer yes or no.	yes	yes
+1971.png	Is this picture captured in a place of ice skating rink outdoor? Please answer yes or no.	no	no
+1924.png	Is this picture captured in a place of barn? Please answer yes or no.	yes	yes
+1925.png	Is this picture captured in a place of lobby? Please answer yes or no.	no	no
+1764.png	Is this photo taken in a place of japanese garden? Please answer yes or no.	yes	yes
+1765.png	Is this photo taken in a place of hangar indoor? Please answer yes or no.	no	no
+1996.png	Is this picture captured in a place of swimming hole? Please answer yes or no.	yes	yes
+1997.png	Is this picture captured in a place of bedroom? Please answer yes or no.	no	no
+1654.png	Is this picture captured in a place of pizzeria? Please answer yes or no.	yes	no
+1655.png	Is this picture captured in a place of computer room? Please answer yes or no.	no	no
+1720.png	Does this image describe a place of volleyball court outdoor? Please answer yes or no.	yes	yes
+1721.png	Does this image describe a place of church indoor? Please answer yes or no.	no	no
+1710.png	Is this photo taken in a place of market indoor? Please answer yes or no.	yes	yes
+1711.png	Is this photo taken in a place of home office? Please answer yes or no.	no	no
+1658.png	Is this picture captured in a place of ice floe? Please answer yes or no.	yes	no
+1659.png	Is this picture captured in a place of closet? Please answer yes or no.	no	no
+1708.png	Does this image describe a place of lake natural? Please answer yes or no.	yes	yes
+1709.png	Does this image describe a place of beer hall? Please answer yes or no.	no	no
+1704.png	Does this image describe a place of mountain path? Please answer yes or no.	yes	yes
+1705.png	Does this image describe a place of construction site? Please answer yes or no.	no	no
+1932.png	Is this photo taken in a place of orchestra pit? Please answer yes or no.	yes	no
+1933.png	Is this photo taken in a place of burial chamber? Please answer yes or no.	no	no
+1636.png	Does this image describe a place of village? Please answer yes or no.	yes	yes
+1637.png	Does this image describe a place of underwater ocean deep? Please answer yes or no.	no	no
+1652.png	Does this image describe a place of waterfall? Please answer yes or no.	yes	yes
+1653.png	Does this image describe a place of booth indoor? Please answer yes or no.	no	no
+1898.png	Is this photo taken in a place of greenhouse indoor? Please answer yes or no.	yes	yes
+1899.png	Is this photo taken in a place of aqueduct? Please answer yes or no.	no	no
+1734.png	Is this photo taken in a place of television studio? Please answer yes or no.	yes	yes
+1735.png	Is this photo taken in a place of hunting lodge outdoor? Please answer yes or no.	no	no

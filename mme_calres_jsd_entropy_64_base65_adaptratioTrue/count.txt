@@ -1,0 +1,60 @@
+900.png	Is there a train in the picture? Please answer yes or no.	yes	yes
+901.png	Are there a total of two trains in the picture? Please answer yes or no.	no	no
+898.png	Is there a total of two people in the image? Please answer yes or no.	yes	yes
+899.png	Is there only one people in the image? Please answer yes or no.	no	no
+866.png	Is there only one dog in the image? Please answer yes or no.	yes	yes
+867.png	Is there two dogs in the image? Please answer yes or no.	no	no
+904.png	Is there a total of two dogs in the image? Please answer yes or no.	yes	yes
+905.png	Is there only one dogs in the image? Please answer yes or no.	no	no
+876.png	Are there three laptops in the picture? Please answer yes or no.	yes	yes
+877.png	Are there four laptops in the picture? Please answer yes or no.	no	no
+894.png	Is there a total of two display devices in the image? Please answer yes or no.	yes	no
+895.png	Is there only one display device in the image?  Please answer yes or no.	no	no
+896.png	Are there two bananas in the image? Please answer yes or no.	yes	yes
+897.png	Are there three bananas in the image? Please answer yes or no.	no	yes
+902.png	Are there two giraffes in this image? Please answer yes or no.	yes	yes
+903.png	Are there three giraffes in this picture? Please answer yes or no.	no	no
+908.png	Are there four people appear in this image? Please answer yes or no.	yes	no
+909.png	Are there only three people appear in this image? Please answer yes or no.	no	no
+886.png	Is there a total of three cakes in this image? Please answer yes or no.	yes	yes
+887.png	Are there only two cakes in this image? Please answer yes or no.	no	no
+912.png	Is there a total of two person appear in the image? Please answer yes or no.	yes	no
+913.png	Is there only one person appear in the image? Please answer yes or no.	no	yes
+914.png	Is there only one bowl in this image? Please answer yes or no.	yes	no
+915.png	Are there two bowls in this image? Please answer yes or no.	no	no
+864.png	Are there three people appear in this image? Please answer yes or no.	yes	yes
+865.png	Are there only two people appear in this image? Please answer yes or no.	no	yes
+884.png	Are there two bowls in this image? Please answer yes or no.	yes	yes
+885.png	Are there three bowls in this image? Please answer yes or no.	no	no
+892.png	Are there four people in this image? Please answer yes or no.	yes	no
+893.png	Are there five people in this image? Please answer yes or no.	no	no
+874.png	Are there four dogs appear in this image? Please answer yes or no.	yes	no
+875.png	Are there only three dogs appear in this image? Please answer yes or no.	no	no
+878.png	Is there only one ship in the picture? Please answer yes or no.	yes	yes
+879.png	Is there a total of two ships in the picture? Please answer yes or no.	no	yes
+880.png	Is there no person in this picture? Please answer yes or no.	yes	no
+881.png	Are there two people appear in this image? Please answer yes or no.	no	yes
+888.png	Is there a dog in the picture? Please answer yes or no.	yes	yes
+889.png	Are there a total of two dogs in the picture? Please answer yes or no.	no	no
+862.png	Are there three remotes in this image? Please answer yes or no.	yes	no
+863.png	Are there only two remotes in this image? Please answer yes or no.	no	no
+872.png	Are there three zippers in the picture? Please answer yes or no.	yes	no
+873.png	Is there a zipper in the picture? Please answer yes or no.	no	yes
+906.png	Are there two pieces of pizza in this image? Please answer yes or no.	yes	no
+907.png	Is there only one piece of pizza in this image? Please answer yes or no.	no	no
+890.png	Are there two tennis rackets in the picture? Please answer yes or no.	yes	no
+891.png	Are there only one tennis racket in the picture? Please answer yes or no.	no	no
+910.png	Are there six people appear in this image? Please answer yes or no.	yes	no
+911.png	Are there seven people appear in this image? Please answer yes or no.	no	no
+860.png	Is there only one bottle in the image? Please answer yes or no.	yes	no
+861.png	Is there two bottles in the image? Please answer yes or no.	no	yes
+870.png	Are there two horses in this image? Please answer yes or no.	yes	no
+871.png	Is there only one horse in this image? Please answer yes or no.	no	no
+916.png	Are there two toilets in the picture? Please answer yes or no.	yes	yes
+917.png	Is there only one toilet in the picture? Please answer yes or no.	no	no
+868.png	Is there only one necktie in the image? Please answer yes or no.	yes	yes
+869.png	Is there three neckties in the image? Please answer yes or no.	no	no
+918.png	Are there four people in the image? Please answer yes or no.	yes	yes
+919.png	Are there only three people in the image? Please answer yes or no.	no	yes
+882.png	Are there two bath towels in the picture? Please answer yes or no.	yes	no
+883.png	Is there only one bath towel in the picture? Please answer yes or no.	no	no

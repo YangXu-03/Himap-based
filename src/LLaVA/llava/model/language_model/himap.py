@@ -1,5 +1,7 @@
 import random
 import torch
+import math
+import numpy as np
 from typing import Tuple
 from transformers.utils import logging
 from .himap_modeling_llama import LlamaModel
@@ -40,6 +42,20 @@ class Himap_LlamaModel(LlamaModel):
         self.last_gen_attention_mask = None
         self.last_gen_kept_indices = None
         self.last_selection_metadata = {}
+
+        # Adaptive JSD+Entropy pruning parameters
+        self.use_jsd_entropy_pruning = getattr(config, 'use_jsd_entropy_pruning', False)
+        self.jsd_entropy_sys_length = getattr(config, 'jsd_entropy_sys_length', None)
+        self.jsd_entropy_img_length = getattr(config, 'jsd_entropy_img_length', None)
+        self.jsd_entropy_topk_percent = getattr(config, 'jsd_entropy_topk_percent', 10.0)
+        self.jsd_entropy_stage_ranges = getattr(config, 'jsd_entropy_stage_ranges', [(2, 8), (9, 20), (21, 31)])
+        self.jsd_entropy_stage_prune_ratios = getattr(config, 'jsd_entropy_stage_prune_ratios', [0.2, 0.3, 1.0])
+
+        # Runtime plan cache (per sample)
+        self.jsd_entropy_stage_layers = []
+        self.jsd_entropy_stage_keep_counts = []
+        self.jsd_entropy_stage_scores = []
+        self.jsd_entropy_plan_ready = False
         
     def reset_hmapv(self):
         self.hmap_v_sys_length = self.config.hmap_v_sys_length
@@ -64,6 +80,251 @@ class Himap_LlamaModel(LlamaModel):
         self.last_gen_attention_mask = None
         self.last_gen_kept_indices = None
         self.last_selection_metadata = {}
+
+    def reset_jsd_entropy_pruning(self):
+        """Reset adaptive JSD+Entropy pruning parameters and clear runtime plan."""
+        self.use_jsd_entropy_pruning = getattr(self.config, 'use_jsd_entropy_pruning', False)
+        self.jsd_entropy_sys_length = getattr(self.config, 'jsd_entropy_sys_length', None)
+        self.jsd_entropy_img_length = getattr(self.config, 'jsd_entropy_img_length', None)
+        self.jsd_entropy_topk_percent = getattr(self.config, 'jsd_entropy_topk_percent', 10.0)
+        self.jsd_entropy_stage_ranges = getattr(self.config, 'jsd_entropy_stage_ranges', [(2, 8), (9, 20), (21, 31)])
+        self.jsd_entropy_stage_prune_ratios = getattr(self.config, 'jsd_entropy_stage_prune_ratios', [0.2, 0.3, 1.0])
+
+        self.jsd_entropy_stage_layers = []
+        self.jsd_entropy_stage_keep_counts = []
+        self.jsd_entropy_stage_scores = []
+        self.jsd_entropy_plan_ready = False
+
+    def _safe_prob_from_vector(self, vec: torch.Tensor, eps: float = 1e-12) -> torch.Tensor:
+        vec = torch.nan_to_num(vec, nan=0.0, posinf=0.0, neginf=0.0)
+        vec = vec.clamp_min(0.0)
+        s = vec.sum()
+        if s.item() <= 0:
+            return torch.full_like(vec, 1.0 / max(vec.numel(), 1))
+        return (vec / s).clamp_min(eps)
+
+    def _normalized_jsd(self, p: torch.Tensor, q: torch.Tensor, eps: float = 1e-12) -> float:
+        p = self._safe_prob_from_vector(p, eps=eps)
+        q = self._safe_prob_from_vector(q, eps=eps)
+        m = 0.5 * (p + q)
+        kl_pm = torch.sum(p * torch.log((p / m).clamp_min(eps)))
+        kl_qm = torch.sum(q * torch.log((q / m).clamp_min(eps)))
+        jsd = 0.5 * (kl_pm + kl_qm)
+        return float((jsd / math.log(2.0)).item())
+
+    def _parse_stage_ranges(self, num_layers: int):
+        ranges = self.jsd_entropy_stage_ranges
+        if not isinstance(ranges, (list, tuple)):
+            return []
+
+        normalized = []
+        for item in ranges:
+            if not isinstance(item, (list, tuple)) or len(item) != 2:
+                continue
+            lo = int(item[0])
+            hi = int(item[1])
+            if hi < lo:
+                lo, hi = hi, lo
+            lo = max(0, lo)
+            hi = min(num_layers - 1, hi)
+            if lo <= hi:
+                normalized.append((lo, hi))
+        return normalized
+
+    def _plan_jsd_entropy_stages(
+        self,
+        hidden_states: torch.Tensor,
+        attention_mask: torch.Tensor,
+        position_ids: torch.Tensor,
+        inputs_embeds: torch.Tensor,
+        batch_size: int,
+        past_key_values,
+    ):
+        sys_len = int(self.jsd_entropy_sys_length or 0)
+        img_len = int(self.jsd_entropy_img_length or 0)
+        if img_len <= 0:
+            return [], [], []
+
+        layer_img_attn_vectors = []
+        layer_topk_masked_vectors = []
+        layer_topk_entropy_values = []
+
+        probe_hidden = hidden_states
+        probe_attention_mask = attention_mask
+        probe_position_ids = position_ids
+        num_layers = len(self.layers)
+        k = max(1, int(math.ceil(img_len * float(self.jsd_entropy_topk_percent) / 100.0)))
+        k = min(k, img_len)
+
+        for layer_idx, decoder_layer in enumerate(self.layers):
+            past_key_value = past_key_values[layer_idx] if past_key_values is not None else None
+            probe_outputs = decoder_layer(
+                probe_hidden,
+                attention_mask=probe_attention_mask,
+                position_ids=probe_position_ids,
+                past_key_value=past_key_value,
+                output_attentions=True,
+                use_cache=False,
+            )
+            probe_hidden = probe_outputs[0]
+
+            attn = probe_outputs[1]
+            if isinstance(attn, (tuple, list)):
+                attn = attn[0] if len(attn) > 0 else None
+
+            if attn is None:
+                img_attn = torch.zeros((img_len,), dtype=probe_hidden.dtype, device=probe_hidden.device)
+            else:
+                attn_avg = torch.mean(attn, dim=1)[0]
+                seq_len_attn = attn_avg.shape[-1]
+                img_span_end = min(sys_len + img_len, seq_len_attn)
+                local_img_len = max(img_span_end - sys_len, 0)
+                img_attn = torch.zeros((img_len,), dtype=attn_avg.dtype, device=attn_avg.device)
+                if local_img_len > 0:
+                    img_part = attn_avg[-1, sys_len:sys_len + local_img_len]
+                    img_attn[:local_img_len] = torch.nan_to_num(img_part, nan=0.0, posinf=0.0, neginf=0.0)
+
+            layer_img_attn_vectors.append(img_attn.detach().float().cpu())
+
+            topk_vals, topk_inds = torch.topk(img_attn, k)
+            topk_masked_vec = torch.zeros_like(img_attn)
+            topk_masked_vec[topk_inds] = topk_vals
+            layer_topk_masked_vectors.append(topk_masked_vec.detach().float().cpu())
+
+            topk_sum = topk_vals.sum()
+            if topk_sum.item() > 0 and k > 1:
+                topk_probs = (topk_vals / topk_sum).clamp_min(1e-12)
+                topk_entropy = float((-(topk_probs * torch.log(topk_probs)).sum() / math.log(k)).item())
+            else:
+                topk_entropy = 0.0
+            layer_topk_entropy_values.append(topk_entropy)
+
+        if len(layer_img_attn_vectors) == 0:
+            return [], [], []
+
+        topk_jsd_values = [np.nan]
+        for l in range(1, len(layer_topk_masked_vectors)):
+            topk_jsd_values.append(
+                self._normalized_jsd(layer_topk_masked_vectors[l], layer_topk_masked_vectors[l - 1])
+            )
+
+        safe_topk_jsd = np.nan_to_num(np.array(topk_jsd_values, dtype=np.float32), nan=0.0)
+        safe_topk_entropy = np.nan_to_num(np.array(layer_topk_entropy_values, dtype=np.float32), nan=0.0)
+
+        def _bidirectional_change(arr: np.ndarray) -> np.ndarray:
+            left = np.zeros_like(arr)
+            right = np.zeros_like(arr)
+            if arr.size > 1:
+                left[1:] = np.abs(arr[1:] - arr[:-1])
+                right[:-1] = np.abs(arr[1:] - arr[:-1])
+            return 0.5 * (left + right)
+
+        def _max_norm(arr: np.ndarray) -> np.ndarray:
+            m = float(np.max(arr)) if arr.size > 0 else 0.0
+            if m <= 1e-12:
+                return np.zeros_like(arr)
+            return arr / m
+
+        entropy_bi_change = _bidirectional_change(safe_topk_entropy)
+        jsd_bi_change = _bidirectional_change(safe_topk_jsd)
+        combined_change_score = 0.5 * _max_norm(jsd_bi_change) + 0.5 * _max_norm(entropy_bi_change)
+
+        stage_layers = []
+        stage_scores = []
+        for lo, hi in self._parse_stage_ranges(num_layers):
+            segment_idx = np.arange(lo, hi + 1)
+            segment_scores = combined_change_score[segment_idx]
+            best_local = int(np.argmax(segment_scores))
+            best_layer = int(segment_idx[best_local])
+            stage_layers.append(best_layer)
+            stage_scores.append(float(combined_change_score[best_layer]))
+
+        if len(stage_layers) == 0:
+            return [], [], []
+
+        # Ensure strictly non-decreasing layers while preserving order.
+        for i in range(1, len(stage_layers)):
+            stage_layers[i] = max(stage_layers[i], stage_layers[i - 1])
+
+        ratios = self.jsd_entropy_stage_prune_ratios
+        if not isinstance(ratios, (list, tuple)):
+            ratios = [0.2, 0.3, 1.0]
+        if len(ratios) < len(stage_layers):
+            ratios = list(ratios) + [1.0] * (len(stage_layers) - len(ratios))
+
+        stage_keep_counts = []
+        cumulative_pruned = 0.0
+        for i in range(len(stage_layers)):
+            ratio_i = float(ratios[i])
+            if ratio_i >= 1.0:
+                cumulative_pruned = 1.0
+            else:
+                cumulative_pruned = min(1.0, cumulative_pruned + max(0.0, ratio_i))
+            keep_count = int(round(img_len * (1.0 - cumulative_pruned)))
+            keep_count = max(0, min(img_len, keep_count))
+            stage_keep_counts.append(keep_count)
+
+        return stage_layers, stage_keep_counts, stage_scores
+
+    def _prune_image_tokens_by_last_attention(
+        self,
+        hidden_states: torch.Tensor,
+        position_ids: torch.Tensor,
+        inputs_embeds: torch.Tensor,
+        batch_size: int,
+        sys_length: int,
+        num_text_tokens: int,
+        target_keep_img_tokens: int,
+        prev_layer_attn,
+    ):
+        current_seq_length = hidden_states.shape[1]
+        current_img_len = max(current_seq_length - sys_length - num_text_tokens, 0)
+        keep_img_tokens = max(0, min(int(target_keep_img_tokens), current_img_len))
+
+        if current_img_len == 0 or keep_img_tokens == current_img_len:
+            new_attention_mask = self._prepare_decoder_attention_mask(
+                None, (batch_size, current_seq_length), inputs_embeds, 0
+            )
+            return hidden_states, position_ids, new_attention_mask
+
+        if keep_img_tokens == 0:
+            selected_img_indices = torch.tensor([], dtype=torch.long, device=hidden_states.device)
+        else:
+            attn = prev_layer_attn
+            if isinstance(attn, (tuple, list)):
+                attn = attn[0] if len(attn) > 0 else None
+
+            if attn is None:
+                selected_img_indices = torch.arange(keep_img_tokens, device=hidden_states.device)
+            else:
+                attn_avg = torch.mean(attn, dim=1)[0]
+                image_scores = attn_avg[-1, sys_length:sys_length + current_img_len]
+                image_scores = torch.nan_to_num(image_scores, nan=0.0, posinf=0.0, neginf=0.0)
+                selected_img_indices = image_scores.topk(keep_img_tokens).indices
+
+        global_img_indices = selected_img_indices + sys_length
+        text_start = sys_length + current_img_len
+        text_indices = (
+            torch.arange(text_start, current_seq_length, device=hidden_states.device)
+            if text_start < current_seq_length
+            else torch.tensor([], dtype=torch.long, device=hidden_states.device)
+        )
+        keep_indices = torch.cat(
+            (
+                torch.arange(sys_length, device=hidden_states.device),
+                global_img_indices,
+                text_indices,
+            )
+        ).sort().values
+
+        hidden_states = hidden_states[:, keep_indices, :]
+        base_pos = position_ids.squeeze(0)
+        position_ids = base_pos[keep_indices].unsqueeze(0)
+        new_seq_length = keep_indices.shape[0]
+        new_attention_mask = self._prepare_decoder_attention_mask(
+            None, (batch_size, new_seq_length), inputs_embeds, 0
+        )
+        return hidden_states, position_ids, new_attention_mask
         
     def _select_tokens_fastv(self, attention_weights, sys_length, image_token_length, attention_rank):
         """Select tokens based on the configured strategy"""
@@ -249,6 +510,7 @@ class Himap_LlamaModel(LlamaModel):
                     return val if val is not None else default
 
                 USE_HMAP_V = bool(self.use_hmap_v)
+                USE_JSD_ENTROPY = bool(self.use_jsd_entropy_pruning)
                 SYS_LENGTH = _nz(self.hmap_v_sys_length)
                 IMG_LENGTH = _nz(self.hmap_v_img_length)
                 TXT_LAYER = _nz(self.hmap_v_attn_txt_layer)
@@ -256,6 +518,36 @@ class Himap_LlamaModel(LlamaModel):
                 IMG_LAYER = _nz(self.hmap_v_attn_img_layer)
                 IMG_ATTN_RANK = _nz(self.hmap_v_attn_img_rank)
                 CUT_OFF_LAYER = _nz(self.cut_off_layer)
+
+                SYS_LENGTH_JE = _nz(self.jsd_entropy_sys_length)
+                IMG_LENGTH_JE = _nz(self.jsd_entropy_img_length)
+
+                if USE_JSD_ENTROPY and (not self.jsd_entropy_plan_ready) and (past_key_values is None):
+                    if IMG_LENGTH_JE > 0:
+                        plan_layers, plan_keep_counts, plan_scores = self._plan_jsd_entropy_stages(
+                            hidden_states=hidden_states,
+                            attention_mask=attention_mask,
+                            position_ids=position_ids,
+                            inputs_embeds=inputs_embeds,
+                            batch_size=batch_size,
+                            past_key_values=past_key_values,
+                        )
+                        self.jsd_entropy_stage_layers = plan_layers
+                        self.jsd_entropy_stage_keep_counts = plan_keep_counts
+                        self.jsd_entropy_stage_scores = plan_scores
+                        self.jsd_entropy_plan_ready = len(plan_layers) > 0
+                    else:
+                        self.jsd_entropy_stage_layers = []
+                        self.jsd_entropy_stage_keep_counts = []
+                        self.jsd_entropy_stage_scores = []
+                        self.jsd_entropy_plan_ready = False
+
+                stage_map = {}
+                if USE_JSD_ENTROPY and self.jsd_entropy_plan_ready:
+                    for layer_id, keep_count in zip(self.jsd_entropy_stage_layers, self.jsd_entropy_stage_keep_counts):
+                        stage_map[int(layer_id)] = int(keep_count)
+                need_force_attn = (idx + 1) in stage_map
+                layer_output_attentions = bool(output_attentions or need_force_attn)
 
                 if TXT_LAYER:
                     assert TXT_LAYER > 0, "txt attn layer should be larger than 0"
@@ -265,7 +557,32 @@ class Himap_LlamaModel(LlamaModel):
                     assert TXT_ATTN_RANK >= IMG_ATTN_RANK, "txt attn rank should be larger than img attn rank"
 
                 # IMAGE TOKEN PRUNING BEGIN --HiMAP TECHNIQUE 
-                if USE_HMAP_V:
+                if USE_JSD_ENTROPY:
+                    if idx in stage_map:
+                        prev_attn = None
+                        if 'layer_outputs' in locals() and isinstance(layer_outputs, (tuple, list)) and len(layer_outputs) > 1:
+                            prev_attn = layer_outputs[1]
+                        hidden_states, position_ids, new_attention_mask = self._prune_image_tokens_by_last_attention(
+                            hidden_states=hidden_states,
+                            position_ids=position_ids,
+                            inputs_embeds=inputs_embeds,
+                            batch_size=batch_size,
+                            sys_length=SYS_LENGTH_JE,
+                            num_text_tokens=num_text_tokens,
+                            target_keep_img_tokens=stage_map[idx],
+                            prev_layer_attn=prev_attn,
+                        )
+                    else:
+                        current_pruned_seq_length = hidden_states.shape[1]
+                        if current_pruned_seq_length == seq_length_with_past:
+                            new_attention_mask = attention_mask
+                        else:
+                            new_attention_mask = self._prepare_decoder_attention_mask(
+                                None, (batch_size, current_pruned_seq_length), inputs_embeds, 0
+                            )
+
+                # IMAGE TOKEN PRUNING BEGIN --HiMAP TECHNIQUE 
+                elif USE_HMAP_V:
                     
                     # Before image tokens pruning
                     if idx < TXT_LAYER:
@@ -528,17 +845,17 @@ class Himap_LlamaModel(LlamaModel):
                     attention_mask=new_attention_mask,
                     position_ids=position_ids,
                     past_key_value=past_key_value,
-                    output_attentions=output_attentions,
+                    output_attentions=layer_output_attentions,
                     use_cache=use_cache,
                 )
 
             hidden_states = layer_outputs[0]
 
             if use_cache:
-                next_decoder_cache += (layer_outputs[2 if output_attentions else 1],)
+                next_decoder_cache += (layer_outputs[2 if layer_output_attentions else 1],)
 
             # change the code to make llama model will not save attention scores
-            if output_attentions:
+            if output_attentions and layer_output_attentions:
                 all_self_attns += (layer_outputs[1],)
                 # all_self_attns = None
 

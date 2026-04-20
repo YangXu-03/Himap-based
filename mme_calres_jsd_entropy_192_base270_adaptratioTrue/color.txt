@@ -1,0 +1,60 @@
+960.png	Is there a red brick building in the image? Please answer yes or no.	yes	yes
+961.png	Is there a yellow brick building in the image? Please answer yes or no.	no	yes
+934.png	Is there a white plate in the image? Please answer yes or no.	yes	yes
+935.png	Is there a yellow plate in the image? Please answer yes or no.	no	no
+968.png	Is there a blue court in the image? Please answer yes or no.	yes	yes
+969.png	Is there a purple court in the image? Please answer yes or no.	no	yes
+928.png	Is there a brown and white animal in the image? Please answer yes or no.	yes	yes
+929.png	Is there a green and red animal in the image? Please answer yes or no.	no	no
+970.png	Are there yellow poles in the image? Please answer yes or no.	yes	no
+971.png	Are there blue poles in the image? Please answer yes or no.	no	no
+976.png	Is there a brown dog in the image? Please answer yes or no.	yes	yes
+977.png	Is there a black dog in the image? Please answer yes or no.	no	no
+958.png	Is there a black and white toilet in the image? Please answer yes or no.	yes	yes
+959.png	Is there a red and white toilet in the image? Please answer yes or no.	no	no
+926.png	Is there a red coat in the image? Please answer yes or no.	yes	yes
+927.png	Is there a yellow coat in the image? Please answer yes or no.	no	no
+922.png	Is there a white plate in the image? Please answer yes or no.	yes	yes
+923.png	Is there a yellow plate in the image? Please answer yes or no.	no	no
+974.png	Is there a black cat in the image? Please answer yes or no.	yes	yes
+975.png	Is there a brown cat in the image? Please answer yes or no.	no	no
+930.png	Is there a green hat in the image? Please answer yes or no.	yes	yes
+931.png	Is there a red hat in the image? Please answer yes or no.	no	no
+954.png	Is there a gray wall in the image? Please answer yes or no.	yes	yes
+955.png	Is there a red wall in the image? Please answer yes or no.	no	no
+964.png	Is there a brown giraffe in the image?  Please answer yes or no.	yes	no
+965.png	Is there a black giraffe in the image? Please answer yes or no.	no	no
+948.png	Are there any red shoes in the image? Please answer yes or no.	yes	yes
+949.png	Are there any yellow shoes in the image? Please answer yes or no.	no	no
+978.png	Are there a white dish in the image? Please answer yes or no.	yes	yes
+979.png	Are there a green dish in the image? Please answer yes or no.	no	no
+920.png	Is there a blue and yellow fire hydrant in the image? Please answer yes or no.	yes	yes
+921.png	Is there a blue and orange fire hydrant in the image? Please answer yes or no.	no	no
+952.png	Is there a red bicycle with white handlebars in the image? Please answer yes or no.	yes	yes
+953.png	Is there a red bicycle with black handlebars in the image? Please answer yes or no.	no	yes
+956.png	Is there a blue bus in the image? Please answer yes or no.	yes	yes
+957.png	Is there a orange bus in the image? Please answer yes or no.	no	no
+966.png	Is there a white bus in the image?  Please answer yes or no.	yes	yes
+967.png	Is there a red bus in the image?  Please answer yes or no.	no	no
+942.png	Is there a red boat in the image? Please answer yes or no.	yes	yes
+943.png	Is there a gray boat in the image? Please answer yes or no.	no	no
+944.png	Is there a brown and black dog in the image? Please answer yes or no.	yes	yes
+945.png	Is there a brown and white dog in the image? Please answer yes or no.	no	yes
+936.png	Is there a man wearing a red shirt in the image? Please answer yes or no.	yes	yes
+937.png	Is there a man wearing a white shirt in the image? Please answer yes or no.	no	no
+932.png	Is there a skateboard with red wheels in the image? Please answer yes or no.	yes	yes
+933.png	Is there a skateboard with black wheels in the image? Please answer yes or no.	no	no
+962.png	Is there a white bird in the image? Please answer yes or no.	yes	yes
+963.png	Is there a yellow bird in the image? Please answer yes or no.	no	yes
+924.png	Are there any green beans in the image? Please answer yes or no.	yes	yes
+925.png	Are there any orange beans in the image? Please answer yes or no.	no	no
+972.png	Are there any red flowers in the image? Please answer yes or no.	yes	no
+973.png	Are there any green flowers in the image? Please answer yes or no.	no	no
+940.png	Is there a living room painted yellow in the image? Please answer yes or no.	yes	yes
+941.png	Is there a living room painted black in the image? Please answer yes or no.	no	no
+950.png	Is there a purple bottle in the image? Please answer yes or no.	yes	yes
+951.png	Is there a white bottle in the image? Please answer yes or no.	no	no
+946.png	Is there a red scarf in the image?  Please answer yes or no.	yes	yes
+947.png	Is there a brown scarf in the image?  Please answer yes or no.	no	no
+938.png	Is there a red couch in the image? Please answer yes or no.	yes	yes
+939.png	Is there a black couch in the image? Please answer yes or no.	no	no

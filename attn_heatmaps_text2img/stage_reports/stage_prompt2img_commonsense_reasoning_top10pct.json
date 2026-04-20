@@ -1,0 +1,232 @@
+{
+  "category": "commonsense_reasoning",
+  "topk_img_token_percent": 10.0,
+  "selected_k": 58,
+  "stage_min_layers": 2,
+  "stage_boundary_penalty": 0.07591546025443471,
+  "summary": {
+    "num_layers": 32,
+    "num_stages": 16,
+    "stages": [
+      {
+        "stage_id": 1,
+        "layer_start": 0,
+        "layer_end": 1,
+        "num_layers": 2,
+        "intra_overlap_mean": 0.7413793103448276
+      },
+      {
+        "stage_id": 2,
+        "layer_start": 2,
+        "layer_end": 3,
+        "num_layers": 2,
+        "intra_overlap_mean": 0.896551724137931
+      },
+      {
+        "stage_id": 3,
+        "layer_start": 4,
+        "layer_end": 5,
+        "num_layers": 2,
+        "intra_overlap_mean": 0.7931034482758621
+      },
+      {
+        "stage_id": 4,
+        "layer_start": 6,
+        "layer_end": 7,
+        "num_layers": 2,
+        "intra_overlap_mean": 0.9137931034482759
+      },
+      {
+        "stage_id": 5,
+        "layer_start": 8,
+        "layer_end": 9,
+        "num_layers": 2,
+        "intra_overlap_mean": 0.7586206896551724
+      },
+      {
+        "stage_id": 6,
+        "layer_start": 10,
+        "layer_end": 11,
+        "num_layers": 2,
+        "intra_overlap_mean": 0.8620689655172413
+      },
+      {
+        "stage_id": 7,
+        "layer_start": 12,
+        "layer_end": 13,
+        "num_layers": 2,
+        "intra_overlap_mean": 0.8103448275862069
+      },
+      {
+        "stage_id": 8,
+        "layer_start": 14,
+        "layer_end": 15,
+        "num_layers": 2,
+        "intra_overlap_mean": 0.8793103448275862
+      },
+      {
+        "stage_id": 9,
+        "layer_start": 16,
+        "layer_end": 17,
+        "num_layers": 2,
+        "intra_overlap_mean": 0.896551724137931
+      },
+      {
+        "stage_id": 10,
+        "layer_start": 18,
+        "layer_end": 19,
+        "num_layers": 2,
+        "intra_overlap_mean": 0.8620689655172413
+      },
+      {
+        "stage_id": 11,
+        "layer_start": 20,
+        "layer_end": 21,
+        "num_layers": 2,
+        "intra_overlap_mean": 0.8103448275862069
+      },
+      {
+        "stage_id": 12,
+        "layer_start": 22,
+        "layer_end": 23,
+        "num_layers": 2,
+        "intra_overlap_mean": 0.8275862068965517
+      },
+      {
+        "stage_id": 13,
+        "layer_start": 24,
+        "layer_end": 25,
+        "num_layers": 2,
+        "intra_overlap_mean": 0.6896551724137931
+      },
+      {
+        "stage_id": 14,
+        "layer_start": 26,
+        "layer_end": 27,
+        "num_layers": 2,
+        "intra_overlap_mean": 0.5862068965517241
+      },
+      {
+        "stage_id": 15,
+        "layer_start": 28,
+        "layer_end": 29,
+        "num_layers": 2,
+        "intra_overlap_mean": 0.7931034482758621
+      },
+      {
+        "stage_id": 16,
+        "layer_start": 30,
+        "layer_end": 31,
+        "num_layers": 2,
+        "intra_overlap_mean": 0.7586206896551724
+      }
+    ],
+    "boundaries": [
+      {
+        "split_after_layer": 1,
+        "left_stage": 1,
+        "right_stage": 2,
+        "adjacent_overlap": 0.8103448275862069,
+        "boundary_strength": 0.18965517241379315
+      },
+      {
+        "split_after_layer": 3,
+        "left_stage": 2,
+        "right_stage": 3,
+        "adjacent_overlap": 0.8793103448275862,
+        "boundary_strength": 0.12068965517241381
+      },
+      {
+        "split_after_layer": 5,
+        "left_stage": 3,
+        "right_stage": 4,
+        "adjacent_overlap": 0.8275862068965517,
+        "boundary_strength": 0.1724137931034483
+      },
+      {
+        "split_after_layer": 7,
+        "left_stage": 4,
+        "right_stage": 5,
+        "adjacent_overlap": 0.8793103448275862,
+        "boundary_strength": 0.12068965517241381
+      },
+      {
+        "split_after_layer": 9,
+        "left_stage": 5,
+        "right_stage": 6,
+        "adjacent_overlap": 0.7586206896551724,
+        "boundary_strength": 0.24137931034482762
+      },
+      {
+        "split_after_layer": 11,
+        "left_stage": 6,
+        "right_stage": 7,
+        "adjacent_overlap": 0.8103448275862069,
+        "boundary_strength": 0.18965517241379315
+      },
+      {
+        "split_after_layer": 13,
+        "left_stage": 7,
+        "right_stage": 8,
+        "adjacent_overlap": 0.8620689655172413,
+        "boundary_strength": 0.13793103448275867
+      },
+      {
+        "split_after_layer": 15,
+        "left_stage": 8,
+        "right_stage": 9,
+        "adjacent_overlap": 0.8275862068965517,
+        "boundary_strength": 0.1724137931034483
+      },
+      {
+        "split_after_layer": 17,
+        "left_stage": 9,
+        "right_stage": 10,
+        "adjacent_overlap": 0.8448275862068966,
+        "boundary_strength": 0.15517241379310343
+      },
+      {
+        "split_after_layer": 19,
+        "left_stage": 10,
+        "right_stage": 11,
+        "adjacent_overlap": 0.8275862068965517,
+        "boundary_strength": 0.1724137931034483
+      },
+      {
+        "split_after_layer": 21,
+        "left_stage": 11,
+        "right_stage": 12,
+        "adjacent_overlap": 0.7413793103448276,
+        "boundary_strength": 0.2586206896551724
+      },
+      {
+        "split_after_layer": 23,
+        "left_stage": 12,
+        "right_stage": 13,
+        "adjacent_overlap": 0.7241379310344828,
+        "boundary_strength": 0.27586206896551724
+      },
+      {
+        "split_after_layer": 25,
+        "left_stage": 13,
+        "right_stage": 14,
+        "adjacent_overlap": 0.7586206896551724,
+        "boundary_strength": 0.24137931034482762
+      },
+      {
+        "split_after_layer": 27,
+        "left_stage": 14,
+        "right_stage": 15,
+        "adjacent_overlap": 0.6896551724137931,
+        "boundary_strength": 0.31034482758620685
+      },
+      {
+        "split_after_layer": 29,
+        "left_stage": 15,
+        "right_stage": 16,
+        "adjacent_overlap": 0.7241379310344828,
+        "boundary_strength": 0.27586206896551724
+      }
+    ]
+  }
+}

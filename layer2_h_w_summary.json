@@ -1,0 +1,42 @@
+{
+  "layer_index": 2,
+  "num_samples_per_dataset": 100,
+  "results": {
+    "mme": {
+      "dataset": "mme",
+      "requested_samples": 100,
+      "valid_samples": 100,
+      "H_vis_mean_layer2": 0.6148688307404518,
+      "H_vis_std_layer2": 0.028439018656538556,
+      "JSD_mean_layer2": 0.32669531151652337,
+      "W_mean_layer2": 0.6733046884834767,
+      "W_std_layer2": 0.04111291090919166
+    },
+    "scienceqa": {
+      "dataset": "scienceqa",
+      "requested_samples": 100,
+      "valid_samples": 100,
+      "H_vis_mean_layer2": 0.6040750154852867,
+      "H_vis_std_layer2": 0.03370348443454688,
+      "JSD_mean_layer2": 0.3475974258780479,
+      "W_mean_layer2": 0.652402574121952,
+      "W_std_layer2": 0.03552565257850718
+    },
+    "textvqa": {
+      "dataset": "textvqa",
+      "requested_samples": 100,
+      "valid_samples": 100,
+      "H_vis_mean_layer2": 0.6418258720636367,
+      "H_vis_std_layer2": 0.0283652015266468,
+      "JSD_mean_layer2": 0.32250760301947595,
+      "W_mean_layer2": 0.6774923969805241,
+      "W_std_layer2": 0.03921470480579307
+    }
+  },
+  "average_across_datasets": {
+    "H_vis_mean": 0.6202565727631252,
+    "H_vis_std_mean": 0.030169234872577413,
+    "W_mean": 0.6677332198619843,
+    "W_std_mean": 0.038617756097830636
+  }
+}

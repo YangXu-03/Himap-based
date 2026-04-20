@@ -1,24 +1,6 @@
 {
-  "scores": {
-    "code_reasoning": 77.5,
-    "artwork": 122.25,
-    "celebrity": 137.94117647058823,
-    "numerical_calculation": 45.0,
-    "text_translation": 65.0,
-    "count": 153.33333333333334,
-    "color": 158.33333333333331,
-    "commonsense_reasoning": 113.57142857142856,
-    "position": 138.33333333333331,
-    "OCR": 132.5,
-    "landmark": 161.75,
-    "scene": 154.0,
-    "existence": 190.0,
-    "posters": 130.6122448979592
-  },
-  "perception_score": 1479.0534213685473,
-  "cognition_score": 301.07142857142856,
-  "total_score": 1780.1248499399758,
   "total_samples": 2374,
+  "calculation_results_dir": "/root/nfs/code/HiMAP/mme_calc_inputs_baseline",
   "model_config": {
     "use_fast_v": false,
     "sys_length": null,

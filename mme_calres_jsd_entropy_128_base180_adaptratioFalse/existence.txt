@@ -1,0 +1,60 @@
+2052.png	Is there a train in this image? Please answer yes or no.	yes	yes
+2053.png	Is there a bed in this image? Please answer yes or no.	no	no
+2042.png	Is there a baseball bat in this image? Please answer yes or no.	yes	yes
+2043.png	Is there a giraffe in this image? Please answer yes or no.	no	no
+2040.png	Is there a elephant in this image? Please answer yes or no.	yes	yes
+2041.png	Is there a hair drier in this image? Please answer yes or no.	no	no
+2064.png	Is there a motorcycle in this image? Please answer yes or no.	yes	yes
+2065.png	Is there a airplane in this image? Please answer yes or no.	no	no
+2032.png	Is there a skateboard in this image? Please answer yes or no.	yes	yes
+2033.png	Is there a spoon in this image? Please answer yes or no.	no	no
+2046.png	Is there a person in this image? Please answer yes or no.	yes	yes
+2047.png	Is there a sink in this image? Please answer yes or no.	no	no
+2024.png	Is there a bottle in this image? Please answer yes or no.	yes	no
+2025.png	Is there a scissors in this image? Please answer yes or no.	no	no
+2038.png	Is there a bottle in this image? Please answer yes or no.	yes	no
+2039.png	Is there a apple in this image? Please answer yes or no.	no	no
+2056.png	Is there a car in this image? Please answer yes or no.	yes	yes
+2057.png	Is there a fork in this image? Please answer yes or no.	no	no
+2072.png	Is there a spoon in this image? Please answer yes or no.	yes	no
+2073.png	Is there a donut in this image? Please answer yes or no.	no	no
+2022.png	Is there a bus in this image? Please answer yes or no.	yes	yes
+2023.png	Is there a cow in this image? Please answer yes or no.	no	no
+2048.png	Is there a fire hydrant in this image? Please answer yes or no.	yes	yes
+2049.png	Is there a person in this image? Please answer yes or no.	no	no
+2060.png	Is there a backpack in this image? Please answer yes or no.	yes	yes
+2061.png	Is there a microwave in this image? Please answer yes or no.	no	no
+2034.png	Is there a bicycle in this image? Please answer yes or no.	yes	yes
+2035.png	Is there a apple in this image? Please answer yes or no.	no	no
+2028.png	Is there a chair in this image? Please answer yes or no.	yes	no
+2029.png	Is there a airplane in this image? Please answer yes or no.	no	no
+2036.png	Is there a car in this image? Please answer yes or no.	yes	yes
+2037.png	Is there a kite in this image? Please answer yes or no.	no	no
+2030.png	Is there a skateboard in this image? Please answer yes or no.	yes	yes
+2031.png	Is there a banana in this image? Please answer yes or no.	no	no
+2044.png	Is there a sports ball in this image? Please answer yes or no.	yes	no
+2045.png	Is there a horse in this image? Please answer yes or no.	no	no
+2020.png	Is there a laptop in this image? Please answer yes or no.	yes	yes
+2021.png	Is there a potted plant in this image? Please answer yes or no.	no	no
+2050.png	Is there a cake in this image? Please answer yes or no.	yes	yes
+2051.png	Is there a tie in this image? Please answer yes or no.	no	no
+2078.png	Is there a refrigerator in this image? Please answer yes or no.	yes	yes
+2079.png	Is there a donut in this image? Please answer yes or no.	no	no
+2068.png	Is there a truck in this image? Please answer yes or no.	yes	yes
+2069.png	Is there a book in this image? Please answer yes or no.	no	no
+2070.png	Is there a car in this image? Please answer yes or no.	yes	yes
+2071.png	Is there a cell phone in this image? Please answer yes or no.	no	no
+2026.png	Is there a umbrella in this image? Please answer yes or no.	yes	no
+2027.png	Is there a horse in this image? Please answer yes or no.	no	no
+2054.png	Is there a chair in this image? Please answer yes or no.	yes	yes
+2055.png	Is there a baseball bat in this image? Please answer yes or no.	no	no
+2076.png	Is there a clock in this image? Please answer yes or no.	yes	yes
+2077.png	Is there a bottle in this image? Please answer yes or no.	no	no
+2062.png	Is there a bottle in this image? Please answer yes or no.	yes	yes
+2063.png	Is there a mouse in this image? Please answer yes or no.	no	no
+2074.png	Is there a chair in this image? Please answer yes or no.	yes	yes
+2075.png	Is there a dog in this image? Please answer yes or no.	no	no
+2066.png	Is there a toilet in this image? Please answer yes or no.	yes	yes
+2067.png	Is there a pizza in this image? Please answer yes or no.	no	no
+2058.png	Is there a motorcycle in this image? Please answer yes or no.	yes	yes
+2059.png	Is there a bus in this image? Please answer yes or no.	no	no

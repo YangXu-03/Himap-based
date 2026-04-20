@@ -1,19 +1,29 @@
 {
   "scores": {
-    "count": 153.33333333333334,
-    "color": 158.33333333333331,
-    "OCR": 132.5,
-    "existence": 190.0
+    "code_reasoning": 50.0,
+    "artwork": 93.0,
+    "celebrity": 100.29411764705881,
+    "numerical_calculation": 52.5,
+    "text_translation": 92.5,
+    "count": 70.0,
+    "color": 98.33333333333333,
+    "commonsense_reasoning": 115.0,
+    "position": 75.0,
+    "OCR": 117.5,
+    "landmark": 108.0,
+    "scene": 124.5,
+    "existence": 90.0,
+    "posters": 113.60544217687075
   },
-  "perception_score": 634.1666666666666,
-  "cognition_score": 0,
-  "total_score": 634.1666666666666,
-  "total_samples": 220,
+  "perception_score": 990.2328931572628,
+  "cognition_score": 310.0,
+  "total_score": 1300.2328931572629,
+  "total_samples": 2374,
   "model_config": {
     "use_fast_v": true,
     "sys_length": 35,
     "img_length": 576,
-    "attn_rank": 518,
-    "agg_layer": 14
+    "attn_rank": 32,
+    "agg_layer": 2
   }
 }

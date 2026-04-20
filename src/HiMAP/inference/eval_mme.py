@@ -8,6 +8,9 @@ import sys
 import math
 import time
 
+os.environ.setdefault("HF_ENDPOINT", "https://hf-mirror.com")
+os.environ.setdefault("HF_HUB_ENDPOINT", "https://hf-mirror.com")
+
 from llava.constants import IMAGE_TOKEN_INDEX, DEFAULT_IMAGE_TOKEN, DEFAULT_IM_START_TOKEN, DEFAULT_IM_END_TOKEN
 from llava.conversation import conv_templates, SeparatorStyle
 from llava.model.builder import load_pretrained_model
@@ -83,6 +86,32 @@ def get_chunk(lst, n, k):
     return chunks[k]
 
 
+def parse_stage_ranges(range_text):
+    if range_text is None:
+        return [(2, 5), (6, 16), (17, 31)]
+    ranges = []
+    for part in str(range_text).split(','):
+        part = part.strip()
+        if not part:
+            continue
+        if '-' not in part:
+            raise ValueError(f"Invalid stage range format: {part}")
+        lo_s, hi_s = part.split('-', 1)
+        ranges.append((int(lo_s), int(hi_s)))
+    if not ranges:
+        raise ValueError("No valid stage ranges parsed from --jsd-entropy-stage-ranges")
+    return ranges
+
+
+def parse_stage_prune_ratios(ratio_text):
+    if ratio_text is None:
+        return [0.2, 0.3, 0.5]
+    ratios = [float(x.strip()) for x in str(ratio_text).split(',') if x.strip()]
+    if len(ratios) == 0:
+        raise ValueError("No valid prune ratios parsed from --jsd-entropy-stage-prune-ratios")
+    return ratios
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--model-path", type=str, default="liuhaotian/llava-v1.5-7b")
@@ -108,7 +137,31 @@ if __name__ == "__main__":
     parser.add_argument('--fast-v-image-token-length', type=int, required=False, help='the length of image token for fast-v')
     parser.add_argument('--fast-v-attention-rank', type=int, required=False, help='the rank of attention for fast-v')
     parser.add_argument('--fast-v-agg-layer', type=int, required=False, help='the aggregation layer for fast-v')
+    # adaptive JSD+Entropy stage pruning config
+    parser.add_argument('--use-jsd-entropy-prune', default=False, action='store_true', help='whether to use adaptive top-k JSD+entropy 3-stage pruning')
+    parser.add_argument('--jsd-entropy-sys-length', type=int, required=False, help='system token length for adaptive pruning')
+    parser.add_argument('--jsd-entropy-img-length', type=int, required=False, help='image token length for adaptive pruning')
+    parser.add_argument('--jsd-entropy-topk-attention-mode', '--jsd_entropy_topk_attention_mode', dest='jsd_entropy_topk_attention_mode', type=str, default="prompt_image", choices=["prompt_image", "global"], help='whether to calculate JSD+entropy based top-k attention scores using only prompt+image tokens or all tokens')
+    parser.add_argument('--jsd-entropy-topk-percent', type=float, default=10.0, help='top-k percent used for JSD+entropy stage detection')
+    parser.add_argument('--jsd-entropy-stage-ranges', type=str, default='0-4,5-14,15-20', help='layer ranges to pick 3 stage nodes, e.g. 2-8,9-20,21-31')
+    parser.add_argument('--jsd-entropy-use-dynamic-boundaries', action='store_true', help='whether to use dynamic boundaries')
+    parser.add_argument('--jsd-entropy-stage-prune-ratios', type=str, default='0.2,0.3,0.5', help='incremental prune ratios per stage, default 20%,30%,50%')
+    parser.add_argument('--jsd-entropy-use-only-prompt2image-scoring', type=str, default='True', help='whether to compute score based only on prompt2image attention')
+    parser.add_argument('--jsd-entropy-use-adaptive-keep-ratio', type=str, default='True', help='whether to use adaptive keep ratio')
+    parser.add_argument('--jsd-entropy-target-tokens', type=int, required=False, help='target number of image tokens for JSD entropy pruning')
+    parser.add_argument('--jsd-entropy-n0', type=int, required=False, help='initial image token length n0 used in stage budgeting')
+    parser.add_argument('--jsd-entropy-phase1-prune-layer', type=int, required=False, help='1-based layer index to apply phase-1 pruning')
+    parser.add_argument('--jsd-entropy-phase2-prune-layer', type=int, required=False, help='1-based layer index to apply phase-2 pruning')
+    parser.add_argument('--jsd-entropy-phase3-prune-layer', type=int, required=False, help='1-based layer index to drop all remaining image tokens')
+    parser.add_argument('--jsd-entropy-mu-h', type=float, required=False, help='mean of H metric for z-score normalization')
+    parser.add_argument('--jsd-entropy-sigma-h', type=float, required=False, help='std of H metric for z-score normalization')
+    parser.add_argument('--jsd-entropy-mu-w', type=float, required=False, help='mean of W metric for z-score normalization')
+    parser.add_argument('--jsd-entropy-sigma-w', type=float, required=False, help='std of W metric for z-score normalization')
+    parser.add_argument('--jsd-entropy-alpha', type=float, required=False, help='alpha weight for H z-score term in phase-1 keep budget')
+    parser.add_argument('--jsd-entropy-beta', type=float, required=False, help='beta weight for W z-score term in phase-1 keep budget')
     parser.add_argument("--temperature", type=float, default=0.0)
+    parser.add_argument("--save-detailed-results-file", type=str, default=None,
+                        help='optional path to save per-sample predictions for external evaluators')
     args = parser.parse_args()
     
 
@@ -129,6 +182,8 @@ if __name__ == "__main__":
     # set model hmapv config
     if args.use_hmap_v == True:
         model.config.use_hmap_v = True
+        model.config.use_fast_v = False
+        model.config.use_jsd_entropy_pruning = False
         model.config.hmap_v_sys_length = args.sys_length
         model.config.hmap_v_img_length = args.img_length
         model.config.hmap_v_attn_txt_layer = args.hmap_v_attn_txt_layer
@@ -141,15 +196,68 @@ if __name__ == "__main__":
         model.model.reset_hmapv()   
         
     elif args.use_fast_v == True:
+        model.config.use_hmap_v = False
         model.config.use_fast_v = True
+        model.config.use_jsd_entropy_pruning = False
         model.config.fast_v_sys_length = args.fast_v_sys_length
         model.config.fast_v_image_token_length = args.fast_v_image_token_length
         model.config.fast_v_attention_rank = args.fast_v_attention_rank
         model.config.fast_v_agg_layer = args.fast_v_agg_layer
         print('FASTV TECHNIQUE WILL BE USED ------')
         model.model.reset_fastv()
+    elif args.use_jsd_entropy_prune == True:
+        adaptive_sys_len = args.jsd_entropy_sys_length if args.jsd_entropy_sys_length is not None else args.sys_length
+        adaptive_img_len = args.jsd_entropy_img_length if args.jsd_entropy_img_length is not None else args.img_length
+        if adaptive_sys_len is None or adaptive_img_len is None:
+            raise ValueError('Adaptive pruning requires --jsd-entropy-sys-length/--jsd-entropy-img-length (or fallback --sys-length/--img-length).')
+
+        model.config.use_hmap_v = False
+        model.config.use_fast_v = False
+        model.config.use_jsd_entropy_pruning = True
+        # Enable per-sample dynamic stage boundary detection in JSDEntropy model.
+        model.config.jsd_entropy_use_dynamic_boundaries = True
+        model.config.jsd_entropy_sys_length = adaptive_sys_len
+        model.config.jsd_entropy_image_token_length = adaptive_img_len
+        model.config.jsd_entropy_topk_percent = args.jsd_entropy_topk_percent
+        model.config.jsd_entropy_topk_attention_mode = args.jsd_entropy_topk_attention_mode
+        model.config.jsd_entropy_stage_ranges = parse_stage_ranges(args.jsd_entropy_stage_ranges)
+        model.config.jsd_entropy_abrupt_stage_ranges = args.jsd_entropy_stage_ranges
+        model.config.jsd_entropy_stage_prune_ratios = parse_stage_prune_ratios(args.jsd_entropy_stage_prune_ratios)
+        
+        # Parse boolean parameters
+        model.config.jsd_entropy_use_only_prompt2image_scoring = args.jsd_entropy_use_only_prompt2image_scoring.lower() in ('true', '1', 't', 'y')
+        model.config.jsd_entropy_use_adaptive_keep_ratio = args.jsd_entropy_use_adaptive_keep_ratio.lower() in ('true', '1', 't', 'y')
+        
+        if args.jsd_entropy_target_tokens is not None:
+            model.config.jsd_entropy_target_tokens = args.jsd_entropy_target_tokens
+        if args.jsd_entropy_n0 is not None:
+            model.config.jsd_entropy_n0 = args.jsd_entropy_n0
+        if args.jsd_entropy_phase1_prune_layer is not None:
+            model.config.jsd_entropy_phase1_prune_layer = args.jsd_entropy_phase1_prune_layer
+        if args.jsd_entropy_phase2_prune_layer is not None:
+            model.config.jsd_entropy_phase2_prune_layer = args.jsd_entropy_phase2_prune_layer
+        if args.jsd_entropy_phase3_prune_layer is not None:
+            model.config.jsd_entropy_phase3_prune_layer = args.jsd_entropy_phase3_prune_layer
+        if args.jsd_entropy_mu_h is not None:
+            model.config.jsd_entropy_mu_h = args.jsd_entropy_mu_h
+        if args.jsd_entropy_sigma_h is not None:
+            model.config.jsd_entropy_sigma_h = args.jsd_entropy_sigma_h
+        if args.jsd_entropy_mu_w is not None:
+            model.config.jsd_entropy_mu_w = args.jsd_entropy_mu_w
+        if args.jsd_entropy_sigma_w is not None:
+            model.config.jsd_entropy_sigma_w = args.jsd_entropy_sigma_w
+        if args.jsd_entropy_alpha is not None:
+            model.config.jsd_entropy_alpha = args.jsd_entropy_alpha
+        if args.jsd_entropy_beta is not None:
+            model.config.jsd_entropy_beta = args.jsd_entropy_beta
+
+        print('ADAPTIVE JSD+ENTROPY 3-STAGE PRUNING WILL BE USED ------')
+        if hasattr(model.model, 'reset_jsd_entropy_pruning'):
+            model.model.reset_jsd_entropy_pruning()
     else:
         model.config.use_hmap_v = False
+        model.config.use_fast_v = False
+        model.config.use_jsd_entropy_pruning = False
         print('NO TOKEN PRUNING TCHNIQUE WILL BE USED ------')
 
     
@@ -209,6 +317,10 @@ if __name__ == "__main__":
         keywords = [stop_str]
         stopping_criteria = [KeywordsStoppingCriteria(keywords, tokenizer, input_ids)] if conv.version == "v0" else None
 
+        # Reset adaptive stage plan per sample so each sample gets its own stage detection.
+        if args.use_jsd_entropy_prune and hasattr(model.model, 'reset_jsd_entropy_pruning'):
+            model.model.reset_jsd_entropy_pruning()
+
         with torch.inference_mode():
             t0 = time.time()
             output_ids = model.generate(
@@ -229,10 +341,20 @@ if __name__ == "__main__":
         total_latency += inference_latency
 
         input_token_len = input_ids.shape[1]
-        n_diff_input_output = (input_ids != output_ids['sequences'][:, :input_token_len]).sum().item()
-        if n_diff_input_output > 0:
-            print(f'[Warning] {n_diff_input_output} output_ids are not the same as the input_ids')
-        outputs = tokenizer.batch_decode(output_ids['sequences'][:, input_token_len:], skip_special_tokens=True)[0]
+        sequences = output_ids['sequences']
+        seq_token_len = sequences.shape[1]
+
+        # Some model implementations return only newly generated tokens,
+        # while others return prompt+generated tokens.
+        if seq_token_len >= input_token_len:
+            n_diff_input_output = (input_ids != sequences[:, :input_token_len]).sum().item()
+            if n_diff_input_output > 0:
+                print(f'[Warning] {n_diff_input_output} output_ids are not the same as the input_ids')
+            decode_ids = sequences[:, input_token_len:]
+        else:
+            decode_ids = sequences
+
+        outputs = tokenizer.batch_decode(decode_ids, skip_special_tokens=True)[0]
         outputs = outputs.strip()
         if outputs.endswith(stop_str):
             outputs = outputs[:-len(stop_str)]
@@ -247,6 +369,8 @@ if __name__ == "__main__":
         results.append({
             'question_id': idx,
             'category': category,
+            'question': line.get('question', ''),
+            'image_file': image_file,
             'pred': pred,
             'gt': label
         })
@@ -339,17 +463,33 @@ if __name__ == "__main__":
             'txt_rank': args.hmap_v_attn_txt_rank,
             'img_rank': args.hmap_v_attn_img_rank,
             'cut_off_layer': args.cut_off_layer
-        } if args.use_hmap_v else {
+        } if args.use_hmap_v else ({
+            'use_jsd_entropy_pruning': args.use_jsd_entropy_prune,
+            'sys_length': args.jsd_entropy_sys_length if args.jsd_entropy_sys_length is not None else args.sys_length,
+            'img_length': args.jsd_entropy_img_length if args.jsd_entropy_img_length is not None else args.img_length,
+            'topk_percent': args.jsd_entropy_topk_percent,
+            'stage_ranges': parse_stage_ranges(args.jsd_entropy_stage_ranges),
+            'stage_prune_ratios': parse_stage_prune_ratios(args.jsd_entropy_stage_prune_ratios)
+        } if args.use_jsd_entropy_prune else {
             'use_fast_v': args.use_fast_v,
             'sys_length': args.fast_v_sys_length,
             'img_length': args.fast_v_image_token_length,
             'attn_rank': args.fast_v_attention_rank,
             'agg_layer': args.fast_v_agg_layer
-        }
+        })
     }
     
     # 保存结果
-    output_file = f"mme_results_{'himap' if args.use_hmap_v else ('fastv' if args.use_fast_v else 'baseline')}.json"
+    output_file = f"mme_results_{'himap' if args.use_hmap_v else ('jsd_entropy' if args.use_jsd_entropy_prune else ('fastv' if args.use_fast_v else 'baseline'))}.json"
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(final_results, f, indent=2, ensure_ascii=False)
     print(f"\n结果已保存到: {output_file}")
+
+    if args.save_detailed_results_file:
+        detailed_path = os.path.expanduser(args.save_detailed_results_file)
+        detailed_dir = os.path.dirname(detailed_path)
+        if detailed_dir:
+            os.makedirs(detailed_dir, exist_ok=True)
+        with open(detailed_path, 'w', encoding='utf-8') as f:
+            json.dump(results, f, indent=2, ensure_ascii=False)
+        print(f"逐样本结果已保存到: {detailed_path}")

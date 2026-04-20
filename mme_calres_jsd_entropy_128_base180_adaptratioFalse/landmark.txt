@@ -1,0 +1,400 @@
+1422.png	Is this a photo of Muktinath? Please answer yes or no.	yes	yes
+1423.png	Is this a photo of Lohikoski Church? Please answer yes or no.	no	no
+1342.png	Is this a picture of Teufelsmauer (Harz)? Please answer yes or no.	yes	yes
+1343.png	Is this a picture of Romfo kirke? Please answer yes or no.	no	no
+1346.png	Is this a picture of Saint Catherine of Alexandria church in Warsaw? Please answer yes or no.	yes	yes
+1347.png	Is this a picture of Kaap Skil? Please answer yes or no.	no	yes
+1560.png	Is this an image of Hall of Supreme Harmony (Forbidden City)? Please answer yes or no.	yes	yes
+1561.png	Is this an image of Brickegickel? Please answer yes or no.	no	no
+1474.png	Is this a photo of Utrecht Dom Tower? Please answer yes or no.	yes	yes
+1475.png	Is this a photo of Great Palace Mosaic Museum? Please answer yes or no.	no	yes
+1272.png	Is this an image of Loch Ossian? Please answer yes or no.	yes	yes
+1273.png	Is this an image of Tanemakidaishi? Please answer yes or no.	no	no
+1536.png	Is this an image of Gerlache Strait? Please answer yes or no.	yes	yes
+1537.png	Is this an image of Schmiedebruch (Naturschutzgebiet)? Please answer yes or no.	no	yes
+1382.png	Is this a photo of Le Destroit? Please answer yes or no.	yes	yes
+1383.png	Is this a photo of Kharkov Mosque? Please answer yes or no.	no	no
+1420.png	Is this a picture of Wollaton Park? Please answer yes or no.	yes	no
+1421.png	Is this a picture of St John's Church, Blackpool? Please answer yes or no.	no	no
+1466.png	Is this a photo of Brussels Park? Please answer yes or no.	yes	yes
+1467.png	Is this a photo of Forest Hills Cemetery (Boston, Massachusetts)? Please answer yes or no.	no	no
+1510.png	Is this a photo of Schloss Burgpreppach? Please answer yes or no.	yes	yes
+1511.png	Is this a photo of Pinkas Synagogue? Please answer yes or no.	no	no
+1476.png	Is this a picture of Goethe- und Schiller-Denkmal (Weimar)? Please answer yes or no.	yes	no
+1477.png	Is this a picture of Grey River? Please answer yes or no.	no	no
+1512.png	Is this a photo of KLCC Park? Please answer yes or no.	yes	yes
+1513.png	Is this a photo of Neath Castle? Please answer yes or no.	no	no
+1454.png	Is this a photo of Balvenie Castle? Please answer yes or no.	yes	no
+1455.png	Is this a photo of Draper Utah Temple? Please answer yes or no.	no	no
+1248.png	Is this a photo of Larvs kyrka? Please answer yes or no.	yes	yes
+1249.png	Is this a photo of Geitgallien? Please answer yes or no.	no	yes
+1488.png	Is this a photo of Cardiff Castle? Please answer yes or no.	yes	yes
+1489.png	Is this a photo of Boudhanath? Please answer yes or no.	no	no
+1524.png	Is this a photo of Rochers des Mourres? Please answer yes or no.	yes	yes
+1525.png	Is this a photo of Schloss Weinfelden? Please answer yes or no.	no	no
+1328.png	Is this a photo of Amar Jawan Jyoti (Tomb of the Unknown Soldier)? Please answer yes or no.	yes	yes
+1329.png	Is this a photo of Porta Garibaldi (Marsala)? Please answer yes or no.	no	no
+1450.png	Is this an image of Fisherman's Bastion? Please answer yes or no.	yes	yes
+1451.png	Is this an image of Equestrian statue of George IV, Trafalgar Square, London? Please answer yes or no.	no	no
+1224.png	Is this a picture of 1965)? Please answer yes or no.	yes	no
+1225.png	Is this a picture of Plaza Monumental de Toros de Pueblo Nuevo? Please answer yes or no.	no	no
+1408.png	Is this an image of Bathampton Toll Bridge? Please answer yes or no.	yes	yes
+1409.png	Is this an image of Moose River Plains Wild Forest? Please answer yes or no.	no	yes
+1334.png	Is this a photo of Visingsborg? Please answer yes or no.	yes	yes
+1335.png	Is this a photo of Teutsche Schule (Schleusingen)? Please answer yes or no.	no	yes
+1348.png	Is this an image of Het Steen? Please answer yes or no.	yes	yes
+1349.png	Is this an image of Castello di Montalto Dora? Please answer yes or no.	no	yes
+1530.png	Is this a picture of Svirzh Castle? Please answer yes or no.	yes	yes
+1531.png	Is this a picture of Bistrica, Ionian Sea? Please answer yes or no.	no	yes
+1414.png	Is this a photo of Alamannenmuseum Ellwangen? Please answer yes or no.	yes	yes
+1415.png	Is this a photo of Sint-Jozefkerk, Enschede? Please answer yes or no.	no	no
+1458.png	Is this a picture of San Prospero (Reggio Emilia)? Please answer yes or no.	yes	yes
+1459.png	Is this a picture of Lake DeFuniak? Please answer yes or no.	no	no
+1548.png	Is this a picture of Chingshui Cliff? Please answer yes or no.	yes	yes
+1549.png	Is this a picture of St. John's Church, Portland? Please answer yes or no.	no	no
+1550.png	Is this a picture of Church of Saint Giles in Prague? Please answer yes or no.	yes	yes
+1551.png	Is this a picture of Pfarrkirche St. Martin an der Raab? Please answer yes or no.	no	yes
+1576.png	Is this a picture of Real Casa de Correos, Madrid? Please answer yes or no.	yes	yes
+1577.png	Is this a picture of Ayton Castle, Scottish Borders? Please answer yes or no.	no	no
+1598.png	Is this a photo of Friday Mosque, Herat? Please answer yes or no.	yes	yes
+1599.png	Is this a photo of Hexenturm (Burg (bei Magdeburg))? Please answer yes or no.	no	no
+1514.png	Is this a photo of Ajuntament de Mollerussa? Please answer yes or no.	yes	yes
+1515.png	Is this a photo of Episcopal Diocese of Northern Indiana? Please answer yes or no.	no	no
+1302.png	Is this an image of Museu de Sant Boi de Llobregat? Please answer yes or no.	yes	yes
+1303.png	Is this an image of Bezdonnoye Lake, Moscow Oblast? Please answer yes or no.	no	no
+1494.png	Is this a photo of Clearwater Beach, Florida? Please answer yes or no.	yes	no
+1495.png	Is this a photo of Church of Holy Trinity in Vratislavice nad Nisou? Please answer yes or no.	no	no
+1240.png	Is this a picture of Galician market square in Skansen, Sanok? Please answer yes or no.	yes	no
+1241.png	Is this a picture of Walworth Castle? Please answer yes or no.	no	no
+1338.png	Is this a photo of St. Ricarius Church, Aberford? Please answer yes or no.	yes	yes
+1339.png	Is this a photo of Schloss Prebberede? Please answer yes or no.	no	no
+1614.png	Is this an image of Jewish Ceremonial Hall, Prague-Josefov? Please answer yes or no.	yes	yes
+1615.png	Is this an image of Our Lady Church (Ettlingen)? Please answer yes or no.	no	no
+1392.png	Is this an image of Mont Tendre? Please answer yes or no.	yes	no
+1393.png	Is this an image of Ogden Utah Temple? Please answer yes or no.	no	no
+1470.png	Is this a photo of Ozegahara? Please answer yes or no.	yes	yes
+1471.png	Is this a photo of San Giovenale (Orvieto)? Please answer yes or no.	no	no
+1522.png	Is this a picture of Watergate Bay? Please answer yes or no.	yes	yes
+1523.png	Is this a picture of Cairnpapple Hill? Please answer yes or no.	no	no
+1404.png	Is this an image of Clark Veterans Cemetery? Please answer yes or no.	yes	yes
+1405.png	Is this an image of Mirdif City Centre? Please answer yes or no.	no	no
+1312.png	Is this a picture of Monte Minerva (Villanova Monteleone)? Please answer yes or no.	yes	yes
+1313.png	Is this a picture of Dorfkirche Gnandstein? Please answer yes or no.	no	no
+1368.png	Is this a photo of Kaptai Lake? Please answer yes or no.	yes	yes
+1369.png	Is this a photo of Castle of the Conception? Please answer yes or no.	no	no
+1380.png	Is this a picture of Kalamita fortress? Please answer yes or no.	yes	yes
+1381.png	Is this a picture of Augsburger Hotelturm? Please answer yes or no.	no	yes
+1396.png	Is this a picture of St Mary Redcliffe? Please answer yes or no.	yes	yes
+1397.png	Is this a picture of Kirche zur Heiligsten Dreifaltigkeit, Vienna? Please answer yes or no.	no	yes
+1580.png	Is this a photo of Intercession of the Theotokos church in Lutsk? Please answer yes or no.	yes	yes
+1581.png	Is this a photo of Cap 110? Please answer yes or no.	no	no
+1480.png	Is this a photo of Ribblehead Viaduct? Please answer yes or no.	yes	yes
+1481.png	Is this a photo of Church of Saint George in Koptevo? Please answer yes or no.	no	no
+1318.png	Is this a picture of Rotes Rathaus? Please answer yes or no.	yes	yes
+1319.png	Is this a picture of Mahipatgad? Please answer yes or no.	no	no
+1484.png	Is this a photo of Andronikov Monastery? Please answer yes or no.	yes	yes
+1485.png	Is this a photo of Ghatkopar? Please answer yes or no.	no	no
+1252.png	Is this an image of Saint Basil church, Volodymyr-Volynskyi? Please answer yes or no.	yes	yes
+1253.png	Is this an image of Hoher Markt, Vienna? Please answer yes or no.	no	yes
+1504.png	Is this a picture of Goethes Gartenhaus? Please answer yes or no.	yes	no
+1505.png	Is this a picture of Lamba, Shetland Islands? Please answer yes or no.	no	no
+1440.png	Is this a picture of Oldemorstoft? Please answer yes or no.	yes	yes
+1441.png	Is this a picture of Roman Catholic Diocese of Antwerp? Please answer yes or no.	no	no
+1280.png	Is this a photo of Malmuerta Tower? Please answer yes or no.	yes	yes
+1281.png	Is this a photo of Monte Lema? Please answer yes or no.	no	no
+1538.png	Is this a picture of Gettysburg National Military Park? Please answer yes or no.	yes	yes
+1539.png	Is this a picture of Auron? Please answer yes or no.	no	no
+1436.png	Is this a picture of Church of Our Lady of Sorrows in Riga? Please answer yes or no.	yes	yes
+1437.png	Is this a picture of Simon en Judaskerk (Ootmarsum)? Please answer yes or no.	no	yes
+1588.png	Is this a photo of Kashueti Church? Please answer yes or no.	yes	yes
+1589.png	Is this a photo of Colorado State Capitol? Please answer yes or no.	no	no
+1570.png	Is this a picture of The American Adventure? Please answer yes or no.	yes	yes
+1571.png	Is this a picture of Langenwaldschanze? Please answer yes or no.	no	yes
+1294.png	Is this a photo of Abbaye de Mortemer? Please answer yes or no.	yes	yes
+1295.png	Is this a photo of St Thomas Rest Park? Please answer yes or no.	no	yes
+1298.png	Is this a photo of Nicolaikerk Appingedam? Please answer yes or no.	yes	yes
+1299.png	Is this a photo of Cutimbo? Please answer yes or no.	no	no
+1542.png	Is this a photo of Podilski Tovtry National Nature Park? Please answer yes or no.	yes	yes
+1543.png	Is this a photo of Lyndonville, Vermont? Please answer yes or no.	no	no
+1518.png	Is this a photo of Marilao Church? Please answer yes or no.	yes	yes
+1519.png	Is this a photo of Madliena, Malta? Please answer yes or no.	no	yes
+1442.png	Is this an image of White Pagoda in Zhakou? Please answer yes or no.	yes	yes
+1443.png	Is this an image of Norrstrandskyrkan? Please answer yes or no.	no	no
+1388.png	Is this a photo of Ringkirche? Please answer yes or no.	yes	yes
+1389.png	Is this a photo of Huxi Mosque? Please answer yes or no.	no	no
+1594.png	Is this a picture of Church of Nicholas the Wet? Please answer yes or no.	yes	yes
+1595.png	Is this a picture of Razula? Please answer yes or no.	no	yes
+1254.png	Is this an image of Saint Andrew the Apostle Church? Please answer yes or no.	yes	yes
+1255.png	Is this an image of EYE Film Institute Netherlands? Please answer yes or no.	no	no
+1372.png	Is this a picture of Santa Caterina (Sassari)? Please answer yes or no.	yes	yes
+1373.png	Is this a picture of Former Tainan Assembly Hall? Please answer yes or no.	no	yes
+1616.png	Is this a picture of Groothoofdspoort? Please answer yes or no.	yes	yes
+1617.png	Is this a picture of 707 17th Street? Please answer yes or no.	no	no
+1602.png	Is this a picture of De Haag? Please answer yes or no.	yes	yes
+1603.png	Is this a picture of Villa Melchett? Please answer yes or no.	no	no
+1428.png	Is this a photo of Pont-canal de Digoin? Please answer yes or no.	yes	yes
+1429.png	Is this a photo of Trenton Battle Monument? Please answer yes or no.	no	no
+1586.png	Is this an image of Santa Monica Parish Church in Angat, Bulacan? Please answer yes or no.	yes	no
+1587.png	Is this an image of Bangkok City Pillar Shrine? Please answer yes or no.	no	no
+1322.png	Is this a photo of Palazzo Cavalli Franchetti (Venice)? Please answer yes or no.	yes	yes
+1323.png	Is this a photo of Isbister Chambered Cairn? Please answer yes or no.	no	no
+1220.png	Is this an image of Goldener Reiter? Please answer yes or no.	yes	yes
+1221.png	Is this an image of Palacio de la Mosquera? Please answer yes or no.	no	no
+1532.png	Is this a photo of Medvedgrad? Please answer yes or no.	yes	yes
+1533.png	Is this a photo of Tammisto? Please answer yes or no.	no	yes
+1330.png	Is this a photo of Butler's Wharf? Please answer yes or no.	yes	yes
+1331.png	Is this a photo of Church of Saints Philip and James (Lelekovice)? Please answer yes or no.	no	no
+1556.png	Is this a picture of Oxford Street? Please answer yes or no.	yes	yes
+1557.png	Is this a picture of Blake Fell? Please answer yes or no.	no	no
+1364.png	Is this a picture of Colonna dell'Immacolata (Rome)? Please answer yes or no.	yes	yes
+1365.png	Is this a picture of Brookmill Park? Please answer yes or no.	no	no
+1360.png	Is this a photo of Ibrahim-al-Ibrahim Mosque? Please answer yes or no.	yes	yes
+1361.png	Is this a photo of Atami Castle? Please answer yes or no.	no	no
+1460.png	Is this a photo of Frederik V statue in Amalienborg Palace? Please answer yes or no.	yes	yes
+1461.png	Is this a photo of Karl-Bittel-Park? Please answer yes or no.	no	yes
+1596.png	Is this an image of Sapporo Clock Tower? Please answer yes or no.	yes	yes
+1597.png	Is this an image of Saint Nikolaus Church (Beuster)? Please answer yes or no.	no	yes
+1424.png	Is this an image of St. Martin (Sontheim)? Please answer yes or no.	yes	yes
+1425.png	Is this an image of Hot Creek (Mono County, California)? Please answer yes or no.	no	no
+1452.png	Is this an image of Fosso Reale (Livorno)? Please answer yes or no.	yes	yes
+1453.png	Is this an image of Farlington Marshes? Please answer yes or no.	no	no
+1502.png	Is this a picture of Qiantang River Bridge? Please answer yes or no.	yes	yes
+1503.png	Is this a picture of Casa Museo Boschi Di Stefano (Milan)? Please answer yes or no.	no	no
+1490.png	Is this a photo of Central Police Station? Please answer yes or no.	yes	no
+1491.png	Is this a photo of Kontai-ji? Please answer yes or no.	no	no
+1418.png	Is this an image of St. Johanniskirche Eppendorf? Please answer yes or no.	yes	yes
+1419.png	Is this an image of Maidenhead Bridge? Please answer yes or no.	no	no
+1344.png	Is this an image of Ermita de Sant Joan (Montserrat)? Please answer yes or no.	yes	yes
+1345.png	Is this an image of Hamilton Grange National Memorial? Please answer yes or no.	no	no
+1238.png	Is this an image of Pietrarsa railway museum? Please answer yes or no.	yes	yes
+1239.png	Is this an image of Washita Battlefield National Historic Site? Please answer yes or no.	no	no
+1574.png	Is this a picture of Yevhen Paton Bridge? Please answer yes or no.	yes	yes
+1575.png	Is this a picture of Minoan Villa of Makrygialos? Please answer yes or no.	no	no
+1350.png	Is this a photo of Reading Lighthouse? Please answer yes or no.	yes	yes
+1351.png	Is this a photo of St Nicholas Kirk, Aberdeen? Please answer yes or no.	no	no
+1434.png	Is this a photo of Clarence Dock (Leeds)? Please answer yes or no.	yes	yes
+1435.png	Is this a photo of Madonna delle Grazie (Roccastrada)? Please answer yes or no.	no	no
+1446.png	Is this a picture of Parque nacional del Teide? Please answer yes or no.	yes	no
+1447.png	Is this a picture of Church of Saint Mary the Virgin, Skiemonys? Please answer yes or no.	no	no
+1516.png	Is this an image of Mercado Central de Santiago? Please answer yes or no.	yes	yes
+1517.png	Is this an image of Castelo de Alegrete? Please answer yes or no.	no	no
+1604.png	Is this a picture of Schloss Weesenstein? Please answer yes or no.	yes	yes
+1605.png	Is this a picture of Mas Cabrafiga? Please answer yes or no.	no	no
+1320.png	Is this a picture of Pfarrkirche hl. Augustinus, Perchtoldsdorf? Please answer yes or no.	yes	yes
+1321.png	Is this a picture of Mark Twain Riverboat? Please answer yes or no.	no	no
+1444.png	Is this an image of Port of Funchal? Please answer yes or no.	yes	yes
+1445.png	Is this an image of Rauscherpark? Please answer yes or no.	no	no
+1430.png	Is this a picture of Roebling Suspension Bridge? Please answer yes or no.	yes	yes
+1431.png	Is this a picture of St. James Episcopal Church (Wilmington, North Carolina)? Please answer yes or no.	no	no
+1426.png	Is this an image of Cork City Gaol? Please answer yes or no.	yes	yes
+1427.png	Is this an image of Taramati Baradari? Please answer yes or no.	no	yes
+1366.png	Is this an image of Zhejiang Sci-Tech University? Please answer yes or no.	yes	yes
+1367.png	Is this an image of Khalti Lake? Please answer yes or no.	no	no
+1554.png	Is this a photo of Republican architecture in Manizales? Please answer yes or no.	yes	no
+1555.png	Is this a photo of Kayauchi-banta Cliff? Please answer yes or no.	no	no
+1274.png	Is this a picture of Baldachin of Saint Peter's Basilica? Please answer yes or no.	yes	yes
+1275.png	Is this a picture of Jean Baptiste Point Du Sable Homesite? Please answer yes or no.	no	no
+1250.png	Is this a picture of Church of the Assumption of the Virgin Mary in Chrudim? Please answer yes or no.	yes	yes
+1251.png	Is this a picture of Queen Elizabeth Country Park? Please answer yes or no.	no	no
+1534.png	Is this an image of Tomb of Xerxes I? Please answer yes or no.	yes	yes
+1535.png	Is this an image of Park HaMesila? Please answer yes or no.	no	yes
+1402.png	Is this a photo of Laguna de Salinas? Please answer yes or no.	yes	yes
+1403.png	Is this a photo of Raspyatsky Monastery (Serpukhov)? Please answer yes or no.	no	no
+1260.png	Is this a picture of The South Africa (Delville Wood) National Memorial? Please answer yes or no.	yes	yes
+1261.png	Is this a picture of Imogiri? Please answer yes or no.	no	no
+1258.png	Is this an image of Tai Wong Ye Temple, Wong Chuk Hang? Please answer yes or no.	yes	yes
+1259.png	Is this an image of Hierve el Agua? Please answer yes or no.	no	no
+1310.png	Is this an image of Sampsonievsky Cathedral? Please answer yes or no.	yes	yes
+1311.png	Is this an image of I. and E. Greenwald Steam Engine No. 1058? Please answer yes or no.	no	no
+1236.png	Is this a photo of Wurstelprater? Please answer yes or no.	yes	yes
+1237.png	Is this a photo of Nanmyaebonthar Sannandawya Sandamuni Pagoda? Please answer yes or no.	no	no
+1362.png	Is this a photo of Puthoorppilly Sree Krishnaswamy Temple? Please answer yes or no.	yes	no
+1363.png	Is this a photo of Villa Reale (Marlia)? Please answer yes or no.	no	no
+1608.png	Is this an image of Museo archeologico nazionale dell'Umbria? Please answer yes or no.	yes	yes
+1609.png	Is this an image of Mode Gakuen Cocoon Tower? Please answer yes or no.	no	yes
+1612.png	Is this an image of Pasaje Gutierrez (Valladolid)? Please answer yes or no.	yes	yes
+1613.png	Is this an image of Pieve di Santa Maria a Carli? Please answer yes or no.	no	yes
+1308.png	Is this a photo of Serbian Orthodox Cathedral in Sarajevo? Please answer yes or no.	yes	yes
+1309.png	Is this a photo of Seewaldsee (Sankt Koloman)? Please answer yes or no.	no	no
+1394.png	Is this a picture of Grote Kerk (Groede)? Please answer yes or no.	yes	yes
+1395.png	Is this a picture of Goldeck? Please answer yes or no.	no	no
+1438.png	Is this a photo of Museo Archeologico G. Rambotti? Please answer yes or no.	yes	no
+1439.png	Is this a photo of Sanrei? Please answer yes or no.	no	no
+1590.png	Is this a photo of Liuyang Confucius Temple? Please answer yes or no.	yes	yes
+1591.png	Is this a photo of Astley Castle? Please answer yes or no.	no	no
+1242.png	Is this an image of Museo Universitario del Chopo? Please answer yes or no.	yes	yes
+1243.png	Is this an image of Cedar Park, Seattle, Washington? Please answer yes or no.	no	yes
+1244.png	Is this a picture of Borisoglebsky Monastery (Borisoglebsky)? Please answer yes or no.	yes	yes
+1245.png	Is this a picture of Aletsch Arena? Please answer yes or no.	no	no
+1464.png	Is this a picture of Schlosskirche St. Aegidien (Bernburg)? Please answer yes or no.	yes	yes
+1465.png	Is this a picture of The Haining? Please answer yes or no.	no	no
+1276.png	Is this an image of Silwan? Please answer yes or no.	yes	yes
+1277.png	Is this an image of Jagdschloss Platte? Please answer yes or no.	no	no
+1492.png	Is this a picture of Maribor Regional Museum? Please answer yes or no.	yes	yes
+1493.png	Is this a picture of Myres Castle? Please answer yes or no.	no	no
+1352.png	Is this a picture of Roland (Riga)? Please answer yes or no.	yes	yes
+1353.png	Is this a picture of Wudangshan Shangdi Temple? Please answer yes or no.	no	no
+1284.png	Is this a picture of Arch of Galerius (Thessaloniki)? Please answer yes or no.	yes	yes
+1285.png	Is this a picture of Catholic Church of Wanchin? Please answer yes or no.	no	no
+1384.png	Is this an image of Pendeen Lighthouse? Please answer yes or no.	yes	yes
+1385.png	Is this an image of Silberbach (Heubach)? Please answer yes or no.	no	no
+1376.png	Is this a picture of Museo Delta Antico? Please answer yes or no.	yes	yes
+1377.png	Is this a picture of OSTEC Exhibition Hall? Please answer yes or no.	no	no
+1448.png	Is this an image of Lanxmeerpoort? Please answer yes or no.	yes	yes
+1449.png	Is this an image of Tramway du Cap-Ferret? Please answer yes or no.	no	yes
+1232.png	Is this a picture of Castillo de Sax? Please answer yes or no.	yes	yes
+1233.png	Is this a picture of Roman Catholic Diocese of Orlando? Please answer yes or no.	no	no
+1358.png	Is this an image of Capitoline temple (Brescia)? Please answer yes or no.	yes	yes
+1359.png	Is this an image of Burg Horn? Please answer yes or no.	no	no
+1462.png	Is this a picture of Imatrankoski? Please answer yes or no.	yes	yes
+1463.png	Is this a picture of Jarlsberg travbane? Please answer yes or no.	no	yes
+1482.png	Is this a photo of Friedhof Wilmersdorf? Please answer yes or no.	yes	yes
+1483.png	Is this a photo of Partisan cemetery in Mostar? Please answer yes or no.	no	no
+1398.png	Is this a photo of Church of the Nativity (Bethlehem)? Please answer yes or no.	yes	no
+1399.png	Is this a photo of Pennsylvania Railroad Office Building? Please answer yes or no.	no	no
+1316.png	Is this a photo of San Pietro (Reggio Emilia)? Please answer yes or no.	yes	no
+1317.png	Is this a photo of Plaza de toros de La Condomina? Please answer yes or no.	no	no
+1354.png	Is this a picture of Smithfield, Dublin? Please answer yes or no.	yes	yes
+1355.png	Is this a picture of Novyi Svit Sanctuary? Please answer yes or no.	no	no
+1400.png	Is this a photo of Rocky Mountain National Park? Please answer yes or no.	yes	yes
+1401.png	Is this a photo of Col-des-Roches? Please answer yes or no.	no	yes
+1228.png	Is this a picture of Teddington Cemetery? Please answer yes or no.	yes	yes
+1229.png	Is this a picture of Khutir Nadia? Please answer yes or no.	no	no
+1582.png	Is this a photo of Abdijkerk Loosduinen? Please answer yes or no.	yes	no
+1583.png	Is this a photo of Rinsey Head? Please answer yes or no.	no	no
+1432.png	Is this a picture of Dreifaltigkeitskirche (Ulm)? Please answer yes or no.	yes	yes
+1433.png	Is this a picture of Wat Pa Mamuang? Please answer yes or no.	no	no
+1498.png	Is this a picture of Parchi di Nervi? Please answer yes or no.	yes	yes
+1499.png	Is this a picture of Altlayer Schweiz? Please answer yes or no.	no	no
+1314.png	Is this a picture of Canadian Museum of Nature? Please answer yes or no.	yes	yes
+1315.png	Is this a picture of Gwangtonggwan? Please answer yes or no.	no	yes
+1230.png	Is this a photo of Kasteel Lunenburg? Please answer yes or no.	yes	no
+1231.png	Is this a photo of Thomas Paine Cottage? Please answer yes or no.	no	no
+1584.png	Is this a picture of ChaoTianGong? Please answer yes or no.	yes	yes
+1585.png	Is this a picture of Pygmalion Theater Wien? Please answer yes or no.	no	no
+1246.png	Is this a picture of Crescent Lake (Dunhuang)? Please answer yes or no.	yes	yes
+1247.png	Is this a picture of Kirjurinluoto Arena? Please answer yes or no.	no	no
+1306.png	Is this a photo of Monastery of Monsalud? Please answer yes or no.	yes	yes
+1307.png	Is this a photo of ToonSeum? Please answer yes or no.	no	no
+1286.png	Is this a picture of Ford's Theatre? Please answer yes or no.	yes	yes
+1287.png	Is this a picture of Burg Hachen? Please answer yes or no.	no	no
+1506.png	Is this a picture of Onze-Lieve-Vrouw Hemelvaartkerk (Zottegem)? Please answer yes or no.	yes	yes
+1507.png	Is this a picture of Salvation Army in Canada? Please answer yes or no.	no	yes
+1606.png	Is this an image of Church of the Epiphany (Yaroslavl)? Please answer yes or no.	yes	no
+1607.png	Is this an image of Szlenkier Palace? Please answer yes or no.	no	no
+1496.png	Is this a photo of Abbaye Notre-Dame du Val? Please answer yes or no.	yes	yes
+1497.png	Is this a photo of Hotarumachi, Osaka? Please answer yes or no.	no	no
+1332.png	Is this a picture of Church of Saint Mary Magdalene (Brno)? Please answer yes or no.	yes	yes
+1333.png	Is this a picture of Wain Wath Force? Please answer yes or no.	no	no
+1370.png	Is this an image of Ortigia? Please answer yes or no.	yes	yes
+1371.png	Is this an image of Montmayeur castle? Please answer yes or no.	no	no
+1336.png	Is this a picture of Highgate Cemetery? Please answer yes or no.	yes	yes
+1337.png	Is this a picture of Isola Maggiore? Please answer yes or no.	no	no
+1340.png	Is this an image of Wat Chedi Si Hong? Please answer yes or no.	yes	yes
+1341.png	Is this an image of Leschi Park? Please answer yes or no.	no	yes
+1544.png	Is this a picture of Iglesia de Santo Domingo (La Serena)? Please answer yes or no.	yes	yes
+1545.png	Is this a picture of Canelles de Baix (la Vall de Bianya)? Please answer yes or no.	no	yes
+1564.png	Is this a photo of Grimspound? Please answer yes or no.	yes	yes
+1565.png	Is this a photo of Lough Owel? Please answer yes or no.	no	no
+1416.png	Is this a photo of Saint Anne church in Nowa Ruda? Please answer yes or no.	yes	yes
+1417.png	Is this a photo of Bray Wick? Please answer yes or no.	no	no
+1558.png	Is this a picture of Alte Pfarrkirche St. Martin (Moosach)? Please answer yes or no.	yes	yes
+1559.png	Is this a picture of Maya Devi Temple, Lumbini? Please answer yes or no.	no	no
+1282.png	Is this a picture of Lac du Salagou? Please answer yes or no.	yes	yes
+1283.png	Is this a picture of Holsljunga kyrka? Please answer yes or no.	no	no
+1528.png	Is this a photo of Churches in Zemaiciu Kalvarija? Please answer yes or no.	yes	yes
+1529.png	Is this a photo of Waiola Church? Please answer yes or no.	no	yes
+1256.png	Is this a picture of Castelo de Sesimbra? Please answer yes or no.	yes	yes
+1257.png	Is this a picture of Gouffre Berger? Please answer yes or no.	no	yes
+1472.png	Is this a photo of Melrose House? Please answer yes or no.	yes	yes
+1473.png	Is this a photo of Former water tower (Tsubame, Niigata)? Please answer yes or no.	no	yes
+1378.png	Is this a photo of Belvoir Castle? Please answer yes or no.	yes	yes
+1379.png	Is this a photo of Su'ao Cold Spring? Please answer yes or no.	no	no
+1568.png	Is this a photo of Pelham Crescent? Please answer yes or no.	yes	yes
+1569.png	Is this a photo of Manila Ocean Park? Please answer yes or no.	no	no
+1508.png	Is this a photo of Adare Manor? Please answer yes or no.	yes	yes
+1509.png	Is this a photo of Leopoldspark? Please answer yes or no.	no	yes
+1552.png	Is this a picture of Church of the Holy Mandylion (Klyazma)? Please answer yes or no.	yes	yes
+1553.png	Is this a picture of Kalayar Kovil? Please answer yes or no.	no	yes
+1390.png	Is this an image of Piazza Bra (Verona)? Please answer yes or no.	yes	yes
+1391.png	Is this an image of Keeneland? Please answer yes or no.	no	no
+1268.png	Is this a photo of Beatus Rhenanus Bridge? Please answer yes or no.	yes	yes
+1269.png	Is this a photo of Ossian Hall? Please answer yes or no.	no	no
+1578.png	Is this an image of Monte Olivia? Please answer yes or no.	yes	no
+1579.png	Is this an image of Crackstate? Please answer yes or no.	no	no
+1478.png	Is this an image of Spaso-Preobrazhensky Cathedral (Pereslavl-Zalessky)? Please answer yes or no.	yes	yes
+1479.png	Is this an image of Manta Rota? Please answer yes or no.	no	no
+1300.png	Is this a photo of Willemsbrug in Rotterdam? Please answer yes or no.	yes	yes
+1301.png	Is this a photo of Grumentum, Parco archeologico? Please answer yes or no.	no	no
+1288.png	Is this an image of Burg Normannstein? Please answer yes or no.	yes	yes
+1289.png	Is this an image of Cape Borda Lighthouse? Please answer yes or no.	no	yes
+1292.png	Is this a picture of Vase sculpture, Bremen? Please answer yes or no.	yes	yes
+1293.png	Is this a picture of Mount Wilhelm? Please answer yes or no.	no	no
+1266.png	Is this a picture of Victoria Stadium? Please answer yes or no.	yes	no
+1267.png	Is this a picture of Villa Belvedere (San Giuliano Terme)? Please answer yes or no.	no	no
+1520.png	Is this a picture of Mustafa Pasha Bridge? Please answer yes or no.	yes	yes
+1521.png	Is this a picture of Scrattons Eco Park? Please answer yes or no.	no	no
+1264.png	Is this an image of Nabq Protected Area? Please answer yes or no.	yes	yes
+1265.png	Is this an image of Maletsunyane Falls? Please answer yes or no.	no	no
+1234.png	Is this a photo of Cotehele? Please answer yes or no.	yes	yes
+1235.png	Is this a photo of Mozirje Grove? Please answer yes or no.	no	no
+1566.png	Is this a photo of Schauenburg (Oberkirch)? Please answer yes or no.	yes	yes
+1567.png	Is this a photo of Dartford Library? Please answer yes or no.	no	no
+1296.png	Is this a picture of Nanzenji? Please answer yes or no.	yes	yes
+1297.png	Is this a picture of Bagakain Lake? Please answer yes or no.	no	no
+1610.png	Is this a picture of Church of the Merciful Saviour in Kuskovo (Moscow)? Please answer yes or no.	yes	yes
+1611.png	Is this a picture of Central Board of Secondary Education? Please answer yes or no.	no	no
+1456.png	Is this a photo of St. Joseph's Cathedral, Dunedin? Please answer yes or no.	yes	yes
+1457.png	Is this a photo of Fagervik Church? Please answer yes or no.	no	yes
+1618.png	Is this an image of Woolwich foot tunnel? Please answer yes or no.	yes	yes
+1619.png	Is this an image of Kirchenbibliothek St. Marien Barth? Please answer yes or no.	no	no
+1270.png	Is this a picture of Harding Tomb? Please answer yes or no.	yes	yes
+1271.png	Is this a picture of Kartause Ittingen? Please answer yes or no.	no	no
+1572.png	Is this a photo of De Bataaf, Winterswijk? Please answer yes or no.	yes	yes
+1573.png	Is this a photo of Porte Guillaume-Lion? Please answer yes or no.	no	no
+1290.png	Is this an image of Ku-ring-gai Chase National Park? Please answer yes or no.	yes	no
+1291.png	Is this an image of Saint Mark's Coptic Orthodox Cathedral, Cairo? Please answer yes or no.	no	no
+1356.png	Is this a picture of Beachy Head? Please answer yes or no.	yes	yes
+1357.png	Is this a picture of Jindo Bridge? Please answer yes or no.	no	no
+1562.png	Is this a photo of Duomo (Viterbo)? Please answer yes or no.	yes	yes
+1563.png	Is this a photo of Raffles Praslin? Please answer yes or no.	no	no
+1526.png	Is this a photo of Torre del Rellotge d'Olesa de Montserrat? Please answer yes or no.	yes	yes
+1527.png	Is this a photo of Salzburg Museum? Please answer yes or no.	no	no
+1500.png	Is this an image of Regard Saint-Martin? Please answer yes or no.	yes	yes
+1501.png	Is this an image of Mount Donna Buang? Please answer yes or no.	no	no
+1304.png	Is this a photo of City Duma building (Saint Petersburg)? Please answer yes or no.	yes	yes
+1305.png	Is this a photo of Komadome-Hachiman-jinja? Please answer yes or no.	no	no
+1592.png	Is this a photo of Kids Marina Rotterdam? Please answer yes or no.	yes	yes
+1593.png	Is this a photo of Kirkwood Observatory? Please answer yes or no.	no	no
+1262.png	Is this a picture of Macquarie Centre? Please answer yes or no.	yes	no
+1263.png	Is this a picture of California Historical Landmarks in San Mateo County, California? Please answer yes or no.	no	no
+1278.png	Is this an image of Wieliczka Castle? Please answer yes or no.	yes	no
+1279.png	Is this an image of Naval Station Guantanamo Bay? Please answer yes or no.	no	no
+1486.png	Is this a picture of Evangelische Kirche Weinfelden? Please answer yes or no.	yes	yes
+1487.png	Is this a picture of Gorg Blau? Please answer yes or no.	no	no
+1412.png	Is this an image of Church of the Assumption in Bishche? Please answer yes or no.	yes	yes
+1413.png	Is this an image of Water of Girvan? Please answer yes or no.	no	no
+1468.png	Is this a photo of Millennium Tower (San Francisco, California)? Please answer yes or no.	yes	no
+1469.png	Is this a photo of New Orleans Botanical Garden? Please answer yes or no.	no	no
+1406.png	Is this a picture of Solvognen? Please answer yes or no.	yes	yes
+1407.png	Is this a picture of Schenley Farms National Historic District? Please answer yes or no.	no	no
+1546.png	Is this a picture of Skansin? Please answer yes or no.	yes	yes
+1547.png	Is this a picture of Bardstown Historic District? Please answer yes or no.	no	no
+1222.png	Is this a picture of Alexander Nevsky Church, Belgrade? Please answer yes or no.	yes	yes
+1223.png	Is this a picture of Seppiko-Mineyama Hyogo Prefectural Nature Park? Please answer yes or no.	no	no
+1324.png	Is this an image of Id Kah Mosque? Please answer yes or no.	yes	yes
+1325.png	Is this an image of Katharinenkirche (Zwickau)? Please answer yes or no.	no	no
+1410.png	Is this an image of Church of Saint John the Baptist (Jihlava)? Please answer yes or no.	yes	yes
+1411.png	Is this an image of Silte kyrka? Please answer yes or no.	no	yes
+1540.png	Is this a picture of Marie Guyart Building? Please answer yes or no.	yes	no
+1541.png	Is this a picture of Motol? Please answer yes or no.	no	yes
+1326.png	Is this a photo of Aussichtsturm Pyramidenkogel? Please answer yes or no.	yes	yes
+1327.png	Is this a photo of Vvedenskoe cemetery? Please answer yes or no.	no	no
+1374.png	Is this an image of Oude Salviuskerk (Limbricht)? Please answer yes or no.	yes	yes
+1375.png	Is this an image of Festung Heldrungen? Please answer yes or no.	no	no
+1226.png	Is this an image of Beijing Guozijian? Please answer yes or no.	yes	yes
+1227.png	Is this an image of Klinikkirche (Pfafferode)? Please answer yes or no.	no	no
+1386.png	Is this a photo of Rinku Gate Tower Building? Please answer yes or no.	yes	yes
+1387.png	Is this a photo of Bigorski Monastery? Please answer yes or no.	no	no
+1600.png	Is this a picture of Begijnhofkerk (Mechelen)? Please answer yes or no.	yes	yes
+1601.png	Is this a picture of Panther Hollow Lake? Please answer yes or no.	no	no

@@ -1,0 +1,63 @@
+{
+  "accuracy": 0.6767476450173525,
+  "avg_latency": 0.2231148922863016,
+  "total_samples": 2017,
+  "correct_samples": 1365,
+  "flops_info": 1.0,
+  "model_config": {
+    "use_himap": false,
+    "use_fastv": false,
+    "use_jsd_entropy_prune": true,
+    "sys_length": null,
+    "img_length": null,
+    "txt_layer": null,
+    "img_layer": null,
+    "txt_rank": null,
+    "img_rank": null,
+    "fast_v_sys_length": null,
+    "fast_v_image_token_length": null,
+    "fast_v_attention_rank": null,
+    "fast_v_agg_layer": null,
+    "fast_v_token_selection_method": null,
+    "fast_v_weighted_alpha": null,
+    "jsd_entropy_sys_length": 35,
+    "jsd_entropy_img_length": 576,
+    "jsd_entropy_topk_percent": 10.0,
+    "jsd_entropy_topk_attention_mode": "prompt_image",
+    "jsd_entropy_stage_ranges": [
+      [
+        2,
+        8
+      ],
+      [
+        9,
+        20
+      ],
+      [
+        21,
+        31
+      ]
+    ],
+    "jsd_entropy_stage_prune_ratios": [
+      0.2,
+      0.3,
+      0.5
+    ],
+    "jsd_entropy_target_tokens": 128,
+    "jsd_entropy_n0": 576,
+    "jsd_entropy_phase1_prune_layer": 3,
+    "jsd_entropy_phase2_prune_layer": 8,
+    "jsd_entropy_phase3_prune_layer": 16,
+    "jsd_entropy_n_base_192": 200.0,
+    "jsd_entropy_n_base_128": 140.0,
+    "jsd_entropy_n_base_64": 80.0,
+    "jsd_entropy_use_only_prompt2image_scoring": "True",
+    "jsd_entropy_use_adaptive_keep_ratio": "True",
+    "jsd_entropy_mu_h": 0.620257,
+    "jsd_entropy_sigma_h": 0.030169,
+    "jsd_entropy_mu_w": 0.667733,
+    "jsd_entropy_sigma_w": 0.038618,
+    "jsd_entropy_alpha": 24.0,
+    "jsd_entropy_beta": 16.0
+  }
+}

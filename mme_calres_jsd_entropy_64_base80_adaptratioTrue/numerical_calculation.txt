@@ -1,0 +1,40 @@
+806.png	Is the answer to the arithmetic question in the image 225? Please answer yes or no.	yes	no
+807.png	Is the answer to the arithmetic question in the image 1515? Please answer yes or no.	no	no
+800.png	Is the answer to the arithmetic question in the image 340? Please answer yes or no.	yes	no
+801.png	Is the answer to the arithmetic question in the image 17? Please answer yes or no.	no	no
+788.png	Is the answer to the arithmetic question in the image 65? Please answer yes or no.	yes	no
+789.png	Is the answer to the arithmetic question in the image 56? Please answer yes or no.	no	no
+812.png	Is the answer to the arithmetic question in the image 33? Please answer yes or no.	yes	no
+813.png	Is the answer to the arithmetic question in the image 32? Please answer yes or no.	no	no
+802.png	Is the area of the square in the picture equal to 40? Please answer yes or no.	yes	no
+803.png	Is the area of the square in the picture equal to 8? Please answer yes or no.	no	yes
+804.png	Is the area of the square in the picture equal to 9? Please answer yes or no.	yes	no
+805.png	Is the area of the square in the picture equal to 3? Please answer yes or no.	no	yes
+790.png	Is the answer to the arithmetic question in the image 49? Please answer yes or no.	yes	no
+791.png	Is the answer to the arithmetic question in the image 39? Please answer yes or no.	no	no
+814.png	Should the value of "a" in the picture equal 7? Please answer yes or no.	yes	yes
+815.png	Should the value of "a" in the picture equal 14? Please answer yes or no.	no	no
+786.png	Should the value of "a" in the picture equal 2? Please answer yes or no.	yes	no
+787.png	Should the value of "a" in the picture equal 3? Please answer yes or no.	no	yes
+818.png	Is the answer to the arithmetic question in the image 13? Please answer yes or no.	yes	no
+819.png	Is the answer to the arithmetic question in the image 12? Please answer yes or no.	no	no
+810.png	Is the area of the parallelogram in the picture equal to 24? Please answer yes or no.	yes	no
+811.png	Is the area of the parallelogram in the picture equal to 6? Please answer yes or no.	no	yes
+798.png	Should the value of "a" in the picture equal 9? Please answer yes or no.	yes	no
+799.png	Should the value of "a" in the picture equal 1? Please answer yes or no.	no	yes
+784.png	Is the area of the right triangle in the picture equal to 24? Please answer yes or no.	yes	no
+785.png	Is the area of the right triangle in the picture equal to 8? Please answer yes or no.	no	no
+782.png	Is the answer to the arithmetic question in the image 200? Please answer yes or no.	yes	no
+783.png	Is the answer to the arithmetic question in the image 400? Please answer yes or no.	no	no
+792.png	Is the answer to the arithmetic question in the image 11? Please answer yes or no.	yes	no
+793.png	Is the answer to the arithmetic question in the image 111? Please answer yes or no.	no	no
+808.png	Is the answer to the arithmetic question in the image 9? Please answer yes or no.	yes	yes
+809.png	Is the answer to the arithmetic question in the image 16? Please answer yes or no.	no	no
+796.png	Is the answer to the arithmetic question in the image 14? Please answer yes or no.	yes	no
+797.png	Is the answer to the arithmetic question in the image 83? Please answer yes or no.	no	no
+816.png	Should the value of "a" in the picture equal 3? Please answer yes or no.	yes	no
+817.png	Should the value of "a" in the picture equal 2? Please answer yes or no.	no	yes
+794.png	Is the answer to the arithmetic question in the image 18? Please answer yes or no.	yes	no
+795.png	Is the answer to the arithmetic question in the image 36? Please answer yes or no.	no	no
+780.png	Is the answer to the arithmetic question in the image 9? Please answer yes or no.	yes	no
+781.png	Is the answer to the arithmetic question in the image 45? Please answer yes or no.	no	no

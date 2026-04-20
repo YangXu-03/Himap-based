@@ -1,0 +1,400 @@
+186.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+187.png	Does this artwork exist in the form of glassware? Please answer yes or no.	no	no
+242.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+243.png	Does this artwork exist in the form of sculpture? Please answer yes or no.	no	no
+62.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+63.png	Does this artwork exist in the form of sculpture? Please answer yes or no.	no	no
+162.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+163.png	Does this artwork exist in the form of glassware? Please answer yes or no.	no	no
+176.png	Is this artwork displayed in fogg art museum, harvard university, cambridge? Please answer yes or no.	yes	no
+177.png	Is this artwork displayed in museo civico, pistoia? Please answer yes or no.	no	yes
+224.png	Does this artwork belong to the type of portrait? Please answer yes or no.	yes	yes
+225.png	Does this artwork belong to the type of genre? Please answer yes or no.	no	yes
+364.png	Is this artwork created by antoniazzo romano? Please answer yes or no.	yes	no
+365.png	Is this artwork created by gentile da fabriano? Please answer yes or no.	no	yes
+50.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+51.png	Does this artwork exist in the form of tapestry? Please answer yes or no.	no	no
+54.png	Does this artwork belong to the type of religious? Please answer yes or no.	yes	yes
+55.png	Does this artwork belong to the type of study? Please answer yes or no.	no	yes
+160.png	Does this artwork exist in the form of sculpture? Please answer yes or no.	yes	yes
+161.png	Does this artwork exist in the form of graphics? Please answer yes or no.	no	no
+210.png	Is this artwork created by donatello? Please answer yes or no.	yes	no
+211.png	Is this artwork created by zichy, mihály? Please answer yes or no.	no	no
+114.png	Does this artwork belong to the type of mythological? Please answer yes or no.	yes	yes
+115.png	Does this artwork belong to the type of historical? Please answer yes or no.	no	yes
+240.png	Is this artwork created by duccio di buoninsegna? Please answer yes or no.	yes	no
+241.png	Is this artwork created by giani, felice? Please answer yes or no.	no	no
+166.png	Is this artwork titled temptation on the mountain (detail)? Please answer yes or no.	yes	yes
+167.png	Is this artwork titled in the forest of fontainebleau? Please answer yes or no.	no	no
+394.png	Is this artwork titled hand study with bible? Please answer yes or no.	yes	no
+395.png	Is this artwork titled self-portrait aged 78? Please answer yes or no.	no	no
+258.png	Is this artwork created by dürer, albrecht? Please answer yes or no.	yes	no
+259.png	Is this artwork created by koekkoek, barend cornelis? Please answer yes or no.	no	yes
+334.png	Is this artwork created by eberlein, gustav heinrich? Please answer yes or no.	yes	no
+335.png	Is this artwork created by gillemans, jan pauwel the younger? Please answer yes or no.	no	no
+222.png	Is this artwork displayed in stedelijk museum de lakenhal, leiden? Please answer yes or no.	yes	yes
+223.png	Is this artwork displayed in palazzo ducale, mantua? Please answer yes or no.	no	yes
+68.png	Is this artwork displayed in cannon hall museum, barnsley? Please answer yes or no.	yes	yes
+69.png	Is this artwork displayed in protestant parish church, gelnhausen? Please answer yes or no.	no	yes
+400.png	Is this artwork displayed in private collection? Please answer yes or no.	yes	no
+401.png	Is this artwork displayed in musée national gustave-moreau, paris? Please answer yes or no.	no	no
+200.png	Is this artwork titled ruth and boaz? Please answer yes or no.	yes	yes
+201.png	Is this artwork titled view of dresden from the right bank of the elbe with the augustus bridge? Please answer yes or no.	no	no
+124.png	Is this artwork titled italianate landscape with figures by classical ruins? Please answer yes or no.	yes	yes
+125.png	Is this artwork titled two boys singing? Please answer yes or no.	no	no
+76.png	Is this artwork titled nobility? Please answer yes or no.	yes	yes
+77.png	Is this artwork titled aretino in the studio of tintoretto? Please answer yes or no.	no	no
+44.png	Is this artwork titled doge ziani receiving the benediction of pope alexander iii? Please answer yes or no.	yes	yes
+45.png	Is this artwork titled the adoration of the shepherds? Please answer yes or no.	no	no
+52.png	Does this artwork exist in the form of architecture? Please answer yes or no.	yes	yes
+53.png	Does this artwork exist in the form of metalwork? Please answer yes or no.	no	no
+388.png	Is this artwork displayed in pinacoteca nazionale, siena? Please answer yes or no.	yes	yes
+389.png	Is this artwork displayed in british embassy, paris? Please answer yes or no.	no	no
+246.png	Is this artwork titled noli me tangere? Please answer yes or no.	yes	yes
+247.png	Is this artwork titled profile study of a bearded man? Please answer yes or no.	no	no
+58.png	Is this artwork created by frangipane, niccolò? Please answer yes or no.	yes	no
+59.png	Is this artwork created by drevet, pierre? Please answer yes or no.	no	no
+64.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+65.png	Does this artwork exist in the form of metalwork? Please answer yes or no.	no	no
+310.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+311.png	Does this artwork exist in the form of mosaic? Please answer yes or no.	no	no
+174.png	Does this artwork belong to the type of religious? Please answer yes or no.	yes	yes
+175.png	Does this artwork belong to the type of mythological? Please answer yes or no.	no	no
+40.png	Does this artwork belong to the type of religious? Please answer yes or no.	yes	yes
+41.png	Does this artwork belong to the type of historical? Please answer yes or no.	no	yes
+206.png	Does this artwork belong to the type of portrait? Please answer yes or no.	yes	yes
+207.png	Does this artwork belong to the type of study? Please answer yes or no.	no	yes
+350.png	Is this artwork created by giordano, luca? Please answer yes or no.	yes	no
+351.png	Is this artwork created by heyerdahl, hans olaf? Please answer yes or no.	no	no
+256.png	Is this artwork displayed in palazzo medici riccardi, florence? Please answer yes or no.	yes	yes
+257.png	Is this artwork displayed in abbey church of sainte-foy, conques (aveyron)? Please answer yes or no.	no	yes
+298.png	Is this artwork created by giorgione? Please answer yes or no.	yes	no
+299.png	Is this artwork created by marilhat, prosper? Please answer yes or no.	no	no
+396.png	Is this artwork displayed in pinacoteca, vatican? Please answer yes or no.	yes	yes
+397.png	Is this artwork displayed in cathedral museum, zamora? Please answer yes or no.	no	yes
+418.png	Is this artwork displayed in private collection? Please answer yes or no.	yes	no
+419.png	Is this artwork displayed in cathedral of san geminiano, modena? Please answer yes or no.	no	yes
+324.png	Does this artwork belong to the type of landscape? Please answer yes or no.	yes	yes
+325.png	Does this artwork belong to the type of religious? Please answer yes or no.	no	no
+360.png	Is this artwork created by gogh, vincent van? Please answer yes or no.	yes	yes
+361.png	Is this artwork created by altdorfer, albrecht? Please answer yes or no.	no	no
+122.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+123.png	Does this artwork exist in the form of illumination? Please answer yes or no.	no	yes
+284.png	Is this artwork created by gossart, jan? Please answer yes or no.	yes	no
+285.png	Is this artwork created by stanzione, massimo? Please answer yes or no.	no	no
+126.png	Does this artwork belong to the type of religious? Please answer yes or no.	yes	yes
+127.png	Does this artwork belong to the type of interior? Please answer yes or no.	no	yes
+376.png	Is this artwork created by gozzoli, benozzo? Please answer yes or no.	yes	yes
+377.png	Is this artwork created by coriolano, cristoforo? Please answer yes or no.	no	no
+204.png	Is this artwork created by grebber, pieter de? Please answer yes or no.	yes	no
+205.png	Is this artwork created by massys, quentin? Please answer yes or no.	no	no
+342.png	Is this artwork created by greuze, jean-baptiste? Please answer yes or no.	yes	no
+343.png	Is this artwork created by landseer, sir edwin henry? Please answer yes or no.	no	no
+236.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+237.png	Does this artwork exist in the form of furniture? Please answer yes or no.	no	no
+82.png	Does this artwork belong to the type of religious? Please answer yes or no.	yes	yes
+83.png	Does this artwork belong to the type of genre? Please answer yes or no.	no	yes
+294.png	Is this artwork created by hamen, juan van der? Please answer yes or no.	yes	no
+295.png	Is this artwork created by starnina, gherardo di jacopo? Please answer yes or no.	no	no
+254.png	Is this artwork created by hardouin-mansart, jules? Please answer yes or no.	yes	yes
+255.png	Is this artwork created by kerseboom, friedrich? Please answer yes or no.	no	no
+194.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+195.png	Does this artwork exist in the form of sculpture? Please answer yes or no.	no	no
+142.png	Does this artwork exist in the form of architecture? Please answer yes or no.	yes	yes
+143.png	Does this artwork exist in the form of painting? Please answer yes or no.	no	no
+96.png	Is this artwork created by herrera, francisco de, the elder? Please answer yes or no.	yes	no
+97.png	Is this artwork created by ingres, jean-auguste-dominique? Please answer yes or no.	no	no
+308.png	Is this artwork created by herring, john frederick the younger? Please answer yes or no.	yes	no
+309.png	Is this artwork created by cozens, john robert? Please answer yes or no.	no	no
+172.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+173.png	Does this artwork exist in the form of metalwork? Please answer yes or no.	no	no
+428.png	Is this artwork titled portrait of the merchant georg gisze (detail)? Please answer yes or no.	yes	yes
+429.png	Is this artwork titled pair of table candlesticks? Please answer yes or no.	no	no
+370.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+371.png	Does this artwork exist in the form of mosaic? Please answer yes or no.	no	no
+410.png	Is this artwork titled the artist and his model? Please answer yes or no.	yes	yes
+411.png	Is this artwork titled the lovesick maiden (detail)? Please answer yes or no.	no	yes
+196.png	Is this artwork created by janneck, franz christoph? Please answer yes or no.	yes	no
+197.png	Is this artwork created by goupil, jules-adolphe? Please answer yes or no.	no	no
+98.png	Does this artwork belong to the type of religious? Please answer yes or no.	yes	yes
+99.png	Does this artwork belong to the type of mythological? Please answer yes or no.	no	yes
+328.png	Is this artwork displayed in private collection? Please answer yes or no.	yes	no
+329.png	Is this artwork displayed in cathedral of st paul, liège? Please answer yes or no.	no	yes
+154.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+155.png	Does this artwork exist in the form of furniture? Please answer yes or no.	no	no
+340.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+341.png	Does this artwork exist in the form of tapestry? Please answer yes or no.	no	no
+280.png	Is this artwork created by kucharski, aleksander? Please answer yes or no.	yes	no
+281.png	Is this artwork created by pourbus, frans the elder? Please answer yes or no.	no	no
+168.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+169.png	Does this artwork exist in the form of metalwork? Please answer yes or no.	no	no
+292.png	Is this artwork titled allegory of the regency? Please answer yes or no.	yes	yes
+293.png	Is this artwork titled breton woman bathing? Please answer yes or no.	no	no
+380.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+381.png	Does this artwork exist in the form of illumination? Please answer yes or no.	no	no
+100.png	Is this artwork created by lagrenée, jean-jacques? Please answer yes or no.	yes	yes
+101.png	Is this artwork created by scultori, diana? Please answer yes or no.	no	yes
+432.png	Is this artwork titled a highland landscape? Please answer yes or no.	yes	yes
+433.png	Is this artwork titled a dog and a cat fighting in a kitchen interior? Please answer yes or no.	no	no
+78.png	Does this artwork belong to the type of portrait? Please answer yes or no.	yes	yes
+79.png	Does this artwork belong to the type of landscape? Please answer yes or no.	no	no
+264.png	Is this artwork created by lemoyne, jean-baptiste ii? Please answer yes or no.	yes	no
+265.png	Is this artwork created by kneller, sir godfrey? Please answer yes or no.	no	no
+416.png	Does this artwork belong to the type of religious? Please answer yes or no.	yes	yes
+417.png	Does this artwork belong to the type of genre? Please answer yes or no.	no	yes
+398.png	Does this artwork belong to the type of study? Please answer yes or no.	yes	yes
+399.png	Does this artwork belong to the type of portrait? Please answer yes or no.	no	no
+262.png	Does this artwork belong to the type of genre? Please answer yes or no.	yes	yes
+263.png	Does this artwork belong to the type of still-life? Please answer yes or no.	no	no
+274.png	Is this artwork created by linard, jacques? Please answer yes or no.	yes	no
+275.png	Is this artwork created by bonino da campione? Please answer yes or no.	no	no
+158.png	Is this artwork titled st john the evangelist resuscitating drusiana? Please answer yes or no.	yes	yes
+159.png	Is this artwork titled la finette? Please answer yes or no.	no	no
+86.png	Is this artwork titled marriage of the virgin? Please answer yes or no.	yes	yes
+87.png	Is this artwork titled landscape with river and figures (detail)? Please answer yes or no.	no	no
+266.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+267.png	Does this artwork exist in the form of glassware? Please answer yes or no.	no	no
+296.png	Is this artwork displayed in private collection? Please answer yes or no.	yes	yes
+297.png	Is this artwork displayed in san francesco d'assisi, pavia? Please answer yes or no.	no	no
+276.png	Is this artwork titled madonna and child (detail)? Please answer yes or no.	yes	yes
+277.png	Is this artwork titled view of the south and east walls? Please answer yes or no.	no	no
+408.png	Is this artwork titled ukrainian peasant girl? Please answer yes or no.	yes	yes
+409.png	Is this artwork titled virtue crowning merit? Please answer yes or no.	no	no
+74.png	Is this artwork displayed in national gallery, london? Please answer yes or no.	yes	no
+75.png	Is this artwork displayed in notre-dame-la-riche, tours? Please answer yes or no.	no	no
+414.png	Is this artwork displayed in the hermitage, st. petersburg? Please answer yes or no.	yes	yes
+415.png	Is this artwork displayed in national gallery of victoria, melbourne? Please answer yes or no.	no	no
+422.png	Is this artwork displayed in private collection? Please answer yes or no.	yes	no
+423.png	Is this artwork displayed in cistertian church, zirc? Please answer yes or no.	no	no
+218.png	Is this artwork titled christ walking on the water? Please answer yes or no.	yes	yes
+219.png	Is this artwork titled mademoiselle romaine lacaux? Please answer yes or no.	no	no
+190.png	Is this artwork displayed in museo correr, venice? Please answer yes or no.	yes	yes
+191.png	Is this artwork displayed in church of brou, bourg-en-bresse? Please answer yes or no.	no	yes
+188.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+189.png	Does this artwork exist in the form of illumination? Please answer yes or no.	no	yes
+42.png	Is this artwork titled virgin and child with sts catherine, cecilia, barbara, and ursula? Please answer yes or no.	yes	yes
+43.png	Is this artwork titled sorrow? Please answer yes or no.	no	no
+104.png	Is this artwork titled tomb of henry the lion and his wife matilda? Please answer yes or no.	yes	yes
+105.png	Is this artwork titled god the father? Please answer yes or no.	no	no
+358.png	Does this artwork belong to the type of landscape? Please answer yes or no.	yes	yes
+359.png	Does this artwork belong to the type of mythological? Please answer yes or no.	no	no
+178.png	Is this artwork displayed in private collection? Please answer yes or no.	yes	no
+179.png	Is this artwork displayed in st. vitus's cathedral, prague? Please answer yes or no.	no	no
+198.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+199.png	Does this artwork exist in the form of metalwork? Please answer yes or no.	no	no
+290.png	Is this artwork created by michelangelo buonarroti? Please answer yes or no.	yes	no
+291.png	Is this artwork created by beuckelaer, joachim? Please answer yes or no.	no	no
+386.png	Does this artwork exist in the form of sculpture? Please answer yes or no.	yes	yes
+387.png	Does this artwork exist in the form of illumination? Please answer yes or no.	no	yes
+128.png	Does this artwork belong to the type of religious? Please answer yes or no.	yes	no
+129.png	Does this artwork belong to the type of landscape? Please answer yes or no.	no	no
+316.png	Does this artwork exist in the form of illumination? Please answer yes or no.	yes	yes
+317.png	Does this artwork exist in the form of furniture? Please answer yes or no.	no	no
+320.png	Does this artwork belong to the type of religious? Please answer yes or no.	yes	yes
+321.png	Does this artwork belong to the type of mythological? Please answer yes or no.	no	no
+282.png	Is this artwork created by miniaturist, german? Please answer yes or no.	yes	yes
+283.png	Is this artwork created by trinquesse, louis-rolland? Please answer yes or no.	no	no
+346.png	Does this artwork belong to the type of still-life? Please answer yes or no.	yes	yes
+347.png	Does this artwork belong to the type of mythological? Please answer yes or no.	no	no
+270.png	Does this artwork belong to the type of portrait? Please answer yes or no.	yes	yes
+271.png	Does this artwork belong to the type of interior? Please answer yes or no.	no	yes
+202.png	Is this artwork displayed in cappella palatina, palermo? Please answer yes or no.	yes	yes
+203.png	Is this artwork displayed in musée des beaux-arts, chambéry? Please answer yes or no.	no	no
+228.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+229.png	Does this artwork exist in the form of tapestry? Please answer yes or no.	no	no
+330.png	Does this artwork belong to the type of religious? Please answer yes or no.	yes	yes
+331.png	Does this artwork belong to the type of portrait? Please answer yes or no.	no	no
+382.png	Does this artwork belong to the type of religious? Please answer yes or no.	yes	yes
+383.png	Does this artwork belong to the type of still-life? Please answer yes or no.	no	no
+286.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+287.png	Does this artwork exist in the form of graphics? Please answer yes or no.	no	no
+148.png	Is this artwork titled prayer before the meal? Please answer yes or no.	yes	yes
+149.png	Is this artwork titled rest in the mountains? Please answer yes or no.	no	no
+344.png	Is this artwork created by palma vecchio? Please answer yes or no.	yes	yes
+345.png	Is this artwork created by maris, jacobus hendricus? Please answer yes or no.	no	no
+94.png	Is this artwork titled the crucifixion with sts jerome and christopher? Please answer yes or no.	yes	yes
+95.png	Is this artwork titled tomb of michelangelo (detail)? Please answer yes or no.	no	no
+338.png	Is this artwork created by bartsius, willem? Please answer yes or no.	yes	no
+339.png	Is this artwork created by oehme, ernst ferdinand? Please answer yes or no.	no	no
+406.png	Is this artwork created by pomarancio? Please answer yes or no.	yes	no
+407.png	Is this artwork created by steen, jan? Please answer yes or no.	no	no
+404.png	Does this artwork belong to the type of religious? Please answer yes or no.	yes	yes
+405.png	Does this artwork belong to the type of study? Please answer yes or no.	no	yes
+304.png	Is this artwork created by raffaello sanzio? Please answer yes or no.	yes	yes
+305.png	Is this artwork created by simon von taisten? Please answer yes or no.	no	no
+118.png	Is this artwork titled lucretia? Please answer yes or no.	yes	yes
+119.png	Is this artwork titled rinaldo abandoning armida (detail)? Please answer yes or no.	no	yes
+368.png	Is this artwork titled holy family? Please answer yes or no.	yes	yes
+369.png	Is this artwork titled friedrich iii, the wise, and johann i, the constant, electors of saxony? Please answer yes or no.	no	no
+110.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+111.png	Does this artwork exist in the form of glassware? Please answer yes or no.	no	no
+314.png	Does this artwork belong to the type of historical? Please answer yes or no.	yes	yes
+315.png	Does this artwork belong to the type of interior? Please answer yes or no.	no	no
+136.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+137.png	Does this artwork exist in the form of graphics? Please answer yes or no.	no	no
+288.png	Is this artwork titled vanitas? Please answer yes or no.	yes	yes
+289.png	Is this artwork titled legend of st francis: 18. apparition at arles (detail)? Please answer yes or no.	no	no
+354.png	Does this artwork belong to the type of religious? Please answer yes or no.	yes	yes
+355.png	Does this artwork belong to the type of study? Please answer yes or no.	no	yes
+66.png	Is this artwork displayed in staatliche museen, berlin? Please answer yes or no.	yes	yes
+67.png	Is this artwork displayed in national museum of religious carvings, valladolid? Please answer yes or no.	no	yes
+170.png	Is this artwork titled madonna and child? Please answer yes or no.	yes	yes
+171.png	Is this artwork titled the bacino di san marco? Please answer yes or no.	no	yes
+244.png	Is this artwork displayed in szépmûvészeti múzeum, budapest? Please answer yes or no.	yes	no
+245.png	Is this artwork displayed in s. eustorgio, milan? Please answer yes or no.	no	no
+88.png	Is this artwork displayed in national gallery of art, washington? Please answer yes or no.	yes	no
+89.png	Is this artwork displayed in abbey church of sainte-foy, conques? Please answer yes or no.	no	yes
+326.png	Is this artwork displayed in museo del prado, madrid? Please answer yes or no.	yes	no
+327.png	Is this artwork displayed in state tretyakov gallery, moscow? Please answer yes or no.	no	no
+300.png	Is this artwork titled the victory of eucharistic truth over heresy? Please answer yes or no.	yes	yes
+301.png	Is this artwork titled a sunday afternoon on the ile de la grande jatte? Please answer yes or no.	no	no
+336.png	Does this artwork belong to the type of landscape? Please answer yes or no.	yes	yes
+337.png	Does this artwork belong to the type of genre? Please answer yes or no.	no	yes
+250.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+251.png	Does this artwork exist in the form of tapestry? Please answer yes or no.	no	no
+436.png	Does this artwork belong to the type of mythological? Please answer yes or no.	yes	yes
+437.png	Does this artwork belong to the type of historical? Please answer yes or no.	no	yes
+318.png	Does this artwork belong to the type of religious? Please answer yes or no.	yes	yes
+319.png	Does this artwork belong to the type of landscape? Please answer yes or no.	no	no
+332.png	Is this artwork titled madonna and child with a host of musical angels? Please answer yes or no.	yes	yes
+333.png	Is this artwork titled garden in fontenay? Please answer yes or no.	no	no
+352.png	Is this artwork created by schinkel, karl friedrich? Please answer yes or no.	yes	no
+353.png	Is this artwork created by giolfino, bartolomeo? Please answer yes or no.	no	no
+92.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+93.png	Does this artwork exist in the form of furniture? Please answer yes or no.	no	no
+152.png	Is this artwork created by schongauer, martin? Please answer yes or no.	yes	yes
+153.png	Is this artwork created by cassioli, amos? Please answer yes or no.	no	no
+390.png	Is this artwork titled madonna degli alberetti? Please answer yes or no.	yes	yes
+391.png	Is this artwork titled peter gillis? Please answer yes or no.	no	no
+80.png	Is this artwork created by sebastiano del piombo? Please answer yes or no.	yes	no
+81.png	Is this artwork created by jacobsz., dirck? Please answer yes or no.	no	no
+232.png	Does this artwork belong to the type of religious? Please answer yes or no.	yes	yes
+233.png	Does this artwork belong to the type of still-life? Please answer yes or no.	no	no
+216.png	Does this artwork belong to the type of interior? Please answer yes or no.	yes	yes
+217.png	Does this artwork belong to the type of still-life? Please answer yes or no.	no	no
+306.png	Is this artwork titled weir? Please answer yes or no.	yes	yes
+307.png	Is this artwork titled view of the window wall? Please answer yes or no.	no	no
+116.png	Does this artwork belong to the type of portrait? Please answer yes or no.	yes	yes
+117.png	Does this artwork belong to the type of religious? Please answer yes or no.	no	yes
+420.png	Is this artwork titled madonna and child with the young st john? Please answer yes or no.	yes	yes
+421.png	Is this artwork titled sketch for attila? Please answer yes or no.	no	no
+108.png	Does this artwork belong to the type of religious? Please answer yes or no.	yes	no
+109.png	Does this artwork belong to the type of still-life? Please answer yes or no.	no	no
+356.png	Is this artwork titled the message? Please answer yes or no.	yes	no
+357.png	Is this artwork titled the descent from the cross? Please answer yes or no.	no	no
+156.png	Is this artwork created by tiepolo, giovanni battista? Please answer yes or no.	yes	yes
+157.png	Is this artwork created by kerricx, willem ignatius? Please answer yes or no.	no	no
+424.png	Does this artwork belong to the type of mythological? Please answer yes or no.	yes	yes
+425.png	Does this artwork belong to the type of still-life? Please answer yes or no.	no	no
+268.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+269.png	Does this artwork exist in the form of architecture? Please answer yes or no.	no	yes
+60.png	Is this artwork created by tintoretto? Please answer yes or no.	yes	yes
+61.png	Is this artwork created by morel, jean-baptiste? Please answer yes or no.	no	no
+72.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+73.png	Does this artwork exist in the form of furniture? Please answer yes or no.	no	no
+378.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+379.png	Does this artwork exist in the form of metalwork? Please answer yes or no.	no	no
+438.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+439.png	Does this artwork exist in the form of metalwork? Please answer yes or no.	no	no
+46.png	Is this artwork displayed in musée toulouse-lautrec, albi? Please answer yes or no.	yes	yes
+47.png	Is this artwork displayed in kupferstichkabinett, gotha? Please answer yes or no.	no	yes
+302.png	Does this artwork belong to the type of genre? Please answer yes or no.	yes	yes
+303.png	Does this artwork belong to the type of religious? Please answer yes or no.	no	no
+248.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+249.png	Does this artwork exist in the form of illumination? Please answer yes or no.	no	yes
+138.png	Does this artwork belong to the type of religious? Please answer yes or no.	yes	yes
+139.png	Does this artwork belong to the type of historical? Please answer yes or no.	no	yes
+144.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+145.png	Does this artwork exist in the form of graphics? Please answer yes or no.	no	yes
+226.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+227.png	Does this artwork exist in the form of architecture? Please answer yes or no.	no	no
+84.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+85.png	Does this artwork exist in the form of metalwork? Please answer yes or no.	no	no
+252.png	Is this artwork created by unknown master, dutch? Please answer yes or no.	yes	yes
+253.png	Is this artwork created by cuyp, benjamin gerritsz.? Please answer yes or no.	no	no
+372.png	Is this artwork displayed in kunsthistorisches museum, vienna? Please answer yes or no.	yes	yes
+373.png	Is this artwork displayed in national museum of art, minsk? Please answer yes or no.	no	no
+220.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+221.png	Does this artwork exist in the form of architecture? Please answer yes or no.	no	no
+182.png	Does this artwork belong to the type of religious? Please answer yes or no.	yes	yes
+183.png	Does this artwork belong to the type of historical? Please answer yes or no.	no	yes
+112.png	Is this artwork created by veronese, paolo? Please answer yes or no.	yes	yes
+113.png	Is this artwork created by jeaurat, etienne? Please answer yes or no.	no	no
+140.png	Does this artwork exist in the form of sculpture? Please answer yes or no.	yes	yes
+141.png	Does this artwork exist in the form of others? Please answer yes or no.	no	yes
+212.png	Is this artwork titled view of the sala del collegio? Please answer yes or no.	yes	yes
+213.png	Is this artwork titled reine lefebvre and margot? Please answer yes or no.	no	no
+192.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+193.png	Does this artwork exist in the form of mosaic? Please answer yes or no.	no	no
+134.png	Is this artwork titled the pieterskerk in leiden? Please answer yes or no.	yes	yes
+135.png	Is this artwork titled portrait of cardinal reginald pole? Please answer yes or no.	no	no
+48.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+49.png	Does this artwork exist in the form of stained-glass? Please answer yes or no.	no	no
+208.png	Is this artwork displayed in art museum, cincinnati? Please answer yes or no.	yes	no
+209.png	Is this artwork displayed in banca del monte di bologna e ravenna, bologna? Please answer yes or no.	no	yes
+374.png	Is this artwork created by waldmüller, fedinand georg? Please answer yes or no.	yes	no
+375.png	Is this artwork created by seeman, enoch? Please answer yes or no.	no	no
+278.png	Is this artwork displayed in musée du louvre, paris? Please answer yes or no.	yes	no
+279.png	Is this artwork displayed in santa catarina, pisa? Please answer yes or no.	no	no
+312.png	Is this artwork created by werff, pieter van der? Please answer yes or no.	yes	no
+313.png	Is this artwork created by domenichini, apollonio? Please answer yes or no.	no	no
+70.png	Is this artwork displayed in musée du louvre, paris? Please answer yes or no.	yes	no
+71.png	Is this artwork displayed in galleria nazionale d'arte moderna e contemporanea, rome? Please answer yes or no.	no	no
+272.png	Is this artwork displayed in private collection? Please answer yes or no.	yes	no
+273.png	Is this artwork displayed in museo di san salvi, florence? Please answer yes or no.	no	no
+348.png	Does this artwork belong to the type of landscape? Please answer yes or no.	yes	yes
+349.png	Does this artwork belong to the type of study? Please answer yes or no.	no	yes
+430.png	Is this artwork created by wit, jacob de? Please answer yes or no.	yes	no
+431.png	Is this artwork created by vittone, bernardo antonio? Please answer yes or no.	no	no
+102.png	Is this artwork created by witte, emanuel de? Please answer yes or no.	yes	no
+103.png	Is this artwork created by bicci di neri? Please answer yes or no.	no	no
+230.png	Is this artwork titled view of rome with the tiberand castel sant'angelo? Please answer yes or no.	yes	yes
+231.png	Is this artwork titled st bonaventure enters the franciscan order? Please answer yes or no.	no	no
+392.png	Is this artwork created by witz, konrad? Please answer yes or no.	yes	no
+393.png	Is this artwork created by christus, petrus? Please answer yes or no.	no	no
+90.png	Does this artwork belong to the type of mythological? Please answer yes or no.	yes	no
+91.png	Does this artwork belong to the type of interior? Please answer yes or no.	no	yes
+426.png	Is this artwork displayed in private collection? Please answer yes or no.	yes	no
+427.png	Is this artwork displayed in smith college museum of art, northampton? Please answer yes or no.	no	no
+120.png	Is this artwork created by zuccarelli, francesco? Please answer yes or no.	yes	yes
+121.png	Is this artwork created by baccanelli, giovanni antonio di giulio? Please answer yes or no.	no	no
+150.png	Does this artwork belong to the type of religious? Please answer yes or no.	yes	yes
+151.png	Does this artwork belong to the type of interior? Please answer yes or no.	no	yes
+184.png	Is this artwork displayed in villa cornaro, piombino dese? Please answer yes or no.	yes	yes
+185.png	Is this artwork displayed in palais saint-vaast, arras? Please answer yes or no.	no	yes
+402.png	Is this artwork created by botticelli, sandro? Please answer yes or no.	yes	no
+403.png	Is this artwork created by vigri, caterina? Please answer yes or no.	no	no
+384.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+385.png	Does this artwork exist in the form of tapestry? Please answer yes or no.	no	yes
+412.png	Is this artwork created by bronzino, agnolo? Please answer yes or no.	yes	yes
+413.png	Is this artwork created by pellegrino da san daniele? Please answer yes or no.	no	no
+130.png	Does this artwork exist in the form of graphics? Please answer yes or no.	yes	yes
+131.png	Does this artwork exist in the form of tapestry? Please answer yes or no.	no	yes
+106.png	Is this artwork titled peasants making merry outside a tavern 'the swan'? Please answer yes or no.	yes	yes
+107.png	Is this artwork titled allegory of quietude? Please answer yes or no.	no	no
+434.png	Does this artwork belong to the type of religious? Please answer yes or no.	yes	yes
+435.png	Does this artwork belong to the type of genre? Please answer yes or no.	no	yes
+132.png	Is this artwork titled letizia ramolino bonaparte? Please answer yes or no.	yes	no
+133.png	Is this artwork titled job and his daughters? Please answer yes or no.	no	no
+238.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+239.png	Does this artwork exist in the form of others? Please answer yes or no.	no	yes
+214.png	Is this artwork titled reine lefebvre and margot? Please answer yes or no.	yes	no
+215.png	Is this artwork titled fire in the oil depot at san marcuola? Please answer yes or no.	no	no
+260.png	Is this artwork displayed in museu de arte, são paulo? Please answer yes or no.	yes	no
+261.png	Is this artwork displayed in national széchényi library, budapest? Please answer yes or no.	no	yes
+180.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+181.png	Does this artwork exist in the form of furniture? Please answer yes or no.	no	no
+234.png	Is this artwork created by coecke van aelst, pieter? Please answer yes or no.	yes	yes
+235.png	Is this artwork created by abaquesne, masséot? Please answer yes or no.	no	no
+322.png	Is this artwork displayed in art museum, saint louis? Please answer yes or no.	yes	yes
+323.png	Is this artwork displayed in museo civico d'arte antica, turin? Please answer yes or no.	no	no
+366.png	Is this artwork displayed in galleria nazionale, parma? Please answer yes or no.	yes	yes
+367.png	Is this artwork displayed in hospital de san bernardo, seville? Please answer yes or no.	no	no
+164.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+165.png	Does this artwork exist in the form of stained-glass? Please answer yes or no.	no	no
+56.png	Is this artwork created by courbet, gustave? Please answer yes or no.	yes	no
+57.png	Is this artwork created by milani, aureliano? Please answer yes or no.	no	no
+362.png	Does this artwork exist in the form of painting? Please answer yes or no.	yes	yes
+363.png	Does this artwork exist in the form of ceramics? Please answer yes or no.	no	no
+146.png	Does this artwork exist in the form of sculpture? Please answer yes or no.	yes	yes
+147.png	Does this artwork exist in the form of painting? Please answer yes or no.	no	no
